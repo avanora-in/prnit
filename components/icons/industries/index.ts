@@ -1,0 +1,12 @@
+export { default as HealthcareIcon } from "./HealthcareIcon";
+export { default as FinanceIcon } from "./FinanceIcon";
+export { default as ITSaaSIcon } from "./ITSaaSIcon";
+export { default as FitnessIcon } from "./FitnessIcon";
+export { default as GamingIcon } from "./GamingIcon";
+export { default as LogisticsIcon } from "./LogisticsIcon";
+export { default as RetailIcon } from "./RetailIcon";
+export { default as SocialPlatformsIcon } from "./SocialPlatformsIcon";
+export { default as EducationIcon } from "./EducationIcon";
+export { default as ARVRIcon } from "./ARVRIcon";
+export { default as WellnessIcon } from "./WellnessIcon";
+export { default as TravelIcon } from "./TravelIcon";
