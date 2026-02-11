@@ -26,9 +26,9 @@ export default function BlogSearchBar() {
         <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
           <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
         </div>
-        <h3 className="text-base font-black primary-black uppercase tracking-wide">
+        <h5 className="text-base md:text-lg xl:text-xl font-black primary-black leading-normal uppercase tracking-wide">
           Search
-        </h3>
+        </h5>
         <div className="flex-1 h-px bg-black/5" />
       </div>
       <form ref={formRef} onSubmit={handleSearch} className="relative">

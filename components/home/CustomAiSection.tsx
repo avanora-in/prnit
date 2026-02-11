@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ai_powered_automation, decision_intelligence, strategy_development } from "@/public/assets";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const aiTabs = [
   {
@@ -56,29 +57,19 @@ export default function CustomAiSection() {
       id="ai"
       className="w-full bg-[var(--secondary-background,#fafaf7)] py-12 sm:py-16 md:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-[1320px] px-4 sm:px-5 md:px-6 space-y-8 sm:space-y-10">
-        <div className="space-y-4 sm:space-y-5 md:space-y-6">
-          <div className="inline-flex flex-col gap-2">
-            <div className="inline-flex items-center gap-2 sm:gap-3">
-              <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-              </div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                Custom AI Solutions
-              </p>
-            </div>
-            <div className="h-px w-60 sm:w-80 md:w-100 primary-black-background" />
-          </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black primary-black leading-normal max-w-lg lg:max-w-4xl">
-              Building Intelligent, Future-Ready Systems
-            </h2>
-            <div className="text-left sm:text-right">
-              <ButtonLink href="#contact">Let&apos;s Talk</ButtonLink>
-            </div>
+      <div className="mx-auto max-w-[1320px] px-4 sm:px-5 md:px-6 space-y-4 sm:space-y-6 md:space-y-10">
+        <div className="space-y-6">
+          <SectionLabel lineClassName="w-60 sm:w-80 md:w-100 primary-black-background">
+            Custom AI Solutions
+          </SectionLabel>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black primary-black leading-normal">
+            Building Intelligent, Future-Ready Systems
+          </h2>
+          <div className="w-full flex md:justify-end">
+            <ButtonLink href="#contact" className="block w-fit">Let&apos;s Talk</ButtonLink>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <div className="col-span-1">
             {aiTabs.map((tab) => (
               <button
@@ -89,8 +80,8 @@ export default function CustomAiSection() {
               >
                 <div className="flex items-center justify-between gap-3 sm:gap-4">
                   <h3
-                    className={`text-xl sm:text-2xl font-black ${activeTab === tab.id
-                      ? "text-[#8b1e2d]"
+                    className={`text-xl md:text-2xl lg:text-3xl font-black ${activeTab === tab.id
+                      ? "red-text"
                       : "primary-black"
                       }`}
                   >
@@ -110,12 +101,12 @@ export default function CustomAiSection() {
               </button>
             ))}
           </div>
-          <div className="col-span-1 space-y-4 sm:space-y-5 md:space-y-6">
-            <ul className="space-y-2 text-xs sm:text-sm md:text-base text-[color:var(--primary-black,#0f0f0f)]">
+          <div className="col-span-1 space-y-6">
+            <ul className="space-y-2">
               {activeContent.features.map((feature) => (
                 <li key={feature} className="flex gap-2">
                   <span className="mt-[4px] sm:mt-[6px] h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full primary-black-background" />
-                  <span>{feature}</span>
+                  <span className="text-sm sm:text-base primary-black">{feature}</span>
                 </li>
               ))}
             </ul>

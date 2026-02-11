@@ -2,6 +2,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 export default function BlogPageHero() {
 
@@ -109,28 +110,20 @@ export default function BlogPageHero() {
         >
             <div className="mx-auto max-w-[1320px] flex items-center py-20 md:py-28 lg:py-24 px-4 sm:px-6 md:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 lg:gap-16 items-center w-full">
-                    <div className="max-w-xl space-y-4 col-span-1" ref={heroLeftSectionRef}>
-                        <div className="inline-flex flex-col gap-2">
-                            <div className="inline-flex items-center gap-2 sm:gap-3">
-                                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                                    <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                                </div>
-                                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                                    Blog <span className="support-blue">Insights</span>
-                                </p>
-                            </div>
-                            <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-                        </div>
-                        <div className="space-y-3 sm:space-y-4">
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-normal primary-black">
+                    <div className="max-w-xl space-y-6 col-span-1" ref={heroLeftSectionRef}>
+                        <SectionLabel>
+                            Blog <span className="support-blue">Insights</span>
+                        </SectionLabel>
+                        <div className="space-y-2">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-normal primary-black">
                                 Stay Ahead with the Latest
                                 <span className="font-black red-text"> Insights and Trends</span>
                             </h1>
-                            <p className="text-sm sm:text-base md:text-lg primary-black">
+                            <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
                                 Explore our latest articles, tutorials, and industry insights designed to help you stay ahead of the curve.
                             </p>
                         </div>
-                        <ButtonLink href="#contact" className="block w-fit mt-4 sm:mt-5 md:mt-6">
+                        <ButtonLink href="#contact" className="block w-fit">
                             Let&apos;s Talk
                         </ButtonLink>
                     </div>
@@ -334,7 +327,6 @@ export default function BlogPageHero() {
                             <path fillRule="evenodd" clipRule="evenodd" d="M23.3953 229.273C27.7853 228.864 32.1953 228.462 36.6223 228.06C41.0763 227.656 45.5543 227.246 50.0663 226.851C51.1793 226.754 52.5623 227.626 53.1293 228.814C55.3843 233.539 57.6403 238.268 59.8173 242.981C61.9913 247.688 64.1283 252.411 66.2293 257.124C66.7573 258.308 66.3543 259.352 65.3493 259.454C61.4233 259.852 57.5243 260.251 53.6363 260.655C49.7733 261.057 45.9213 261.458 42.1023 261.857C41.1503 261.957 39.8733 261.119 39.2173 259.955C36.5573 255.237 33.8513 250.518 31.1073 245.807C28.3593 241.089 25.5413 236.36 22.7073 231.649C22.3483 231.052 22.2293 230.509 22.3683 230.047C22.5083 229.586 22.8443 229.324 23.3953 229.273ZM49.4823 228.22C45.4143 228.588 41.3623 228.951 37.3213 229.321C33.2983 229.69 29.2993 230.054 25.3143 230.429C24.7533 230.482 24.4123 230.741 24.2783 231.203C24.1443 231.666 24.2633 232.209 24.6173 232.805C27.1773 237.106 29.7163 241.407 32.2033 245.707C34.6823 249.992 37.1323 254.29 39.5503 258.587C40.2023 259.746 41.4863 260.596 42.4373 260.497C45.9403 260.13 49.4613 259.766 53.0013 259.399C56.5483 259.031 60.1153 258.686 63.7193 258.307C64.7173 258.202 65.1103 257.145 64.5813 255.976C62.6383 251.68 60.6743 247.389 58.6763 243.086C56.6823 238.791 54.6133 234.482 52.5433 230.183C51.9803 229.011 50.6043 228.119 49.4823 228.22Z" fill="#EEEEEE" />
                             <path fillRule="evenodd" clipRule="evenodd" d="M56.3532 226.933C60.8892 226.531 65.4562 226.119 70.0382 225.723C74.6452 225.325 79.2682 224.914 83.9132 224.514C85.0712 224.414 86.3652 225.299 86.7672 226.466C88.3912 231.188 90.0132 235.917 91.5662 240.618C93.1212 245.325 94.6452 250.047 96.1262 254.749C96.4992 255.936 95.9432 256.97 94.9122 257.072C90.8432 257.477 86.7812 257.874 82.7582 258.273C78.7502 258.67 74.7532 259.071 70.7942 259.475C69.8062 259.576 68.6132 258.729 68.1052 257.567C66.0452 252.861 63.9782 248.149 61.8422 243.445C59.7022 238.735 57.5002 234.02 55.2962 229.306C55.0122 228.698 54.9792 228.162 55.1812 227.701C55.3842 227.243 55.7752 226.985 56.3532 226.933Z" fill="#8B1E2D" />
                         </svg>
-
                     </div>
                 </div>
             </div>

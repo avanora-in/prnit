@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const processSteps = [
   {
@@ -104,30 +105,23 @@ export default function ProcessSection() {
 
       <div className="relative mx-auto max-w-[1320px] px-4 sm:px-5 md:px-6">
         {/* Section Header */}
-        <div className="space-y-4 sm:space-y-5 md:space-y-6 mb-10 md:mb-14">
-          <div className="inline-flex flex-col gap-2">
-            <div className="inline-flex items-center gap-2 sm:gap-3">
-              <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-              </div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                Our Process
-              </p>
-            </div>
-            <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
+        <div className="space-y-6 mb-10 md:mb-14">
+          <SectionLabel>Our Process</SectionLabel>
+
+          <div className="space-y-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
+              From Idea to <span className="font-black red-text">Reality</span>
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
+              11 carefully crafted steps to transform your vision into a successful digital product
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
-            From Idea to <span className="font-black red-text">Reality</span>
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg primary-black">
-            11 carefully crafted steps to transform your vision into a successful digital product
-          </p>
         </div>
-        
+
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {processSteps.map((step, index) => {
-            const isLarge = index === 0 || index === 6;
+            const isLarge = index === 0;
             const isHovered = hoveredIndex === index;
 
             return (
@@ -135,61 +129,44 @@ export default function ProcessSection() {
                 key={step.number}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 transition-all duration-500 cursor-pointer overflow-hidden ${
-                  isLarge ? "md:col-span-2 lg:col-span-2" : ""
-                } ${
-                  isHovered
-                    ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30"
-                    : "bg-white hover:shadow-xl"
-                }`}
+                className={`group rounded-xl sm:rounded-2xl p-4 md:p-6 lg:p-8 transition-all duration-500 border cursor-pointer overflow-hidden ${isLarge ? "md:col-span-2 lg:col-span-2" : ""
+                  } ${isHovered
+                    ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30 border-[#1A4FCB]"
+                    : "border-black/5 secondary-background"
+                  }`}
               >
-                {/* Background decoration */}
-                <div className={`absolute -right-10 -bottom-10 w-40 h-40 rounded-full transition-all duration-500 ${
-                  isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
-                }`} />
 
                 {/* Content */}
-                <div className="relative z-10">
+                <div>
                   {/* Top Row - Number & Phase */}
                   <div className="flex items-start justify-between mb-4 sm:mb-5 md:mb-6">
-                    <span className={`font-black transition-colors duration-300 ${
-                      isLarge ? "text-5xl sm:text-6xl md:text-7xl" : "text-4xl sm:text-5xl"
-                    } ${
-                      isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
-                    }`}>
+                    <span className={`font-black transition-colors duration-300 ${isLarge ? "text-5xl sm:text-6xl md:text-7xl" : "text-4xl sm:text-5xl"
+                      } ${isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
+                      }`}>
                       {step.number}
                     </span>
-                    <span className={`text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-1 rounded-full transition-all duration-300 ${
-                      isHovered
-                        ? "bg-white/20 text-white"
-                        : "bg-[#1F4FD8]/10 text-[#1F4FD8]"
-                    }`}>
+                    <div className={`text-xs font-semibold px-2 sm:px-3 py-1 rounded-full transition-all duration-300 border border-black/5 ${isHovered ? "bg-white/20 text-white" : ""}`}>
                       {step.phase}
-                    </span>
+                    </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className={`font-black transition-colors duration-300 ${
-                    isLarge ? "text-lg sm:text-xl md:text-2xl" : "text-base sm:text-lg md:text-xl"
-                  } ${
-                    isHovered ? "text-white" : "text-[#0f0f0f]"
-                  }`}>
+                  <h3 className={`font-black transition-colors duration-300 ${isLarge ? "text-xl sm:text-2xl md:text-3xl" : "text-lg sm:text-xl md:text-2xl"
+                    } ${isHovered ? "text-white" : "text-[#0f0f0f]"
+                    }`}>
                     {step.title}
                   </h3>
 
                   {/* Subtitle */}
-                  <p className={`text-xs sm:text-sm font-semibold mt-1 sm:mt-2 transition-colors duration-300 ${
-                    isHovered ? "text-white/80" : "red-text"
-                  }`}>
+                  <p className={`text-sm font-bold mt-1 sm:mt-2 transition-colors duration-300 syne-font ${isHovered ? "text-white/80" : "red-text"
+                    }`}>
                     {step.subtitle}
                   </p>
 
                   {/* Description */}
-                  <p className={`mt-3 sm:mt-4 leading-relaxed transition-colors duration-300 ${
-                    isLarge ? "text-sm sm:text-base" : "text-xs sm:text-sm"
-                  } ${
-                    isHovered ? "text-white/70" : "primary-black/80"
-                  }`}>
+                  <p className={`mt-3 sm:mt-4 leading-relaxed transition-colors duration-300 ${isLarge ? "text-base sm:text-lg" : "text-sm sm:text-base"
+                    } ${isHovered ? "secondary-text" : "primary-black"
+                    }`}>
                     {step.description}
                   </p>
                 </div>

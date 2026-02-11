@@ -22,6 +22,7 @@ import {
   WellnessIcon,
   TravelIcon,
 } from "@/components/icons/industries";
+import SectionLabel from "../ui/SectionLabel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,10 +96,11 @@ export default function IndustryCoverageSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const iconContainerRef = useRef<HTMLDivElement>(null);
 
-  // GSAP ScrollTrigger for card changes
+  // GSAP ScrollTrigger for card changes with pinning
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const container = containerRef.current;
+    if (!section || !container) return;
 
     const totalCards = industries.length;
     const scrollHeight = totalCards * 100; // 100vh per card
@@ -107,8 +109,11 @@ export default function IndustryCoverageSection() {
       trigger: section,
       start: "top top",
       end: `+=${scrollHeight}%`,
-      pin: containerRef.current,
+      pin: container,
+      pinSpacing: true,
       scrub: 0.5,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
       onUpdate: (self) => {
         const progress = self.progress;
         const newIndex = Math.min(
@@ -119,8 +124,22 @@ export default function IndustryCoverageSection() {
       },
     });
 
+    // Debounced refresh on resize/orientation only - NOT on page load.
+    // Calling refresh() on load conflicts with browser scroll restoration and causes
+    // the page to jump to the wrong section (e.g. Industry Coverage instead of Hero).
+    let refreshTimeout: ReturnType<typeof setTimeout>;
+    const handleRefresh = () => {
+      clearTimeout(refreshTimeout);
+      refreshTimeout = setTimeout(() => ScrollTrigger.refresh(true), 250);
+    };
+    window.addEventListener("resize", handleRefresh);
+    window.addEventListener("orientationchange", handleRefresh);
+
     return () => {
+      clearTimeout(refreshTimeout);
       trigger.kill();
+      window.removeEventListener("resize", handleRefresh);
+      window.removeEventListener("orientationchange", handleRefresh);
     };
   }, []);
 
@@ -254,88 +273,72 @@ export default function IndustryCoverageSection() {
       ref={sectionRef}
       className="w-full relative overflow-hidden secondary-background"
     >
-      {/* Pinned Container */}
-      <div ref={containerRef} className="w-full relative overflow-hidden min-h-screen py-24 flex items-center justify-center">
+      {/* Pinned Container - full viewport, compact layout so everything fits */}
+      <div ref={containerRef} className="w-full h-[100dvh] min-h-[100vh] relative overflow-hidden flex items-center justify-center">
         <Image
           src={industries_we_serve_section_bg}
           alt="Industry Coverage Background"
           fill
           priority
-          className="object-cover object-center transition-transform duration-700 h-full w-full"
+          className="object-cover object-center pointer-events-none"
         />
 
-        <div className="relative z-10 mx-auto max-w-[1320px] px-4 sm:px-5 md:px-6 space-y-8 sm:space-y-12 md:space-y-24">
-          {/* Section Header */}
-          <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 sm:gap-3">
-                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                  Industry Coverage
-                </p>
-              </div>
-              <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
-              Trusted Across Multiple <span className="font-black red-text">Business Domains</span>
-            </h2>
-          </div>
+        <div className="relative z-10 w-full h-full flex flex-col justify-center overflow-hidden px-4 sm:px-5 md:px-6 py-8 lg:py-12">
+          <div className="mx-auto max-w-[1320px] w-full flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-8 flex-1 min-h-0">
+            {/* Header - full width on desktop (original layout), compact on mobile */}
+            <div className="flex-shrink-0 space-y-6">
+              <SectionLabel>Industry Coverage</SectionLabel>
 
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center flex-1">
-            {/* Left - Animated SVG Icon */}
-            <div className="flex justify-center lg:justify-start col-span-1">
-              {/* Icon Container */}
-              <div
-                ref={iconContainerRef}
-                className="relative w-full h-100 text-[#1F4FD8]"
-              >
-                {industries[activeIndex].icon}
-              </div>
-
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
+                Trusted Across Multiple <span className="font-black red-text">Business Domains</span>
+              </h2>
             </div>
 
-            {/* Right - Active Card Content */}
-            <div className="col-span-1">
-              {/* Progress Indicator */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-sm font-semibold primary-black/60">
-                  {String(activeIndex + 1).padStart(2, "0")}
-                </span>
-                <div className="flex-1 h-1 bg-[rgba(15,15,15,0.1)] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-[#1F4FD8] rounded-full transition-all duration-500"
-                    style={{ width: `${((activeIndex + 1) / industries.length) * 100}%` }}
-                  />
+            {/* Main Content - desktop: illustration left, card right (original). Mobile: stacked compact */}
+            <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 items-center">
+              {/* Illustration - left on desktop, smaller on mobile */}
+              <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+                <div
+                  ref={iconContainerRef}
+                  className="relative w-full max-w-[200px] sm:max-w-[300px] lg:max-w-[500px] aspect-square text-[#1F4FD8] [&>svg]:w-full [&>svg]:h-full"
+                >
+                  {industries[activeIndex].icon}
                 </div>
-                <span className="text-sm font-semibold primary-black/60">
-                  {String(industries.length).padStart(2, "0")}
-                </span>
               </div>
 
-              {/* Card Content */}
-              <div className="backdrop-blur-[10px] bg-white/90 border border-[rgba(15,15,15,0.08)] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl">
-                {/* Number */}
-                <span className="text-6xl sm:text-7xl md:text-8xl font-black text-[#1F4FD8]/10 block mb-2">
-                  {String(activeIndex + 1).padStart(2, "0")}
-                </span>
+              {/* Card - right on desktop */}
+              <div className="order-1 lg:order-2 flex flex-col gap-2 sm:gap-3 min-w-0">
+                <div className="items-center gap-2 sm:gap-3 mb-2 sm:mb-4 hidden lg:flex">
+                  <span className="text-xs sm:text-sm font-semibold primary-black/60">
+                    {String(activeIndex + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 h-1 bg-[rgba(15,15,15,0.1)] rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-[#1F4FD8] rounded-full transition-all duration-500"
+                      style={{ width: `${((activeIndex + 1) / industries.length) * 100}%` }}
+                    />
+                  </div>
+                  <span className="text-xs sm:text-sm font-semibold primary-black/60">
+                    {String(industries.length).padStart(2, "0")}
+                  </span>
+                </div>
 
-                {/* Title */}
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0f0f0f] mb-3">
-                  {industries[activeIndex].title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed primary-black/80 mb-6">
-                  {industries[activeIndex].description}
-                </p>
-
-                {/* CTA */}
-                <ButtonLink href="#contact" className="w-full md:w-fit">
-                  Let&apos;s Talk
-                </ButtonLink>
+                <div className="rounded-xl sm:rounded-2xl border border-[rgba(15,15,15,0.05)] bg-[rgba(15,15,15,0.05)] backdrop-blur-[10px] p-4 md:p-8 space-y-6">
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#1F4FD8]/20 block">
+                    {String(activeIndex + 1).padStart(2, "0")}
+                  </span>
+                  <div className="space-y-2">
+                    <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">
+                      {industries[activeIndex].title}
+                    </h3>
+                    <p className="text-sm sm:text-base md:text-lg leading-normal primary-black line-clamp-3 sm:line-clamp-none">
+                      {industries[activeIndex].description}
+                    </p>
+                  </div>
+                  <ButtonLink href="#contact" className="block w-fit">
+                    Let&apos;s Talk
+                  </ButtonLink>
+                </div>
               </div>
             </div>
           </div>

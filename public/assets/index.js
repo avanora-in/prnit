@@ -33,6 +33,11 @@ import web_application_security from "./web_application_security.png";
 import how_we_work_hero_img from "./how_we_work_hero_img.svg"
 import strategy_development from "./strategy_development.png"
 import decision_intelligence from "./decision_intelligence.png"
+import mobile_app_development from "./mobile_app_development.svg"
+import design_and_technology from "./design_and_technology.svg"
+import excellent_ui_ux_design_solutions from "./excellent_ui_ux_design_solutions.svg"
+import transparent_approach_to_design_excellence from "./transparent_approach_to_design_excellence.svg"
+import ecommerce_website_app_development from "./ecommerce_website_app_development.svg"
 
 export { 
     logo,
@@ -70,4 +75,9 @@ export {
     how_we_work_hero_img, 
     strategy_development, 
     decision_intelligence,
+    mobile_app_development,
+    design_and_technology,
+    excellent_ui_ux_design_solutions,
+    transparent_approach_to_design_excellence,
+    ecommerce_website_app_development,
 };

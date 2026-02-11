@@ -12,12 +12,12 @@ function SidebarBlock({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-[rgba(15,15,15,0.08)] p-5 sm:p-6">
+    <div className="rounded-2xl border border-[rgba(15,15,15,0.08)] p-6">
       <div className="flex items-center gap-3 mb-4">
         <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
           <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
         </div>
-        <h3 className="text-base font-black primary-black uppercase tracking-wide">
+        <h3 className="text-base md:text-lg xl:text-xl font-black primary-black leading-normal uppercase tracking-wide">
           {title}
         </h3>
         <div className="flex-1 h-px bg-black/5" />
@@ -35,7 +35,7 @@ export default function BlogSidebar({ hideSearch = false }: BlogSidebarProps) {
   const recentPosts = blogPosts.slice(0, 5);
 
   return (
-    <aside className="space-y-6 sm:space-y-8">
+    <aside className="space-y-6">
       {!hideSearch && <BlogSearchBar />}
 
       <SidebarBlock title="Recent Posts">

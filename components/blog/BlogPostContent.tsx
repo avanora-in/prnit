@@ -448,7 +448,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                   <p className="text-sm sm:text-base text-white/80 mb-6 max-w-lg mx-auto">
                     Let&apos;s discuss how we can help transform your ideas into reality.
                   </p>
-                  <ButtonLink href="/#contact" variant="secondary" className="block w-fit mx-auto">
+                  <ButtonLink href="#contact" variant="secondary" className="block w-fit mx-auto">
                     Get in Touch
                   </ButtonLink>
                 </div>

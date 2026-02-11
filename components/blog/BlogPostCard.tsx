@@ -27,16 +27,16 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
           {post.category} · {post.date}
         </p>
         <Link href={`/blog/${post.slug}`}>
-          <h2 className="mt-1 text-lg sm:text-xl font-bold group-hover:text-[#8B1E2D] line-clamp-2">
+          <h5 className="mt-1 text-base md:text-lg xl:text-xl font-bold group-hover:text-[#8B1E2D] line-clamp-2">
             {post.title}
-          </h2>
+          </h5>
         </Link>
-        <p className="mt-2 text-sm primary-black line-clamp-2 leading-relaxed">
+        <p className="mt-2 text-xs sm:text-sm md:text-base primary-black line-clamp-2 leading-relaxed">
           {post.excerpt}
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="text-xs primary-black">
+            <span key={tag} className="text-xs primary-black font-medium">
               #{tag}
             </span>
           ))}

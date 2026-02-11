@@ -18,8 +18,8 @@ export default function DesignPage() {
       <LogoSlider />
       <DesignSolutionsSection />
       <DesignServicesSection />
-      <DesignBenefitsSection />
       <DesignApproachSection />
+      <DesignBenefitsSection />
     </main>
   );
 }

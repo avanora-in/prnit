@@ -33,7 +33,7 @@ export default function WebDevHeroSection() {
             <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight primary-black">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight primary-black">
             Web App{" "}
             <span className="font-black red-text">Development</span>
           </h1>

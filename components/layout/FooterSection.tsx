@@ -19,18 +19,18 @@ export default function FooterSection() {
                 <Link href="/">
                   <Image src={logo_white} alt="PRNIT" width={120} height={120} className="h-6 w-auto sm:h-7 md:h-8 mb-3 sm:mb-4" />
                 </Link>
-                <p className="text-xs sm:text-sm md:text-base">
+                <p className="text-base sm:text-base md:text-lg leading-normal">
                   If you&apos;re looking to grow your business, expand your market reach, and build long-term success,
                   our team partners with you to deliver reliable, scalable, and result-driven digital solutions.
                 </p>
               </div>
-              <ButtonLink variant="secondary" onClick={scrollToTop}>
+              <ButtonLink variant="secondary" onClick={scrollToTop} className="block w-fit">
                 Scroll Up
               </ButtonLink>
             </div>
           </div>
-          <div className="grid gap-6 sm:gap-7 md:gap-8 py-6 sm:py-8 md:py-10 text-xs sm:text-sm md:grid-cols-3">
-            <div className="space-y-3 sm:space-y-4 border-b border-white/20 pb-4 sm:pb-5 md:border-b-0 md:border-r md:pb-0 md:pr-6 lg:pr-8">
+          <div className="grid py-6 sm:py-8 md:py-10 text-xs sm:text-sm md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/20">
+            <div className="space-y-3 sm:space-y-4 py-6 md:py-0 md:pr-6">
               <h3 className="text-base sm:text-lg font-black">Our Services</h3>
               <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 sm:gap-y-2.5 md:gap-y-3">
                 <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
@@ -82,9 +82,9 @@ export default function FooterSection() {
                     hover:after:scale-x-100 w-fit">Pricing &amp; Plans</Link>
               </div>
             </div>
-            <div className="space-y-3 sm:space-y-4 border-b border-white/20 pb-4 sm:pb-5 md:border-b-0 md:border-r md:pb-0 text-center">
+            <div className="space-y-3 sm:space-y-4 md:text-center py-6 md:py-0 md:px-6">
               <h3 className="text-base sm:text-lg font-black">Social Media</h3>
-              <div className="space-y-3 sm:space-y-4 flex flex-col items-center">
+              <div className="space-y-3 sm:space-y-4 flex flex-col md:items-center">
                 <Link href="https://www.facebook.com/prnitsoftware" target="_blank"
                   className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
@@ -127,7 +127,7 @@ export default function FooterSection() {
                 </Link>
               </div>
             </div>
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-3 sm:space-y-4 py-6 md:py-0 md:px-6">
               <h3 className="text-base sm:text-lg font-black">Need Assistance?</h3>
               <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                 <p>
@@ -160,7 +160,7 @@ export default function FooterSection() {
             </div>
           </div>
           <hr className="border-white/20" />
-          <p className="pt-6 sm:pt-7 md:pt-8 text-center text-[10px] sm:text-xs md:text-sm">
+          <p className="pt-6 sm:pt-7 md:pt-8 text-center text-xs">
             © 2026 PRNIT. All Rights Reserved.
           </p>
         </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { gray_background, industries_we_serve_section_bg } from "@/public/assets";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const services = [
   {
@@ -98,17 +99,7 @@ export default function CMSServicesSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 md:mb-14">
           <div className="space-y-4">
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 sm:gap-3">
-                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                  What We Offer
-                </p>
-              </div>
-              <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-            </div>
+            <SectionLabel>What We Offer</SectionLabel>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black">
               WordPress Development <span className="font-black red-text">Services</span>
             </h2>
@@ -117,18 +108,18 @@ export default function CMSServicesSection() {
           {/* Stats */}
           <div className="flex items-center gap-6 md:gap-10">
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">150+</p>
-              <p className="text-xs font-medium primary-black/60">Sites Built</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">150+</h3>
+              <p className="text-sm font-medium primary-black">Sites Built</p>
             </div>
             <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">8+</p>
-              <p className="text-xs font-medium primary-black/60">Services</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">8+</h3>
+              <p className="text-sm font-medium primary-black">Services</p>
             </div>
             <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">99%</p>
-              <p className="text-xs font-medium primary-black/60">Satisfaction</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">99%</h3>
+              <p className="text-sm font-medium primary-black">Satisfaction</p>
             </div>
           </div>
         </div>
@@ -143,39 +134,31 @@ export default function CMSServicesSection() {
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden ${
-                  isHovered
-                    ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30"
-                    : "bg-white hover:shadow-xl"
-                }`}
+                className={`group rounded-xl sm:rounded-2xl p-6 transition-all duration-500 border cursor-pointer overflow-hidden ${isHovered
+                    ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30 border-[#1A4FCB]"
+                    : "border-black/5 secondary-background"
+                  }`}
               >
-                {/* Background decoration */}
-                <div className={`absolute -right-8 -bottom-8 w-28 h-28 rounded-full transition-all duration-500 ${
-                  isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
-                }`} />
 
                 {/* Content */}
-                <div className="relative z-10">
+                <div>
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${
-                    isHovered
-                      ? "bg-white/20 text-white"
-                      : "bg-[#1F4FD8]/10 text-[#1F4FD8]"
-                  }`}>
+                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 border transition-all duration-300 ${isHovered
+                      ? "bg-white/20 secondary-text border-white/10"
+                      : "border-black/5 secondary-background"
+                    }`}>
                     {service.icon}
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-base font-bold mb-2 transition-colors duration-300 ${
-                    isHovered ? "text-white" : "primary-black"
-                  }`}>
+                  <h5 className={`text-base md:text-lg xl:text-xl font-bold mb-2 transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black"
+                    }`}>
                     {service.title}
-                  </h3>
+                  </h5>
 
                   {/* Description */}
-                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${
-                    isHovered ? "text-white/80" : "primary-black/60"
-                  }`}>
+                  <p className={`text-sm md:text-base leading-normal transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black"
+                    }`}>
                     {service.description}
                   </p>
                 </div>

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { gray_background } from "@/public/assets";
+import { industries_we_serve_section_bg } from "@/public/assets";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const features = [
   {
@@ -32,7 +33,7 @@ export default function CMSWhySection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={gray_background}
+          src={industries_we_serve_section_bg}
           alt=""
           fill
           className="object-cover object-center pointer-events-none"
@@ -43,17 +44,7 @@ export default function CMSWhySection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left - Content */}
           <div className="space-y-4">
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 sm:gap-3">
-                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                  Why Choose Us
-                </p>
-              </div>
-              <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-            </div>
+            <SectionLabel>Why Choose Us</SectionLabel>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
               Why PRNIT for WordPress <span className="md:block font-black red-text">Web Development?</span>
@@ -66,22 +57,22 @@ export default function CMSWhySection() {
             {/* Stats Row */}
             <div className="flex flex-wrap gap-6 pt-4">
               <div>
-                <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">200+</p>
-                <p className="text-xs font-medium primary-black/60">WordPress Projects</p>
+                <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">200+</h3>
+                <p className="text-sm font-medium primary-black">WordPress Projects</p>
               </div>
               <div className="w-px h-12 bg-[#0F0F0F]/10"></div>
               <div>
-                <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">50+</p>
-                <p className="text-xs font-medium primary-black/60">Custom Themes</p>
+                <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">50+</h3>
+                <p className="text-sm font-medium primary-black">Custom Themes</p>
               </div>
               <div className="w-px h-12 bg-[#0F0F0F]/10"></div>
               <div>
-                <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">100+</p>
-                <p className="text-xs font-medium primary-black/60">Plugins Built</p>
+                <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">100+</h3>
+                <p className="text-sm font-medium primary-black">Plugins Built</p>
               </div>
             </div>
 
-            <ButtonLink href="/#contact" className="block w-fit mt-4 md:mt-6">
+            <ButtonLink href="#contact" className="block w-fit mt-4 md:mt-6">
               Start Your Project
             </ButtonLink>
           </div>
@@ -96,32 +87,24 @@ export default function CMSWhySection() {
                   key={feature.title}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden ${
-                    isHovered
-                      ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30"
-                      : "bg-white hover:shadow-xl"
-                  }`}
+                  className={`group rounded-xl sm:rounded-2xl p-6 transition-all duration-500 border cursor-pointer overflow-hidden ${isHovered
+                      ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30 border-[#1A4FCB]"
+                      : "border-black/5 secondary-background"
+                    }`}
                 >
-                  {/* Background decoration */}
-                  <div className={`absolute -right-8 -bottom-8 w-28 h-28 rounded-full transition-all duration-500 ${
-                    isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
-                  }`} />
 
                   {/* Content */}
-                  <div className="relative z-10">
-                    <span className={`text-3xl font-black mb-3 block transition-colors duration-300 ${
-                      isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
-                    }`}>
+                  <div>
+                    <span className={`text-3xl font-black mb-3 block transition-colors duration-300 ${isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
+                      }`}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
-                      isHovered ? "text-white" : "primary-black"
-                    }`}>
+                    <h5 className={`text-base md:text-lg xl:text-xl font-bold mb-2 transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black"
+                      }`}>
                       {feature.title}
-                    </h3>
-                    <p className={`text-sm transition-colors duration-300 ${
-                      isHovered ? "text-white/70" : "primary-black/70"
-                    }`}>
+                    </h5>
+                    <p className={`text-sm md:text-base leading-normal transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black/70"
+                      }`}>
                       {feature.description}
                     </p>
                   </div>

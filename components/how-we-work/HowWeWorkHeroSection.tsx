@@ -2,6 +2,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 
 export default function HowWeWorkHeroSection() {
@@ -76,29 +77,19 @@ export default function HowWeWorkHeroSection() {
       className="relative w-full secondary-background rounded-b-[24px] sm:rounded-b-[32px] md:rounded-b-[48px] overflow-hidden"
     >
       <div className="mx-auto max-w-[1320px] flex items-center py-20 md:py-28 lg:py-24 min-h-screen px-4 sm:px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
-          <div className="max-w-xl space-y-4 col-span-1" ref={howWeWorkHeroLeftSectionRef}>
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-3">
-                <div className="flex h-[18px] w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[10px] w-[26px] rounded-full support-blue-background" />
-                </div>
-                <p className="text-2xl font-semibold leading-8 primary-black syne-font">
-                  Our Process
-                </p>
-              </div>
-              <div className="h-px w-70 primary-black-background" />
-            </div>
-            <div className="space-y-4">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-normal primary-black">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+          <div className="max-w-xl space-y-6 col-span-1" ref={howWeWorkHeroLeftSectionRef}>
+            <SectionLabel> Our Process </SectionLabel>
+            <div className="space-y-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-normal primary-black">
                 How We Build Powerful Digital Products That{" "}
                 <span className="font-black red-text">Drive Growth</span>
               </h1>
-              <p className="text-sm sm:text-base md:text-lg primary-black">
+              <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
                 Our structured, collaborative, and transparent approach ensures every project is delivered with precision, performance, and long-term business value.
               </p>
             </div>
-            <ButtonLink href="#contact" className="block w-fit mt-6">
+            <ButtonLink href="#contact" className="block w-fit">
               Let&apos;s Talk
             </ButtonLink>
           </div>
