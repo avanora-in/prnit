@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { gray_background } from "@/public/assets";
+import { industries_we_serve_section_bg } from "@/public/assets";
 import ButtonLink from "@/components/ui/ButtonLink";
 
 const features = [
@@ -32,7 +32,7 @@ export default function WebDevWhyChooseSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={gray_background}
+          src={industries_we_serve_section_bg}
           alt=""
           fill
           className="object-cover object-center pointer-events-none"
@@ -55,17 +55,19 @@ export default function WebDevWhyChooseSection() {
               <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
-              Partner With Experts Who{" "}
-              <span className="font-black red-text">Deliver Results</span>
-            </h2>
+            <div className="space-y-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
+                Partner With Experts Who{" "}
+                <span className="font-black red-text">Deliver Results</span>
+              </h2>
 
-            <p className="text-sm sm:text-base md:text-lg primary-black">
-              We combine technical excellence with a client-first approach. Our team is committed to building websites and web applications that drive real business growth.
-            </p>
+              <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
+                We combine technical excellence with a client-first approach. Our team is committed to building websites and web applications that drive real business growth.
+              </p>
+            </div>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <ButtonLink href="/#contact">
+              <ButtonLink href="#contact">
                 Start Your Project
               </ButtonLink>
               <ButtonLink href="/how-we-work" variant="secondary">
@@ -84,32 +86,27 @@ export default function WebDevWhyChooseSection() {
                   key={feature.title}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden ${
-                    isHovered
+                  className={`group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden ${isHovered
                       ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30"
                       : "bg-white hover:shadow-xl"
-                  }`}
+                    }`}
                 >
                   {/* Background decoration */}
-                  <div className={`absolute -right-8 -bottom-8 w-28 h-28 rounded-full transition-all duration-500 ${
-                    isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
-                  }`} />
+                  <div className={`absolute -right-8 -bottom-8 w-28 h-28 rounded-full transition-all duration-500 ${isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
+                    }`} />
 
                   {/* Content */}
                   <div className="relative z-10">
-                    <span className={`text-3xl font-black mb-3 block transition-colors duration-300 ${
-                      isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
-                    }`}>
+                    <span className={`text-3xl font-black mb-3 block transition-colors duration-300 ${isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
+                      }`}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
-                      isHovered ? "text-white" : "primary-black"
-                    }`}>
+                    <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${isHovered ? "text-white" : "primary-black"
+                      }`}>
                       {feature.title}
                     </h3>
-                    <p className={`text-sm transition-colors duration-300 ${
-                      isHovered ? "text-white/70" : "primary-black/70"
-                    }`}>
+                    <p className={`text-sm transition-colors duration-300 ${isHovered ? "text-white/70" : "primary-black/70"
+                      }`}>
                       {feature.description}
                     </p>
                   </div>

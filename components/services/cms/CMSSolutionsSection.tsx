@@ -210,7 +210,7 @@ export default function CMSSolutionsSection() {
               ))}
             </ul>
 
-            <ButtonLink href="/#contact" className="block w-fit mt-4 md:mt-6">
+            <ButtonLink href="#contact" className="block w-fit mt-4 md:mt-6">
               Start Your Project
             </ButtonLink>
           </div>

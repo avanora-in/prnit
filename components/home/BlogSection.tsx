@@ -2,6 +2,7 @@ import Image from "next/image";
 import { blog_image_1, blog_image_2, blog_image_3 } from "@/public/assets";
 import Link from "next/link";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const posts = [
   {
@@ -38,24 +39,17 @@ export default function BlogSection() {
       className="w-full secondary-background py-12 sm:py-16 md:py-20 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1320px] flex-col gap-8 sm:gap-10 md:gap-12 px-4 sm:px-5 md:flex-row md:px-6">
-        <aside className="md:sticky top-20 sm:top-24 md:top-28 md:self-start flex-1 space-y-6 sm:space-y-7 md:space-y-8 mb-6 md:mb-0">
-          <div className="space-y-3 sm:space-y-4">
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 sm:gap-3">
-                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full bg-[var(--support-blue,#1f4fd8)]" />
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold primary-black">
-                  Blog &amp; News
-                </p>
-              </div>
-              <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-            </div>
+        <aside className="md:sticky top-20 sm:top-24 md:top-28 md:self-start flex-1 mb-6 md:mb-0">
+          <div className="space-y-6">
+            <SectionLabel>
+              Blog &amp; News
+            </SectionLabel>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black primary-black leading-normal">
+              Featured News And Insights
+            </h2>
+            <ButtonLink href="/blog" className="block w-fit">Explore More</ButtonLink>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black primary-black">
-            Featured News And Insights
-          </h2>
-          <ButtonLink href="/blog" className="block w-fit">Explore More</ButtonLink>
         </aside>
         <div className="flex-[2] space-y-8 sm:space-y-9 md:space-y-10">
           {posts.map((post, index) => (
@@ -67,15 +61,15 @@ export default function BlogSection() {
                 <Image src={post.image} alt={post.title} width={380} height={260} className="w-full min-h-[200px] sm:min-h-[240px] md:min-h-100 h-full object-cover rounded-xl sm:rounded-2xl col-span-1" />
                 <div className="flex flex-1 flex-col justify-between gap-4 sm:gap-5 md:gap-6 col-span-1">
                   <div className="space-y-2">
-                    <p className="text-base sm:text-lg font-semibold primary-black syne-font">
+                    <p className="text-sm sm:text-base md:text-lg font-semibold primary-black syne-font">
                       {post.date}
                     </p>
                     <Link href={`/blog/${post.slug}`} className="text-lg sm:text-xl md:text-2xl font-black hover:text-[#8b1e2d]">
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-black hover:text-[#8b1e2d] leading-normal">
+                      <h3 className="text-xl md:text-2xl xl:text-3xl font-black hover:text-[#8b1e2d] leading-normal">
                         {post.title}
                       </h3>
                     </Link>
-                    <ButtonLink href={`/blog/${post.slug}`} className="block w-fit mt-4 sm:mt-5 md:mt-6">
+                    <ButtonLink href={`/blog/${post.slug}`} className="block w-fit mt-6">
                       Discover
                     </ButtonLink>
                   </div>

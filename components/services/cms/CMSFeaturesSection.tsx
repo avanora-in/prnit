@@ -31,7 +31,7 @@ const features = [
     description:
       "Hiring our offshore WordPress developers means that you get access to our full stack of experienced and knowledgeable experts who are ready to work exclusively on your project with full commitment.",
     buttonText: "Hire Developers",
-    buttonLink: "/#contact",
+    buttonLink: "#contact",
     illustration: (
       <svg viewBox="0 0 300 200" fill="none" className="w-full h-auto">
         <circle cx="150" cy="70" r="40" fill="#1F4FD8" opacity="0.2" />
@@ -60,7 +60,7 @@ const features = [
     description:
       "You can rest easy and let us handle things while maintaining a steady flow of website efficiency. Our comprehensive support includes security updates, performance monitoring, backups, and 24/7 technical assistance.",
     buttonText: "Get Support",
-    buttonLink: "/#contact",
+    buttonLink: "#contact",
     illustration: (
       <svg viewBox="0 0 300 200" fill="none" className="w-full h-auto">
         <circle cx="150" cy="100" r="60" fill="white" stroke="#E5E7EB" strokeWidth="2" />
@@ -138,7 +138,7 @@ export default function CMSFeaturesSection() {
             <p className="text-base primary-black/70 mb-6 max-w-xl mx-auto">
               Please contact us and let&apos;s discuss how we can help bring your WordPress project to life.
             </p>
-            <ButtonLink href="/#contact">Contact Us</ButtonLink>
+            <ButtonLink href="#contact">Contact Us</ButtonLink>
           </div>
         </div>
       </div>

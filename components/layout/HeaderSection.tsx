@@ -101,8 +101,9 @@ export default function HeaderSection() {
   }, [mobileMenuOpen]);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (mobileMenuOpen && headerRef.current && !headerRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      if (mobileMenuOpen && headerRef.current && !headerRef.current.contains(target)) {
         setMobileMenuOpen(false);
         setMobileServicesOpen(false);
       }
@@ -110,6 +111,7 @@ export default function HeaderSection() {
 
     if (mobileMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside, { passive: true });
       // Lock body scroll when mobile menu is open
       document.body.style.overflow = "hidden";
     } else {
@@ -119,6 +121,7 @@ export default function HeaderSection() {
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
@@ -235,7 +238,7 @@ export default function HeaderSection() {
                 </svg>
               </button>
 
-              <ButtonLink href="/#contact" className="hidden md:block text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5">Get a quote</ButtonLink>
+              <ButtonLink href="#contact" className="hidden md:block text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5">Get a quote</ButtonLink>
             </div>
           </div>
 
@@ -282,17 +285,18 @@ export default function HeaderSection() {
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    mobileServicesOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                    mobileServicesOpen ? "max-h-[800px] opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
                   }`}
                 >
+                  
                   {/* Service Menu Links */}
-                  <div className="pl-4 py-2 space-y-1 border-l-2 border-[var(--support-blue,#1f4fd8)] ml-2">
+                  <div className="pl-4 py-2 space-y-0 border-l-2 border-[var(--support-blue,#1f4fd8)] ml-2">
                     {serviceMenuItems.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={closeMobileMenu}
-                        className="block text-sm primary-black/80 transition-colors hover:text-[var(--support-blue,#1f4fd8)] py-1.5"
+                        className="block text-sm primary-black/80 transition-colors hover:text-[var(--support-blue,#1f4fd8)] py-3 min-h-[44px] flex items-center"
                       >
                         {item.name}
                       </Link>
@@ -322,6 +326,15 @@ export default function HeaderSection() {
                       ))}
                     </div>
                   </div>
+
+                  {/* Link to main services page */}
+                  <Link
+                    href="/services"
+                    onClick={closeMobileMenu}
+                    className="block py-4 px-2 flex items-center text-sm font-bold text-[var(--support-blue,#1f4fd8)] mt-4 border-t border-[rgba(15,15,15,0.08)]"
+                  >
+                    View All Services →
+                  </Link>
                 </div>
               </div>
               <Link
@@ -423,7 +436,7 @@ export default function HeaderSection() {
                 </svg>
               </Link>
               <ButtonLink
-                href="/#contact"
+                href="#contact"
                 onClick={() => setServicesDropdownOpen(false)}
                 className="text-sm px-5 py-2"
               >

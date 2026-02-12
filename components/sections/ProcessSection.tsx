@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "../ui/SectionLabel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -256,24 +257,18 @@ export default function AppDevProcessSection() {
     >
       <div className="relative mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <div className="space-y-4 sm:space-y-5 md:space-y-6 mb-10 md:mb-14">
-          <div className="inline-flex flex-col gap-2">
-            <div className="inline-flex items-center gap-2 sm:gap-3">
-              <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border border-[var(--support-blue,#1f4fd8)]">
-                <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full bg-[var(--support-blue,#1f4fd8)]" />
-              </div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold primary-black syne-font">
-                Our Process
-              </p>
-            </div>
-            <div className="h-px w-60 sm:w-70 md:w-90 primary-black-background" />
+        <div className="space-y-6 mb-10 md:mb-14">
+          <SectionLabel>Our Process</SectionLabel>
+
+          <div className="space-y-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
+              How We <span className="font-black red-text">Build Your App</span>
+            </h2>
+
+            <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
+              A proven 6-step process that transforms your idea into a successful mobile application
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black primary-black">
-            How We Build Your App
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg primary-black">
-            A proven 6-step process that transforms your idea into a successful mobile application
-          </p>
         </div>
 
         {/* Main Content */}
@@ -289,8 +284,8 @@ export default function AppDevProcessSection() {
                   key={step.number}
                   onClick={() => handleStepClick(index)}
                   className={`process-step-card relative w-full text-left p-4 md:p-5 rounded-xl transition-all duration-300 overflow-hidden cursor-pointer ${isActive
-                      ? "bg-[#1F4FD8] shadow-lg shadow-[#1F4FD8]/10"
-                      : "border border-[#1F4FD8]/10 hover:bg-[#1F4FD8]/10"
+                    ? "bg-[#1F4FD8] shadow-lg shadow-[#1F4FD8]/10"
+                    : "border border-[#1F4FD8]/10 hover:bg-[#1F4FD8]/10"
                     }`}
                 >
                   {/* Progress Bar for Active Step */}
@@ -305,10 +300,10 @@ export default function AppDevProcessSection() {
                     {/* Step Number/Icon */}
                     <div
                       className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all ${isActive
-                          ? "bg-white/20 text-white"
-                          : isCompleted
-                            ? "bg-[#1F4FD8]/10 text-[#1F4FD8]"
-                            : "bg-[#1F4FD8]/10 text-[#1F4FD8]"
+                        ? "bg-white/20 text-white"
+                        : isCompleted
+                          ? "bg-[#1F4FD8]/10 text-[#1F4FD8]"
+                          : "bg-[#1F4FD8]/10 text-[#1F4FD8]"
                         }`}
                     >
                       {isCompleted ? (
@@ -330,12 +325,12 @@ export default function AppDevProcessSection() {
                           STEP {step.number}
                         </span>
                       </div>
-                      <h3
-                        className={`font-bold text-base md:text-lg truncate ${isActive ? "text-white" : "primary-black"
+                      <h5
+                        className={`font-bold text-base md:text-lg xl:text-xl truncate ${isActive ? "text-white" : "primary-black"
                           }`}
                       >
                         {step.title}
-                      </h3>
+                      </h5>
                     </div>
 
                     {/* Arrow */}
@@ -385,7 +380,7 @@ export default function AppDevProcessSection() {
                 {/* Title */}
                 <h3
                   ref={titleRef}
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2"
+                  className="text-xl md:text-2xl xl:text-3xl font-black secondary-text leading-normal"
                 >
                   {currentStep.title}
                 </h3>
@@ -393,7 +388,7 @@ export default function AppDevProcessSection() {
                 {/* Subtitle */}
                 <p
                   ref={subtitleRef}
-                  className="text-base md:text-lg font-medium text-white/60 mb-6"
+                  className="text-sm sm:text-base md:text-lg leading-normal secondary-text mb-6"
                 >
                   {currentStep.subtitle}
                 </p>
@@ -404,21 +399,21 @@ export default function AppDevProcessSection() {
                 {/* Description */}
                 <p
                   ref={descRef}
-                  className="text-sm md:text-base text-white/80 leading-relaxed mb-8"
+                  className="text-xs sm:text-sm md:text-base leading-normal secondary-text mb-8"
                 >
                   {currentStep.description}
                 </p>
 
                 {/* Deliverables */}
                 <div ref={deliverablesRef} className="mt-auto">
-                  <h4 className="text-xs font-bold text-white/40 mb-3 uppercase tracking-wider">
+                  <h6 className="text-xs md:text-sm xl:text-base font-black secondary-text leading-normal uppercase tracking-wide mb-4">
                     Key Deliverables
-                  </h4>
+                  </h6>
                   <div className="flex flex-wrap gap-2">
                     {currentStep.deliverables.map((item) => (
                       <span
                         key={item}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-sm font-medium text-white border border-white/10"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-sm font-medium secondary-text border border-white/10"
                       >
                         <svg className="w-4 h-4 text-[#ffffff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -434,10 +429,10 @@ export default function AppDevProcessSection() {
             {/* CTA Below Card */}
             <div className="mt-4 p-5 rounded-xl bg-[#FAFAFA] border border-[rgba(15,15,15,0.06)] flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <h4 className="text-base font-bold primary-black">Ready to Start Building?</h4>
-                <p className="text-sm primary-black/60">Let&apos;s discuss your app idea</p>
+                <h6 className="text-xs md:text-sm xl:text-base font-bold primary-black leading-normal">Ready to Start Building?</h6>
+                <p className="text-xs sm:text-sm leading-normal primary-black">Let&apos;s discuss your app idea</p>
               </div>
-              <ButtonLink href="/#contact">
+              <ButtonLink href="#contact" className="block w-fit">
                 Get Started
               </ButtonLink>
             </div>

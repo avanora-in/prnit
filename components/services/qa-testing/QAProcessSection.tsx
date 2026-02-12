@@ -81,7 +81,7 @@ export default function QAProcessSection() {
               </div>
             </div>
 
-            <ButtonLink href="/#contact" className="block w-fit mt-4 md:mt-6">
+            <ButtonLink href="#contact" className="block w-fit mt-4 md:mt-6">
               Start Testing
             </ButtonLink>
           </div>

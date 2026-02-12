@@ -250,7 +250,7 @@ export default function EcommerceFeaturesSection() {
               ))}
             </div>
 
-            <ButtonLink href="/#contact" className="block w-fit mt-4">
+            <ButtonLink href="#contact" className="block w-fit mt-4">
               Get Started
             </ButtonLink>
           </div>

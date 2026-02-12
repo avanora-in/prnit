@@ -203,7 +203,7 @@ export default function CloudBenefitsSection() {
               ))}
             </ul>
 
-            <ButtonLink href="/#contact" className="block w-fit mt-4 md:mt-6">
+            <ButtonLink href="#contact" className="block w-fit mt-4 md:mt-6">
               Get Free Consultation
             </ButtonLink>
           </div>

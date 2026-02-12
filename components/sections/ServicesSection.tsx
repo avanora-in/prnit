@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gray_background, industries_we_serve_section_bg, custom_mobile_app_development, custom_website_development, custom_ecommerce_development, cloud_devops_solutions, crm_development_services, api_development_services, custom_data_engineering, web_application_security } from "@/public/assets";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -202,7 +203,7 @@ export default function ServicesSection() {
           aria-hidden
         >
           <span
-            className="text-white/20 text-[clamp(2rem,6vw,11rem)] sm:text-[clamp(12rem,10vw,11rem)] lg:text-[clamp(4rem,9vw,11rem)] font-black uppercase leading-none select-none [writing-mode:vertical-lr]"
+            className="text-black/5 lg:text-white/20 text-[clamp(8rem,4vw,1rem)] sm:text-[clamp(12rem,10vw,11rem)] lg:text-[clamp(10rem,9vw,11rem)] font-black uppercase leading-none select-none [writing-mode:vertical-lr]"
             style={{ textOrientation: "mixed", writingMode: "vertical-rl" }}
           >
             SERVICES
@@ -214,100 +215,94 @@ export default function ServicesSection() {
           className="relative -mt-[100vh]"
           style={{ height: `${sectionHeightVh}vh` }}
         >
-        {services.map((service, index) => {
-          const isReversed = index % 2 !== 0;
+          {services.map((service, index) => {
+            const isReversed = index % 2 !== 0;
 
-          return (
-            <div
-              key={service.id}
-              ref={(el) => {
-                panelRefs.current[index] = el;
-              }}
-              className="sticky top-0 h-screen w-full overflow-hidden flex justify-center items-center py-12 sm:py-16 md:py-20 lg:py-24"
-              style={{ zIndex: index + 1 }}
-            >
-              {/* Background - full bleed behind entire panel */}
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src={gray_background}
-                  alt=""
-                  fill
-                  priority={index === 0}
-                  className={`hidden lg:block object-cover object-center pointer-events-none ${isReversed ? "scale-x-[-1]" : ""}`}
-                />
-                <Image src={industries_we_serve_section_bg} alt="" fill priority className="block lg:hidden object-cover object-center pointer-events-none" />
-              </div>
+            return (
+              <div
+                key={service.id}
+                ref={(el) => {
+                  panelRefs.current[index] = el;
+                }}
+                className="sticky top-0 h-screen w-full overflow-hidden flex justify-center items-center py-12 sm:py-16 md:py-20 lg:py-24"
+                style={{ zIndex: index + 1 }}
+              >
+                {/* Background - full bleed behind entire panel */}
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src={gray_background}
+                    alt=""
+                    fill
+                    priority={index === 0}
+                    className={`hidden lg:block object-cover object-center pointer-events-none ${isReversed ? "scale-x-[-1]" : ""}`}
+                  />
+                  <Image src={industries_we_serve_section_bg} alt="" fill priority className="block lg:hidden object-cover object-center pointer-events-none" />
+                </div>
 
-              <div className="relative z-10 h-full w-full max-w-[1320px] mx-auto flex justify-center items-center px-4 sm:px-5 md:px-6">
-                {/* Content row - scroll-triggered reveal */}
-                <div
-                  className={`relative z-10 w-full flex flex-col lg:flex-row 
-                    justify-center items-center gap-10 md:gap-12 lg:gap-24 ${isReversed ? "lg:flex-row-reverse" : ""}`}
-                >
-                  {/* Text block */}
+                <div className="relative z-10 h-full w-full max-w-[1320px] mx-auto flex justify-center items-center px-4 sm:px-5 md:px-6">
+                  {/* Content row - scroll-triggered reveal */}
                   <div
-                    ref={(el) => {
-                      contentRefs.current[index] = el;
-                    }}
-                    className="flex-1 space-y-4 sm:space-y-5 md:space-y-6 min-w-0"
+                    className={`relative z-10 w-full flex flex-col lg:flex-row 
+                    justify-center items-center gap-6 md:gap-12 lg:gap-24 ${isReversed ? "lg:flex-row-reverse" : ""}`}
                   >
-                    <div className="inline-flex flex-col gap-2">
-                      <div className="inline-flex items-center gap-2 sm:gap-3">
-                        <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                          <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                        </div>
-                        <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                          {service.tag}
+                    {/* Text block */}
+                    <div
+                      ref={(el) => {
+                        contentRefs.current[index] = el;
+                      }}
+                      className="flex-1 space-y-6"
+                    >
+                      <SectionLabel lineClassName="w-60 sm:w-80 md:w-100 primary-black-background">
+                        {service.tag}
+                      </SectionLabel>
+
+                      <div className="space-y-4">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black red-text leading-normal">
+                          {service.title}
+                        </h2>
+
+                        <p className="text-base sm:text-base md:text-lg leading-normal primary-black">
+                          {service.description}
                         </p>
+
+                        <ul className="space-y-2">
+                          {service.bullets.map((item) => (
+                            <li key={item} className="flex gap-2">
+                              <span className="mt-[6px] sm:mt-[8px] h-1 w-1 sm:h-1.5 sm:w-1.5 shrink-0 rounded-full primary-black-background" />
+                              <span className="text-sm sm:text-base primary-black">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <div className="h-px w-60 sm:w-80 md:w-100 primary-black-background" />
+
+                      <ButtonLink href="#contact" className="block w-fit">
+                        Let&apos;s Talk
+                      </ButtonLink>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black red-text leading-normal">
-                      {service.title}
-                    </h2>
-
-                    <p className="text-sm sm:text-base md:text-lg primary-black">
-                      {service.description}
-                    </p>
-
-                    <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-xs sm:text-sm md:text-base text-[color:var(--primary-black,#0f0f0f)]">
-                      {service.bullets.map((item) => (
-                        <li key={item} className="flex gap-2">
-                          <span className="mt-[6px] sm:mt-[8px] h-1 w-1 sm:h-1.5 sm:w-1.5 shrink-0 rounded-full primary-black-background" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <ButtonLink href="#contact" className="block w-fit">
-                      Let&apos;s Talk
-                    </ButtonLink>
-                  </div>
-
-                  {/* Image block - scroll-triggered reveal */}
-                  <div
-                    ref={(el) => {
-                      imageRefs.current[index] = el;
-                    }}
-                    className="flex-1 flex items-center justify-center w-full"
-                  >
-                    <div className="relative w-full">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        width={400}
-                        height={400}
-                        priority={index === 0}
-                        className="rounded-xl sm:rounded-2xl w-full h-40 md:h-70 lg:h-full object-cover shadow-xl border-5 border-white lg:border-0"
-                      />
+                    {/* Image block - scroll-triggered reveal */}
+                    <div
+                      ref={(el) => {
+                        imageRefs.current[index] = el;
+                      }}
+                      className="flex-1 flex items-center justify-center w-full"
+                    >
+                      <div className="relative w-full">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          width={400}
+                          height={400}
+                          priority={index === 0}
+                          className="rounded-xl sm:rounded-2xl w-full h-40 md:h-70 lg:h-full object-cover shadow-xl border-5 border-white lg:border-0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
         </div>
       </div>
     </section>

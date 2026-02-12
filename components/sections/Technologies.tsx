@@ -1,4 +1,5 @@
 "use client";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const technologies = [
   {
@@ -105,24 +106,18 @@ export default function TechnologiesSection() {
     <section className="w-full py-16 md:py-24 secondary-background">
       <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <div className="space-y-4 sm:space-y-5 md:space-y-6 mb-10 md:mb-14">
-          <div className="inline-flex flex-col gap-2">
-            <div className="inline-flex items-center gap-2 sm:gap-3">
-              <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border border-[var(--support-blue,#1f4fd8)]">
-                <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full bg-[var(--support-blue,#1f4fd8)]" />
-              </div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold primary-black syne-font">
-                Technologies
-              </p>
-            </div>
-            <div className="h-px w-60 sm:w-70 md:w-90 primary-black-background" />
+        <div className="space-y-6 mb-8 md:mb-12">
+          <SectionLabel>
+            Technologies
+          </SectionLabel>
+          <div className="space-y-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
+              Technology Stack
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
+              We use cutting-edge technologies to build robust and scalable applications
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black primary-black">
-            Technology Stack
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg primary-black">
-            We use cutting-edge technologies to build robust and scalable applications
-          </p>
         </div>
 
         {/* Tech Grid */}
@@ -130,7 +125,7 @@ export default function TechnologiesSection() {
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl border border-[rgba(15,15,15,0.08)] bg-white/70 hover:bg-white hover:shadow-lg hover:border-[var(--support-blue,#1f4fd8)]/20 transition-all duration-300"
+              className="group flex flex-col items-center justify-center p-4 md:p-6 rounded-xl sm:rounded-2xl border border-[rgba(15,15,15,0.05)] bg-[rgba(15,15,15,0.05)] p-3 sm:p-4 backdrop-blur-[10px]"
             >
               <div className="group-hover:scale-110 transition-transform duration-300">
                 {tech.icon}

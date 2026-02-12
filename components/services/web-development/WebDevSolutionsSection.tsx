@@ -119,7 +119,7 @@ export default function WebDevSolutionsSection() {
               </div>
               <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
               You imagine. <span className="font-black red-text">We build.</span>
             </h2>
           </div>
@@ -127,18 +127,18 @@ export default function WebDevSolutionsSection() {
           {/* Stats */}
           <div className="flex items-center gap-6 md:gap-10">
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">200+</p>
-              <p className="text-xs font-medium primary-black/60">Websites Built</p>
+              <p className="text-3xl md:text-4xl font-black text-[#1F4FD8]">200+</p>
+              <p className="text-sm font-medium primary-black/60">Websites Built</p>
             </div>
             <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">9+</p>
-              <p className="text-xs font-medium primary-black/60">Industries</p>
+              <p className="text-3xl md:text-4xl font-black text-[#1F4FD8]">9+</p>
+              <p className="text-sm font-medium primary-black/60">Industries</p>
             </div>
             <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">98%</p>
-              <p className="text-xs font-medium primary-black/60">Satisfaction</p>
+              <p className="text-3xl md:text-4xl font-black text-[#1F4FD8]">98%</p>
+              <p className="text-sm font-medium primary-black/60">Satisfaction</p>
             </div>
           </div>
         </div>
@@ -176,30 +176,18 @@ export default function WebDevSolutionsSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  <h3 className={`text-sm sm:text-base md:text-lg font-bold mb-2 transition-colors duration-300 ${
                     isHovered ? "text-white" : "primary-black"
                   }`}>
                     {solution.title}
                   </h3>
 
                   {/* Description */}
-                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                  <p className={`text-sm md:text-base leading-relaxed transition-colors duration-300 ${
                     isHovered ? "text-white/80" : "primary-black/60"
                   }`}>
                     {solution.description}
                   </p>
-
-                  {/* Arrow */}
-                  <div className={`mt-4 flex items-center gap-2 text-sm font-semibold transition-all duration-300 ${
-                    isHovered
-                      ? "text-white translate-x-1 opacity-100"
-                      : "text-[#1F4FD8] opacity-0 group-hover:opacity-100"
-                  }`}>
-                    Learn more
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
                 </div>
               </div>
             );

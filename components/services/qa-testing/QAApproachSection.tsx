@@ -214,7 +214,7 @@ export default function QAApproachSection() {
               ))}
             </ul>
 
-            <ButtonLink href="/#contact" className="block w-fit mt-4 md:mt-6">
+            <ButtonLink href="#contact" className="block w-fit mt-4 md:mt-6">
               Get Free QA Consultation
             </ButtonLink>
           </div>
