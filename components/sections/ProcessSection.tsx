@@ -1,12 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 import ButtonLink from "@/components/ui/ButtonLink";
-import SectionLabel from "../ui/SectionLabel";
-
-gsap.registerPlugin(ScrollTrigger);
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const processSteps = [
   {
@@ -89,354 +85,109 @@ const processSteps = [
   },
 ];
 
-const AUTO_PLAY_INTERVAL = 4000;
-
 export default function AppDevProcessSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
-  const deliverablesRef = useRef<HTMLDivElement>(null);
-  const numberRef = useRef<HTMLSpanElement>(null);
-
-  const [activeStep, setActiveStep] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const progressRef = useRef<number>(0);
-  const animationRef = useRef<number | null>(null);
-
-  const animateContentChange = useCallback(() => {
-    const tl = gsap.timeline();
-
-    // Animate out - slide to right and fade
-    tl.to([titleRef.current, subtitleRef.current], {
-      x: 60,
-      opacity: 0,
-      duration: 0.25,
-      ease: "power2.in",
-      stagger: 0.05,
-    })
-      .to([descRef.current, deliverablesRef.current], {
-        y: 20,
-        opacity: 0,
-        duration: 0.2,
-        ease: "power2.in",
-        stagger: 0.05,
-      }, "-=0.15")
-      .to(numberRef.current, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.2,
-        ease: "power2.in",
-      }, "-=0.2");
-
-    // Animate in - slide from left and fade in
-    tl.fromTo([titleRef.current, subtitleRef.current], {
-      x: -60,
-      opacity: 0,
-    }, {
-      x: 0,
-      opacity: 1,
-      duration: 0.35,
-      ease: "power2.out",
-      stagger: 0.08,
-    })
-      .fromTo([descRef.current, deliverablesRef.current], {
-        y: 20,
-        opacity: 0,
-      }, {
-        y: 0,
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out",
-        stagger: 0.08,
-      }, "-=0.2")
-      .fromTo(numberRef.current, {
-        scale: 1.2,
-        opacity: 0,
-      }, {
-        scale: 1,
-        opacity: 1,
-        duration: 0.3,
-        ease: "back.out(1.5)",
-      }, "-=0.25");
-
-    return tl;
-  }, []);
-
-  const nextStep = useCallback(() => {
-    animateContentChange();
-    setTimeout(() => {
-      setActiveStep((prev) => (prev + 1) % processSteps.length);
-    }, 250);
-    setProgress(0);
-    progressRef.current = 0;
-  }, [animateContentChange]);
-
-  // Auto-advance animation
-  useEffect(() => {
-    if (isPaused) {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-      return;
-    }
-
-    let lastTime = performance.now();
-
-    const animate = (currentTime: number) => {
-      const deltaTime = currentTime - lastTime;
-      lastTime = currentTime;
-
-      progressRef.current += (deltaTime / AUTO_PLAY_INTERVAL) * 100;
-      setProgress(progressRef.current);
-
-      if (progressRef.current >= 100) {
-        nextStep();
-      } else {
-        animationRef.current = requestAnimationFrame(animate);
-      }
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [isPaused, activeStep, nextStep]);
-
-  const handleStepClick = (index: number) => {
-    if (index !== activeStep) {
-      animateContentChange();
-      setTimeout(() => {
-        setActiveStep(index);
-      }, 250);
-    }
-    setProgress(0);
-    progressRef.current = 0;
-  };
-
-  useEffect(() => {
-    const cards = document.querySelectorAll(".process-step-card");
-
-    cards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-          delay: index * 0.05,
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
-  const currentStep = processSteps[activeStep];
+  const [expandedStep, setExpandedStep] = useState<number | null>(null);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full py-16 md:py-24 secondary-background overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="relative w-full py-16 md:py-24 secondary-background overflow-hidden">
       <div className="relative mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
         {/* Section Header */}
         <div className="space-y-6 mb-10 md:mb-14">
           <SectionLabel>Our Process</SectionLabel>
-
           <div className="space-y-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
               How We <span className="font-black red-text">Build Your App</span>
             </h2>
-
             <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
               A proven 6-step process that transforms your idea into a successful mobile application
             </p>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Left - Step List with Progress */}
-          <div className="space-y-2">
-            {processSteps.map((step, index) => {
-              const isActive = activeStep === index;
-              const isCompleted = index < activeStep;
-
-              return (
-                <button
-                  key={step.number}
-                  onClick={() => handleStepClick(index)}
-                  className={`process-step-card relative w-full text-left p-4 md:p-5 rounded-xl transition-all duration-300 overflow-hidden cursor-pointer ${isActive
-                    ? "bg-[#1F4FD8] shadow-lg shadow-[#1F4FD8]/10"
-                    : "border border-[#1F4FD8]/10 hover:bg-[#1F4FD8]/10"
-                    }`}
-                >
-                  {/* Progress Bar for Active Step */}
-                  {isActive && (
-                    <div
-                      className="absolute inset-0 bg-[#1a3fa8] transition-none"
-                      style={{ width: `${progress}%` }}
-                    />
-                  )}
-
-                  <div className="relative z-10 flex items-center gap-4">
-                    {/* Step Number/Icon */}
-                    <div
-                      className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all ${isActive
-                        ? "bg-white/20 text-white"
-                        : isCompleted
-                          ? "bg-[#1F4FD8]/10 text-[#1F4FD8]"
-                          : "bg-[#1F4FD8]/10 text-[#1F4FD8]"
-                        }`}
-                    >
-                      {isCompleted ? (
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      ) : (
-                        step.icon
-                      )}
-                    </div>
-
-                    {/* Step Info */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span
-                          className={`text-xs font-bold ${isActive ? "text-white/60" : "text-[#1F4FD8]/60"
-                            }`}
-                        >
-                          STEP {step.number}
-                        </span>
-                      </div>
-                      <h5
-                        className={`font-bold text-base md:text-lg xl:text-xl truncate ${isActive ? "text-white" : "primary-black"
-                          }`}
-                      >
-                        {step.title}
-                      </h5>
-                    </div>
-
-                    {/* Arrow */}
-                    <svg
-                      className={`flex-shrink-0 w-5 h-5 transition-transform ${isActive ? "text-white translate-x-1" : "text-[#1F4FD8]/30"
-                        }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+        {/* Process grid: 3 columns, 2 rows */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {processSteps.map((step, index) => {
+            const isExpanded = expandedStep === index;
+            return (
+              <div
+                key={step.number}
+                onMouseEnter={() => setExpandedStep(index)}
+                onMouseLeave={() => setExpandedStep(null)}
+                className={`group rounded-xl sm:rounded-2xl transition-all duration-500 border cursor-pointer overflow-hidden ${isExpanded ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30 border-[#1A4FCB]" : "border-black/5 secondary-backgroun "}`}
+              >
+                <div className="w-full text-left p-5 sm:p-6 relative">
+                  {/* Icon - neutral by default, blue when hovered/expanded */}
+                  <div
+                    className={`w-11 h-11 rounded-lg border flex items-center justify-center mb-4 transition-colors duration-200 ${isExpanded ? "bg-white/20 secondary-text border-white/10" : "border-black/5 secondary-background primary-black"}`}
+                  >
+                    {step.icon}
                   </div>
-                </button>
-              );
-            })}
+                  {/* Chevron - top right */}
+                  <span
+                    className={`absolute top-5 right-5 sm:top-6 sm:right-6 w-8 h-8 flex items-center justify-center transition-all duration-200 ${isExpanded ? "rotate-180 secondary-text" : "text-[#0f0f0f]/50"}`}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                  {/* STEP number - small uppercase gray */}
+                  <span className={`text-[10px] font-semibold uppercase tracking-wider block mb-1 ${isExpanded ? "secondary-text" : "primary-black"}`}>
+                    Step {step.number}
+                  </span>
+                  <h3 className={`font-bold text-base sm:text-lg pr-10 ${isExpanded ? "text-white" : "primary-black"}`}>
+                    {step.title}
+                  </h3>
+                  <p className={`text-sm font-medium mt-0.5 ${isExpanded ? "text-white" : "text-[#8B1E2D]"}`}>
+                    {step.subtitle}
+                  </p>
+                </div>
 
-            {/* Pause Indicator */}
-            <p className="text-center text-xs text-[#0F0F0F]/40 mt-4">
-              {isPaused ? "Paused — click a step or move mouse away to continue" : "Auto-advancing..."}
+                {/* Expandable: smooth height + opacity transition */}
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-out"
+                  style={{ gridTemplateRows: isExpanded ? "1fr" : "0fr" }}
+                >
+                  <div className="overflow-hidden">
+                    <div
+                      className={`px-5 sm:px-6 pb-5 sm:pb-6 border-t border-black/5 group-hover:border-white/30 transition-opacity duration-300 ease-out ${isExpanded ? "opacity-100" : "opacity-0"}`}
+                    >
+                      <p className={`text-sm leading-relaxed pt-4 mb-4 ${isExpanded ? "secondary-text" : "primary-black"}`}>
+                        {step.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {step.deliverables.map((item) => (
+                          <span
+                            key={item}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-black/5 group-hover:border-white/30 text-xs font-medium text-[#1F4FD8] group-hover:text-white bg-[#1F4FD8]/05 group-hover:bg-[#1F4FD8]"
+                          >
+                            <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-10 md:mt-12 p-5 sm:p-6 rounded-xl secondary-background border border-black/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h6 className="text-base md:text-lg font-bold text-[#0f0f0f] leading-normal">
+              Ready to Start Building?
+            </h6>
+            <p className="text-sm text-[#0f0f0f]/65 mt-0.5">
+              Let&apos;s discuss your app idea
             </p>
           </div>
-
-          {/* Right - Active Step Details */}
-          <div className="lg:sticky lg:top-28" ref={contentRef}>
-            <div className="relative rounded-2xl bg-gradient-to-br from-[#1F4FD8] to-[#0d2a7a] p-6 md:p-8 lg:p-10 overflow-hidden min-h-[520px]">
-              {/* Background Decorations */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl" />
-
-              {/* Large Background Number */}
-              <span
-                ref={numberRef}
-                className="absolute top-4 right-4 md:top-6 md:right-8 text-[100px] md:text-[140px] font-black text-white/[0.08] leading-none select-none pointer-events-none"
-              >
-                {currentStep.number}
-              </span>
-
-              {/* Content */}
-              <div className="relative z-10 h-full flex flex-col">
-                {/* Step Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white text-xs font-semibold mb-6 w-fit">
-                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                  Step {currentStep.number} of {processSteps.length}
-                </div>
-
-                {/* Title */}
-                <h3
-                  ref={titleRef}
-                  className="text-xl md:text-2xl xl:text-3xl font-black secondary-text leading-normal"
-                >
-                  {currentStep.title}
-                </h3>
-
-                {/* Subtitle */}
-                <p
-                  ref={subtitleRef}
-                  className="text-sm sm:text-base md:text-lg leading-normal secondary-text mb-6"
-                >
-                  {currentStep.subtitle}
-                </p>
-
-                {/* Divider */}
-                <div className="w-16 h-1 bg-white/20 rounded-full mb-6" />
-
-                {/* Description */}
-                <p
-                  ref={descRef}
-                  className="text-xs sm:text-sm md:text-base leading-normal secondary-text mb-8"
-                >
-                  {currentStep.description}
-                </p>
-
-                {/* Deliverables */}
-                <div ref={deliverablesRef} className="mt-auto">
-                  <h6 className="text-xs md:text-sm xl:text-base font-black secondary-text leading-normal uppercase tracking-wide mb-4">
-                    Key Deliverables
-                  </h6>
-                  <div className="flex flex-wrap gap-2">
-                    {currentStep.deliverables.map((item) => (
-                      <span
-                        key={item}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-sm font-medium secondary-text border border-white/10"
-                      >
-                        <svg className="w-4 h-4 text-[#ffffff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Below Card */}
-            <div className="mt-4 p-5 rounded-xl bg-[#FAFAFA] border border-[rgba(15,15,15,0.06)] flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div>
-                <h6 className="text-xs md:text-sm xl:text-base font-bold primary-black leading-normal">Ready to Start Building?</h6>
-                <p className="text-xs sm:text-sm leading-normal primary-black">Let&apos;s discuss your app idea</p>
-              </div>
-              <ButtonLink href="#contact" className="block w-fit">
-                Get Started
-              </ButtonLink>
-            </div>
-          </div>
+          <ButtonLink href="#contact" className="block w-fit">
+            Get Started
+          </ButtonLink>
         </div>
       </div>
     </section>

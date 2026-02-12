@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { industries_we_serve_section_bg } from "@/public/assets";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const services = [
   {
@@ -81,18 +82,8 @@ export default function QAServicesSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 md:mb-14">
           <div className="space-y-4">
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 sm:gap-3">
-                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                  What We Offer
-                </p>
-              </div>
-              <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black">
+            <SectionLabel>What We Offer</SectionLabel>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
               QA & Testing <span className="font-black red-text">Services</span>
             </h2>
           </div>
@@ -100,23 +91,23 @@ export default function QAServicesSection() {
           {/* Stats */}
           <div className="flex items-center gap-6 md:gap-10">
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">500+</p>
-              <p className="text-xs font-medium primary-black/60">Projects Tested</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">500+</h3>
+              <p className="text-sm font-medium primary-black">Projects Tested</p>
             </div>
-            <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
+            <div className="w-px h-10 bg-black/10"></div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">6+</p>
-              <p className="text-xs font-medium primary-black/60">Services</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">6+</h3>
+              <p className="text-sm font-medium primary-black">Services</p>
             </div>
-            <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
+            <div className="w-px h-10 bg-black/10"></div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-[#1F4FD8]">99%</p>
-              <p className="text-xs font-medium primary-black/60">Bug Detection</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">99%</h3>
+              <p className="text-sm font-medium primary-black">Bug Detection</p>
             </div>
           </div>
         </div>
 
-        {/* Services Grid */}
+        {/* Services Grid - expand description on hover with smooth transition */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {services.map((service, index) => {
             const isHovered = hoveredIndex === index;
@@ -126,41 +117,46 @@ export default function QAServicesSection() {
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden ${
+                className={`rounded-xl sm:rounded-2xl border overflow-hidden cursor-default transition-all duration-300 ${
                   isHovered
-                    ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30"
-                    : "bg-white hover:shadow-xl"
+                    ? "bg-[#1F4FD8] shadow-xl shadow-[#1F4FD8]/20 border-[#1A4FCB]"
+                    : "border-black/5 secondary-background"
                 }`}
               >
-                {/* Background decoration */}
-                <div className={`absolute -right-8 -bottom-8 w-32 h-32 rounded-full transition-all duration-500 ${
-                  isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
-                }`} />
-
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${
-                    isHovered
-                      ? "bg-white/20 text-white"
-                      : "bg-[#1F4FD8]/10 text-[#1F4FD8]"
-                  }`}>
+                {/* Header - always visible */}
+                <div className="p-5 sm:p-6">
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 border transition-colors duration-300 ${
+                      isHovered
+                        ? "bg-white/20 text-white border-white/20"
+                        : "border-black/10 bg-black/5 text-[#0f0f0f]/60"
+                    }`}
+                  >
                     {service.icon}
                   </div>
-
-                  {/* Title */}
-                  <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
-                    isHovered ? "text-white" : "primary-black"
-                  }`}>
+                  <h5
+                    className={`text-base md:text-lg font-bold transition-colors duration-300 ${
+                      isHovered ? "secondary-text" : "primary-black"
+                    }`}
+                  >
                     {service.title}
-                  </h3>
+                  </h5>
+                </div>
 
-                  {/* Description */}
-                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${
-                    isHovered ? "text-white/80" : "primary-black/60"
-                  }`}>
-                    {service.description}
-                  </p>
+                {/* Expandable description - smooth height + opacity */}
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-out overflow-hidden"
+                  style={{ gridTemplateRows: isHovered ? "1fr" : "0fr" }}
+                >
+                  <div className="overflow-hidden">
+                    <p
+                      className={`px-5 sm:px-6 pb-5 sm:pb-6 text-sm md:text-base leading-normal transition-opacity duration-300 ease-out ${
+                        isHovered ? "secondary-text opacity-100" : "primary-black opacity-0"
+                      }`}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

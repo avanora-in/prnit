@@ -108,7 +108,7 @@ export default function CloudServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => {
             const isHovered = hoveredIndex === index;
 
@@ -144,7 +144,7 @@ export default function CloudServicesSection() {
 
                   {/* Description */}
                   <p className={`text-sm md:text-base leading-normal transition-colors duration-300 ${
-                    isHovered ? "secondary-text" : "primary-black/70"
+                    isHovered ? "secondary-text" : "primary-black"
                   }`}>
                     {service.description}
                   </p>

@@ -193,15 +193,13 @@ export default function HeaderSection() {
                   onMouseLeave={handleServicesMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 transition-colors hover:text-[var(--support-blue,#1f4fd8)] ${
-                      servicesDropdownOpen ? "text-[var(--support-blue,#1f4fd8)]" : ""
-                    }`}
+                    className={`flex items-center gap-1 transition-colors hover:text-[var(--support-blue,#1f4fd8)] ${servicesDropdownOpen ? "text-[var(--support-blue,#1f4fd8)]" : ""
+                      }`}
                   >
                     SERVICES
                     <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        servicesDropdownOpen ? "rotate-180" : ""
-                      }`}
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -214,7 +212,7 @@ export default function HeaderSection() {
                   BLOG
                 </Link>
               </nav>
-              
+
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMobileMenu}
@@ -244,11 +242,10 @@ export default function HeaderSection() {
 
           {/* Mobile Menu */}
           <nav
-            className={`md:hidden transition-all duration-300 ease-in-out ${
-              mobileMenuOpen
-                ? "max-h-[70vh] overflow-y-auto opacity-100 mt-4 pt-4 border-t neutral-grey-border"
-                : "max-h-0 overflow-hidden opacity-0 mt-0 pt-0 border-t-0"
-            }`}
+            className={`md:hidden transition-all duration-300 ease-in-out ${mobileMenuOpen
+              ? "max-h-[70vh] overflow-y-auto opacity-100 mt-4 pt-4 border-t neutral-grey-border"
+              : "max-h-0 overflow-hidden opacity-0 mt-0 pt-0 border-t-0"
+              }`}
           >
             <div className="flex flex-col gap-1">
               <Link
@@ -273,9 +270,8 @@ export default function HeaderSection() {
                 >
                   SERVICES
                   <svg
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      mobileServicesOpen ? "rotate-180" : ""
-                    }`}
+                    className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -284,11 +280,10 @@ export default function HeaderSection() {
                   </svg>
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    mobileServicesOpen ? "max-h-[800px] opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ${mobileServicesOpen ? "max-h-[800px] opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
+                    }`}
                 >
-                  
+
                   {/* Service Menu Links */}
                   <div className="pl-4 py-2 space-y-0 border-l-2 border-[var(--support-blue,#1f4fd8)] ml-2">
                     {serviceMenuItems.map((item) => (
@@ -304,7 +299,7 @@ export default function HeaderSection() {
                   </div>
 
                   {/* Featured Services Cards */}
-                  <div className="mt-4 pt-4 border-t border-[rgba(15,15,15,0.08)]">
+                  <div className="mt-4 pt-4 border-t border-black/8">
                     <p className="text-xs font-bold primary-black/60 uppercase tracking-wide mb-3 ml-2">
                       Featured Services
                     </p>
@@ -351,11 +346,10 @@ export default function HeaderSection() {
 
       {/* Services Dropdown (Desktop only) */}
       <div
-        className={`fixed inset-x-0 z-40 hidden md:flex justify-center transition-all duration-300 ease-out ${
-          servicesDropdownOpen && visible
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
+        className={`fixed inset-x-0 z-40 hidden md:flex justify-center transition-all duration-300 ease-out ${servicesDropdownOpen && visible
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 -translate-y-4 pointer-events-none"
+          }`}
         style={{ top: "80px" }}
         onMouseEnter={handleDropdownMouseEnter}
         onMouseLeave={handleDropdownMouseLeave}
@@ -366,12 +360,12 @@ export default function HeaderSection() {
               {/* Left: Service Menu Links */}
               <div className="lg:col-span-5">
                 <div className="flex items-center gap-3 mb-4 lg:mb-5">
-                  <div className="flex h-[16px] w-[32px] items-center rounded-full border support-blue-border">
-                    <div className="mx-auto h-[9px] w-[24px] rounded-full support-blue-background" />
+                  <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
+                    <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
                   </div>
-                  <h3 className="text-sm font-black primary-black uppercase tracking-wide">
+                  <h6 className="text-xs md:text-sm xl:text-base font-black primary-black uppercase tracking-wide">
                     Our Services
-                  </h3>
+                  </h6>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-x-4 lg:gap-x-6 gap-y-0.5">
                   {serviceMenuItems.map((item) => (
@@ -389,14 +383,14 @@ export default function HeaderSection() {
               </div>
 
               {/* Right: Service Cards */}
-              <div className="lg:col-span-7 pt-4 lg:pt-0 border-t lg:border-t-0 border-[rgba(15,15,15,0.06)]">
+              <div className="lg:col-span-7 pt-4 lg:pt-0 border-t lg:border-t-0 border-black/5">
                 <div className="flex items-center gap-3 mb-4 lg:mb-5">
-                  <div className="flex h-[16px] w-[32px] items-center rounded-full border support-blue-border">
-                    <div className="mx-auto h-[9px] w-[24px] rounded-full support-blue-background" />
+                  <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
+                    <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
                   </div>
-                  <h3 className="text-sm font-black primary-black uppercase tracking-wide">
+                  <h6 className="text-xs md:text-sm xl:text-base font-black primary-black uppercase tracking-wide">
                     Featured Services
-                  </h3>
+                  </h6>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 lg:gap-4">
                   {serviceCards.map((card) => (
@@ -404,9 +398,9 @@ export default function HeaderSection() {
                       key={card.title}
                       href={card.href}
                       onClick={() => setServicesDropdownOpen(false)}
-                      className="group flex items-center lg:items-start gap-3 lg:gap-4 p-3 lg:p-4 rounded-xl border border-[rgba(15,15,15,0.06)] bg-white/50 hover:bg-white hover:border-[var(--support-blue,#1f4fd8)]/20 hover:shadow-md transition-all duration-200"
+                      className="group flex items-center gap-3 lg:gap-4 p-3 lg:p-4 rounded-xl border border-black/5 secondary-background"
                     >
-                      <div className="flex-shrink-0 w-9 h-9 lg:w-10 lg:h-10 rounded-lg bg-[var(--support-blue,#1f4fd8)]/10 flex items-center justify-center text-[var(--support-blue,#1f4fd8)] group-hover:bg-[var(--support-blue,#1f4fd8)] group-hover:text-white transition-colors">
+                      <div className="flex-shrink-0 w-9 h-9 lg:w-10 lg:h-10 rounded-lg text-[var(--support-blue,#1f4fd8)] group-hover:text-white group-hover:bg-[var(--support-blue,#1f4fd8)] border border-black/5 flex items-center justify-center">
                         {card.icon}
                       </div>
                       <div className="min-w-0">
@@ -449,11 +443,10 @@ export default function HeaderSection() {
 
       {/* Backdrop overlay when dropdown is open */}
       <div
-        className={`fixed inset-0 z-30 bg-black/10 backdrop-blur-sm transition-opacity duration-300 hidden md:block ${
-          servicesDropdownOpen && visible
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-30 bg-black/10 backdrop-blur-sm transition-opacity duration-300 hidden md:block ${servicesDropdownOpen && visible
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setServicesDropdownOpen(false)}
       />
     </>

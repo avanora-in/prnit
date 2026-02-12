@@ -2,6 +2,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 export default function QAHeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -21,17 +22,7 @@ export default function QAHeroSection() {
     <section className="relative w-full bg-gradient-to-br from-[#ffe2e6] to-[#b8caff] rounded-b-[24px] sm:rounded-b-[32px] md:rounded-b-[48px] overflow-hidden">
       <div className="mx-auto max-w-[1320px] flex items-center py-20 md:py-28 lg:py-32 min-h-[50vh] md:min-h-[70vh] px-4 sm:px-6 md:px-8">
         <div ref={heroRef} className="space-y-4">
-          <div className="inline-flex flex-col gap-2">
-            <div className="inline-flex items-center gap-2 sm:gap-3">
-              <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-              </div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                QA & Testing
-              </p>
-            </div>
-            <div className="h-px w-70 sm:w-90 md:w-100 primary-black-background" />
-          </div>
+        <SectionLabel>QA & Testing</SectionLabel>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight primary-black">
             QA & Software{" "}

@@ -203,7 +203,7 @@ export default function ServicesSection() {
           aria-hidden
         >
           <span
-            className="text-black/5 lg:text-white/20 text-[clamp(8rem,4vw,1rem)] sm:text-[clamp(12rem,10vw,11rem)] lg:text-[clamp(10rem,9vw,11rem)] font-black uppercase leading-none select-none [writing-mode:vertical-lr]"
+            className="text-black/5 lg:text-white/20 text-[clamp(8rem,4vw,1rem)] sm:text-[clamp(12rem,10vw,11rem)] lg:text-[clamp(7rem,7vw,11rem)] xl:text-[clamp(8rem,8vw,11rem)] font-black uppercase leading-none select-none [writing-mode:vertical-lr]"
             style={{ textOrientation: "mixed", writingMode: "vertical-rl" }}
           >
             SERVICES

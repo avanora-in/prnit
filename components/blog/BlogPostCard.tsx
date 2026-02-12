@@ -9,10 +9,10 @@ type BlogPostCardProps = {
 
 export default function BlogPostCard({ post }: BlogPostCardProps) {
   return (
-    <article className="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6 sm:py-8 border-b border-[rgba(15,15,15,0.08)] last:border-b-0 group">
+    <article className="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6 sm:py-8 border-b border-black/5 secondary-background last:border-b-0 group">
       <Link
         href={`/blog/${post.slug}`}
-        className="block w-full sm:w-48 md:w-56 shrink-0 rounded-lg overflow-hidden bg-[rgba(15,15,15,0.04)] aspect-[16/10] sm:aspect-square"
+        className="block w-full sm:w-48 md:w-56 shrink-0 rounded-lg overflow-hidden bg-black/5 aspect-[16/10] sm:aspect-square"
       >
         <Image
           src={post.image}

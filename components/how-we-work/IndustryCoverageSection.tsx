@@ -323,7 +323,7 @@ export default function IndustryCoverageSection() {
                   </span>
                 </div>
 
-                <div className="rounded-xl sm:rounded-2xl border border-[rgba(15,15,15,0.05)] bg-[rgba(15,15,15,0.05)] backdrop-blur-[10px] p-4 md:p-8 space-y-6">
+                <div className="rounded-xl sm:rounded-2xl border border-black/5 secondary-background p-4 md:p-8 space-y-6">
                   <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#1F4FD8]/20 block">
                     {String(activeIndex + 1).padStart(2, "0")}
                   </span>

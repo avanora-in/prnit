@@ -21,7 +21,7 @@ export default function BlogSearchBar() {
   const hasActiveSearch = !!urlSearch;
 
   return (
-    <div className="rounded-2xl border border-[rgba(15,15,15,0.08)] p-5 sm:p-6">
+    <div className="rounded-2xl border border-black/5 secondary-background p-5 sm:p-6">
       <div className="flex items-center gap-3 mb-4">
         <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
           <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
@@ -39,7 +39,7 @@ export default function BlogSearchBar() {
           name="q"
           defaultValue={urlSearch}
           placeholder="Search articles..."
-          className="w-full pl-4 pr-11 py-3 rounded-xl border border-[rgba(15,15,15,0.1)] bg-white text-sm primary-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--support-blue,#1f4fd8)] focus:border-transparent transition-shadow"
+          className="w-full pl-4 pr-11 py-3 rounded-xl border border-black/5 secondary-background text-sm primary-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--support-blue,#1f4fd8)] focus:border-transparent transition-shadow"
         />
         <button
           type="button"

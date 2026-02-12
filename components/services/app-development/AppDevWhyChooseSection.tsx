@@ -85,10 +85,14 @@ export default function AppDevWhyChooseSection() {
 
                   {/* Content */}
                   <div className="space-y-2">
-                    <span className={`text-3xl font-black block transition-colors duration-300 ${isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
-                      }`}>
+                    {/* Icon */}
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 border transition-all duration-300 ${isHovered
+                      ? "bg-white/20 secondary-text border-white/10"
+                      : "border-black/5 secondary-background primary-black"
+                    }`}>
                       {String(index + 1).padStart(2, "0")}
-                    </span>
+                    </div>
+                    
                     <h5 className={`text-base md:text-lg xl:text-xl leading-normal font-bold transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black"
                       }`}>
                       {feature.title}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { gray_background } from "@/public/assets";
 import ButtonLink from "@/components/ui/ButtonLink";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const processSteps = [
   {
@@ -43,17 +44,7 @@ export default function QAProcessSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left - Content */}
           <div className="space-y-4">
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 sm:gap-3">
-                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                  Our Process
-                </p>
-              </div>
-              <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-            </div>
+            <SectionLabel>Our Process</SectionLabel>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
               QA & Software <span className="md:block font-black red-text">Testing Process</span>
@@ -96,45 +87,29 @@ export default function QAProcessSection() {
                   key={step.title}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden ${
+                  className={`group rounded-xl sm:rounded-2xl p-6 transition-all duration-500 border cursor-pointer overflow-hidden ${
                     isHovered
-                      ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30"
-                      : "bg-white hover:shadow-xl"
+                      ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30 border-[#1A4FCB]"
+                      : "border-black/5 secondary-background"
                   }`}
                 >
-                  {/* Background decoration */}
-                  <div className={`absolute -right-8 -bottom-8 w-28 h-28 rounded-full transition-all duration-500 ${
-                    isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
-                  }`} />
-
                   {/* Content */}
-                  <div className="relative z-10">
-                    <span className={`text-3xl font-black mb-3 block transition-colors duration-300 ${
-                      isHovered ? "text-white/30" : "text-[#1F4FD8]/20"
+                  <div>
+                    {/* Icon */}
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 border transition-all duration-300 ${isHovered
+                      ? "bg-white/20 secondary-text border-white/10"
+                      : "border-black/5 secondary-background primary-black"
                     }`}>
                       {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
-                      isHovered ? "text-white" : "primary-black"
-                    }`}>
+                    </div>
+                    <h5 className={`text-base md:text-lg xl:text-xl font-bold mb-2 transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black"
+                      }`}>
                       {step.title}
-                    </h3>
-                    <p className={`text-sm transition-colors duration-300 ${
-                      isHovered ? "text-white/70" : "primary-black/70"
-                    }`}>
+                    </h5>
+                    <p className={`text-sm md:text-base leading-normal transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black/70"
+                      }`}>
                       {step.description}
                     </p>
-                    {/* Arrow */}
-                    <div className={`mt-4 flex items-center gap-2 text-sm font-semibold transition-all duration-300 ${
-                      isHovered
-                        ? "text-white translate-x-1 opacity-100"
-                        : "text-[#1F4FD8] opacity-0 group-hover:opacity-100"
-                    }`}>
-                      Learn more
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </div>
                   </div>
                 </div>
               );
