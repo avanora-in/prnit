@@ -5,25 +5,104 @@ import Image from "next/image";
 import { contact_section_bg } from "@/public/assets";
 import SectionLabel from "@/components/ui/SectionLabel";
 
+// Email: local part @ domain with TLD at least 2 letters
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const MIN_NAME_LENGTH = 2;
+const MIN_REQUIREMENT_LENGTH = 10;
+const PHONE_DIGITS_MIN = 7;
+const PHONE_DIGITS_MAX = 15;
+
+function countLetters(s: string): number {
+  return (s.match(/[a-zA-Z]/g) ?? []).length;
+}
+
+function validateContactForm(body: {
+  fullName: string;
+  email: string;
+  phone: string;
+  companyName: string;
+  requirement: string;
+}): string | null {
+  const fullName = (body.fullName || "").trim();
+  const email = (body.email || "").trim();
+  const phoneRaw = (body.phone || "").trim();
+  const phoneDigits = phoneRaw.replace(/\D/g, "");
+  const companyName = (body.companyName || "").trim();
+  const requirement = (body.requirement || "").trim();
+
+  if (fullName.length < MIN_NAME_LENGTH)
+    return "Please enter your full name (at least 2 characters).";
+  if (countLetters(fullName) < 2)
+    return "Full name must contain at least 2 letters.";
+  if (/[0-9]/.test(fullName) && countLetters(fullName) < fullName.replace(/\s/g, "").length / 2)
+    return "Full name should be mostly letters, not numbers.";
+  if (!email)
+    return "Please enter your email address.";
+  if (!EMAIL_REGEX.test(email))
+    return "Please enter a valid email address (e.g. name@company.com).";
+  const emailLocal = email.split("@")[0] ?? "";
+  if (/^[0-9]/.test(emailLocal))
+    return "Email should start with a letter (e.g. name@company.com).";
+  if (/[a-zA-Z]/.test(phoneRaw))
+    return "Phone number should contain only digits (and optional spaces or dashes).";
+  if (phoneDigits.length < PHONE_DIGITS_MIN || phoneDigits.length > PHONE_DIGITS_MAX)
+    return "Please enter a valid phone number (7–15 digits).";
+  if (companyName.length < MIN_NAME_LENGTH)
+    return "Please enter your company name (at least 2 characters).";
+  if (!/\s/.test(companyName))
+    return "Please enter your full company name (e.g. at least two words like Acme Corp).";
+  if (countLetters(companyName) < 2)
+    return "Company name must contain at least 2 letters.";
+  if (/[0-9]/.test(companyName) && countLetters(companyName) < companyName.replace(/\s/g, "").length / 2)
+    return "Company name should be mostly letters, not numbers.";
+  if (requirement.length < MIN_REQUIREMENT_LENGTH)
+    return "Please describe your requirement (at least 10 characters).";
+  if (!/[a-zA-Z]/.test(requirement))
+    return "Please describe your requirement in words, not only numbers.";
+
+  return null;
+}
+
+function stripDigitsFromNameInput(e: React.FormEvent<HTMLInputElement>) {
+  const el = e.currentTarget;
+  const start = el.selectionStart ?? 0;
+  const oldVal = el.value;
+  const newVal = oldVal.replace(/\d/g, "");
+  if (newVal !== oldVal) {
+    el.value = newVal;
+    const removedBefore = (oldVal.slice(0, start).match(/\d/g) ?? []).length;
+    const newPos = Math.max(0, start - removedBefore);
+    el.setSelectionRange(newPos, newPos);
+  }
+}
+
 export default function ContactSection() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
     setErrorMessage("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
     const body = {
-      fullName: formData.get("fullName") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      companyName: formData.get("companyName") as string,
-      requirement: formData.get("requirement") as string,
+      fullName: (formData.get("fullName") as string) ?? "",
+      email: (formData.get("email") as string) ?? "",
+      phone: (formData.get("phone") as string) ?? "",
+      companyName: (formData.get("companyName") as string) ?? "",
+      requirement: (formData.get("requirement") as string) ?? "",
     };
+
+    const validationError = validateContactForm(body);
+    if (validationError) {
+      setStatus("error");
+      setErrorMessage(validationError);
+      return;
+    }
+
+    setStatus("loading");
 
     try {
       const res = await fetch("/api/contact", {
@@ -92,7 +171,7 @@ export default function ContactSection() {
                         <path d="M651.296 545.978C714.853 503.164 756.654 430.742 756.654 348.445C756.654 215.111 646.29 106.469 510.841 106.469C375.389 106.469 266.68 215.111 266.68 346.791C266.68 429.089 308.502 501.53 372.038 544.322C228.232 600.302 127.902 735.392 127.902 895.07H196.464C196.464 737.044 318.532 606.873 474.045 588.767C475.719 588.767 517.521 585.482 552.64 588.767H555.99C708.174 610.18 825.215 738.574 825.215 894.947H895.455C893.779 736.922 793.447 600.303 651.296 545.978ZM510.841 527.856C408.833 527.856 326.911 447.211 326.911 346.792C326.911 246.373 408.833 165.729 510.841 165.729C612.848 165.729 694.77 246.373 694.77 346.792C694.77 447.211 612.848 527.856 510.841 527.856Z" fill="#6B7280" />
                       </svg>
                     </div>
-                    <input type="text" id="fullName" name="fullName" required className="block w-full ps-8 sm:ps-9 pe-3 py-2.5 sm:py-3 bg-neutral-secondary-medium border neutral-grey-border text-heading text-xs sm:text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body rounded-lg" placeholder="Full Name" />
+                    <input type="text" id="fullName" name="fullName" required onInput={stripDigitsFromNameInput} className="block w-full ps-8 sm:ps-9 pe-3 py-2.5 sm:py-3 bg-neutral-secondary-medium border neutral-grey-border text-heading text-xs sm:text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body rounded-lg" placeholder="Full Name" autoComplete="name" />
                   </div>
                 </div>
 
