@@ -170,7 +170,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
             <aside className="lg:col-span-3 order-2 lg:order-1">
               <div className="lg:sticky lg:top-24 space-y-8">
                 {/* Share Section */}
-                <div className="rounded-2xl border border-[rgba(15,15,15,0.08)] p-5 sm:p-6">
+                <div className="rounded-2xl border border-black/5 secondary-background p-5 sm:p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
                       <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
@@ -216,7 +216,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                 </div>
 
                 {/* Tags Section */}
-                <div className="rounded-2xl border border-[rgba(15,15,15,0.08)] p-5 sm:p-6">
+                <div className="rounded-2xl border border-black/5 secondary-background p-5 sm:p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
                       <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
@@ -240,7 +240,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                 </div>
 
                 {/* Table of Contents */}
-                <div className="rounded-2xl border border-[rgba(15,15,15,0.08)] p-5 sm:p-6 hidden lg:block">
+                <div className="rounded-2xl border border-black/5 secondary-background p-5 sm:p-6 hidden lg:block">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
                       <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
@@ -251,7 +251,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                     <div className="flex-1 h-px bg-black/5" />
                   </div>
                   <nav className="space-y-0">
-                    <a href="#introduction" className="flex gap-3 py-3 border-b border-[rgba(15,15,15,0.06)] last:border-b-0 group items-center">
+                    <a href="#introduction" className="flex gap-3 py-3 border-b border-black/5 secondary-background last:border-b-0 group items-center">
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-black/5 text-xs font-bold group-hover:bg-[#1F4FD8] group-hover:text-white transition-colors">
                         1
                       </span>
@@ -263,7 +263,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                         Introduction
                       </span>
                     </a>
-                    <a href="#key-points" className="flex gap-3 py-3 border-b border-[rgba(15,15,15,0.06)] last:border-b-0 group items-center">
+                    <a href="#key-points" className="flex gap-3 py-3 border-b border-black/5 secondary-background last:border-b-0 group items-center">
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-black/5 text-xs font-bold group-hover:bg-[#1F4FD8] group-hover:text-white transition-colors">
                         2
                       </span>
@@ -275,7 +275,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                         Key Points
                       </span>
                     </a>
-                    <a href="#conclusion" className="flex gap-3 py-3 border-b border-[rgba(15,15,15,0.06)] last:border-b-0 group items-center">
+                    <a href="#conclusion" className="flex gap-3 py-3 border-b border-black/5 secondary-background last:border-b-0 group items-center">
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-black/5 text-xs font-bold group-hover:bg-[#1F4FD8] group-hover:text-white transition-colors">
                         3
                       </span>
@@ -294,7 +294,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
 
             {/* Main Content - Right */}
             <article className="lg:col-span-9 order-1 lg:order-2">
-              <div className="rounded-2xl sm:rounded-3xl border border-[rgba(15,15,15,0.08)] p-6 sm:p-8 md:p-10 lg:p-12">
+              <div className="rounded-2xl sm:rounded-3xl border border-black/5 secondary-background p-6 sm:p-8 md:p-10 lg:p-12">
                 {/* Article Content */}
                 <div className="max-w-none">
                   {/* Introduction Section */}
@@ -321,7 +321,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                   </div>
 
                   {/* Quote Block */}
-                  <blockquote className="relative my-8 py-5 px-6 sm:px-8 rounded-2xl border border-[rgba(15,15,15,0.08)] bg-[rgba(15,15,15,0.02)]">
+                  <blockquote className="relative my-8 py-5 px-6 sm:px-8 rounded-2xl border border-black/5 secondary-background">
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 w-1 rounded-full support-blue-background" />
                       <div>
@@ -356,7 +356,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                   {/* Feature List */}
                   <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 my-6">
                     {["User Experience Focus", "Performance Optimization", "Scalable Architecture", "Security First"].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 sm:p-4 rounded-xl border border-[rgba(15,15,15,0.08)] bg-[rgba(15,15,15,0.02)]">
+                      <div key={i} className="flex items-center gap-3 p-3 sm:p-4 rounded-xl border border-black/5 secondary-background">
                         <div className="flex-shrink-0 w-6 h-6 rounded-full support-blue-background flex items-center justify-center">
                           <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -374,7 +374,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                   </p>
 
                   {/* Info Box */}
-                  <div className="my-6 p-5 sm:p-6 rounded-2xl border border-[rgba(15,15,15,0.08)] bg-[rgba(15,15,15,0.02)]">
+                  <div className="my-6 p-5 sm:p-6 rounded-2xl border border-black/5 secondary-background">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-xl support-blue-background flex items-center justify-center">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -417,8 +417,8 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                 </div>
 
                 {/* Author Box */}
-                <div className="mt-10 pt-8 border-t border-[rgba(15,15,15,0.08)]">
-                  <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 p-5 sm:p-6 rounded-2xl border border-[rgba(15,15,15,0.08)] bg-[rgba(15,15,15,0.02)]">
+                <div className="mt-10 pt-8 border-t border-black/5 secondary-background">
+                  <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 p-5 sm:p-6 rounded-2xl border border-black/5 secondary-background">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl support-blue-background flex items-center justify-center text-white text-xl sm:text-2xl font-bold flex-shrink-0 syne-font">
                       P
                     </div>
@@ -460,7 +460,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
 
       {/* Related Posts - Same layout as blog listing page */}
       {relatedPosts.length > 0 && (
-        <section className="secondary-background py-10 md:py-14">
+        <section className="secondary-background pb-20 md:pb-24">
           <div className="mx-auto max-w-[1320px] px-4 sm:px-6">
             <div className="mb-8">
               <div className="inline-flex flex-col gap-2 mb-4">
@@ -482,10 +482,10 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
             {/* Same card layout as blog listing */}
             <div>
               {relatedPosts.map((relatedPost) => (
-                <article key={relatedPost.id} className="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6 sm:py-8 border-b border-[rgba(15,15,15,0.08)] last:border-b-0 group">
+                <article key={relatedPost.id} className="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6 sm:py-8 border-b border-black/5 secondary-background last:border-b-0 group">
                   <Link
                     href={`/blog/${relatedPost.slug}`}
-                    className="block w-full sm:w-48 md:w-56 shrink-0 rounded-lg overflow-hidden bg-[rgba(15,15,15,0.04)] aspect-[16/10] sm:aspect-square"
+                    className="block w-full sm:w-48 md:w-56 shrink-0 rounded-lg overflow-hidden bg-black/5 aspect-[16/10] sm:aspect-square"
                   >
                     <Image
                       src={relatedPost.image}

@@ -38,6 +38,7 @@ import design_and_technology from "./design_and_technology.svg"
 import excellent_ui_ux_design_solutions from "./excellent_ui_ux_design_solutions.svg"
 import transparent_approach_to_design_excellence from "./transparent_approach_to_design_excellence.svg"
 import ecommerce_website_app_development from "./ecommerce_website_app_development.svg"
+import cart_experience from "./cart_experience.svg"
 
 export { 
     logo,
@@ -80,4 +81,5 @@ export {
     excellent_ui_ux_design_solutions,
     transparent_approach_to_design_excellence,
     ecommerce_website_app_development,
+    cart_experience,
 };

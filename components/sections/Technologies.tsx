@@ -125,7 +125,7 @@ export default function TechnologiesSection() {
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center justify-center p-4 md:p-6 rounded-xl sm:rounded-2xl border border-[rgba(15,15,15,0.05)] bg-[rgba(15,15,15,0.05)] p-3 sm:p-4 backdrop-blur-[10px]"
+              className="group flex flex-col items-center justify-center p-4 md:p-6 rounded-xl sm:rounded-2xl border border-black/5 secondary-background p-3 sm:p-4 backdrop-blur-[10px]"
             >
               <div className="group-hover:scale-110 transition-transform duration-300">
                 {tech.icon}

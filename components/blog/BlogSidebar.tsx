@@ -12,7 +12,7 @@ function SidebarBlock({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-[rgba(15,15,15,0.08)] p-6">
+    <div className="rounded-2xl border border-black/5 secondary-background p-6">
       <div className="flex items-center gap-3 mb-4">
         <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
           <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
@@ -67,7 +67,7 @@ export default function BlogSidebar({ hideSearch = false }: BlogSidebarProps) {
           {recentComments.map((comment) => (
             <li
               key={comment.id}
-              className="border-b border-[rgba(15,15,15,0.07)] pb-6 last:border-b-0"
+              className="border-b border-black/5 secondary-background pb-6 last:border-b-0"
             >
               <p className="text-xs font-bold support-blue mb-1">{comment.author}</p>
               <Link

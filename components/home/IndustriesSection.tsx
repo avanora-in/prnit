@@ -115,7 +115,7 @@ export default function IndustriesSection() {
             return (
               <div
                 key={industry.id}
-                className="backdrop-blur-[10px] bg-[rgba(15,15,15,0.05)] border border-[rgba(15,15,15,0.05)] rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-10 transition-all"
+                className="rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-10 transition-all border border-black/5 secondary-background"
               >
                 <div className="flex flex-col gap-6">
                   <button

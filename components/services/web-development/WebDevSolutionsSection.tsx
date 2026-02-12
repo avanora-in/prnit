@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { industries_we_serve_section_bg } from "@/public/assets";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const solutions = [
   {
@@ -108,17 +109,8 @@ export default function WebDevSolutionsSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 md:mb-14">
           <div className="space-y-4">
-            <div className="inline-flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 sm:gap-3">
-                <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
-                  <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
-                </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
-                  Solutions We Build
-                </p>
-              </div>
-              <div className="h-px w-50 sm:w-60 md:w-70 primary-black-background" />
-            </div>
+            <SectionLabel>Solutions We Build</SectionLabel>
+
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
               You imagine. <span className="font-black red-text">We build.</span>
             </h2>
@@ -127,24 +119,24 @@ export default function WebDevSolutionsSection() {
           {/* Stats */}
           <div className="flex items-center gap-6 md:gap-10">
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-black text-[#1F4FD8]">200+</p>
-              <p className="text-sm font-medium primary-black/60">Websites Built</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">200+</h3>
+              <p className="text-sm font-medium primary-black">Websites Built</p>
             </div>
             <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-black text-[#1F4FD8]">9+</p>
-              <p className="text-sm font-medium primary-black/60">Industries</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">9+</h3>
+              <p className="text-sm font-medium primary-black">Industries</p>
             </div>
             <div className="w-px h-10 bg-[#0F0F0F]/10"></div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-black text-[#1F4FD8]">98%</p>
-              <p className="text-sm font-medium primary-black/60">Satisfaction</p>
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-black leading-normal support-blue">98%</h3>
+              <p className="text-sm font-medium primary-black">Satisfaction</p>
             </div>
           </div>
         </div>
 
         {/* Solutions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {solutions.map((solution, index) => {
             const isHovered = hoveredIndex === index;
 
@@ -153,39 +145,30 @@ export default function WebDevSolutionsSection() {
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden ${
-                  isHovered
-                    ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30"
-                    : "bg-white hover:shadow-xl"
-                }`}
+                className={`group rounded-xl sm:rounded-2xl p-6 transition-all duration-500 border cursor-pointer overflow-hidden ${isHovered
+                    ? "bg-[#1F4FD8] shadow-2xl shadow-[#1F4FD8]/30 border-[#1A4FCB]"
+                    : "border-black/5 secondary-background"
+                  }`}
               >
-                {/* Background decoration */}
-                <div className={`absolute -right-8 -bottom-8 w-32 h-32 rounded-full transition-all duration-500 ${
-                  isHovered ? "bg-white/10" : "bg-[#1F4FD8]/5"
-                }`} />
-
                 {/* Content */}
-                <div className="relative z-10">
+                <div>
                   {/* Icon */}
-                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${
-                    isHovered
-                      ? "bg-white/20 text-white"
-                      : "bg-[#1F4FD8]/10 text-[#1F4FD8]"
-                  }`}>
+                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 border transition-all duration-300 ${isHovered
+                      ? "bg-white/20 secondary-text border-white/10"
+                      : "border-black/5 secondary-background primary-black"
+                    }`}>
                     {solution.icon}
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-sm sm:text-base md:text-lg font-bold mb-2 transition-colors duration-300 ${
-                    isHovered ? "text-white" : "primary-black"
-                  }`}>
+                  <h5 className={`text-base md:text-lg xl:text-xl font-bold mb-2 transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black"
+                    }`}>
                     {solution.title}
-                  </h3>
+                  </h5>
 
                   {/* Description */}
-                  <p className={`text-sm md:text-base leading-relaxed transition-colors duration-300 ${
-                    isHovered ? "text-white/80" : "primary-black/60"
-                  }`}>
+                  <p className={`text-sm md:text-base leading-normal transition-colors duration-300 ${isHovered ? "secondary-text" : "primary-black"
+                    }`}>
                     {solution.description}
                   </p>
                 </div>
