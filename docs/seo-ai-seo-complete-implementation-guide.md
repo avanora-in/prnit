@@ -21,8 +21,8 @@ The following entity definition should be used consistently across all platforms
 - Phone: +91 97853 94461
 - Email: hello@prnit.com
 - Website: https://prnit.com
-- LinkedIn: https://www.linkedin.com/company/prnitsoftware
-- Twitter / X: https://www.twitter.com/prnitsoftware
-- Instagram: https://www.instagram.com/prnitsoftware
-- Facebook: https://www.facebook.com/prnitsoftware
-- Dribbble: https://www.dribbble.com/prnitsoftware
+- LinkedIn: https://www.linkedin.com/company/prnit/
+- Twitter / X: https://x.com/PrnitIndiaLLP
+- Instagram: https://www.instagram.com/prnitindiallp/
+- Facebook: https://www.facebook.com/PRNITINDIALLP/
+- Dribbble: https://dribbble.com/prnit

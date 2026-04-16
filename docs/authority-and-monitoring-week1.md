@@ -13,11 +13,11 @@ Use the exact same entity details on every external profile.
 - Email: hello@prnit.com
 - Phone: +91 97853 94461
 - Website: https://prnit.com/
-- LinkedIn: https://www.linkedin.com/company/prnitsoftware
-- Twitter: https://www.twitter.com/prnitsoftware
-- Instagram: https://www.instagram.com/prnitsoftware
-- Facebook: https://www.facebook.com/prnitsoftware
-- Dribbble: https://www.dribbble.com/prnitsoftware
+- LinkedIn: https://www.linkedin.com/company/prnit/
+- Twitter: https://x.com/PrnitIndiaLLP
+- Instagram: https://www.instagram.com/prnitindiallp/
+- Facebook: https://www.facebook.com/PRNITINDIALLP/
+- Dribbble: https://dribbble.com/prnit
 
 ## Priority Platforms and Timeline
 

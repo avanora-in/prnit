@@ -17,11 +17,11 @@ export const siteConfig = {
   phone: "+91 97853 94461",
   phoneE164: "+919785394461",
   socialProfiles: [
-    "https://www.facebook.com/prnitsoftware",
-    "https://www.instagram.com/prnitsoftware",
-    "https://www.twitter.com/prnitsoftware",
-    "https://www.linkedin.com/company/prnitsoftware",
-    "https://www.dribbble.com/prnitsoftware",
+    "https://www.facebook.com/PRNITINDIALLP/",
+    "https://www.instagram.com/prnitindiallp/",
+    "https://x.com/PrnitIndiaLLP",
+    "https://www.linkedin.com/company/prnit/",
+    "https://dribbble.com/prnit",
   ],
   founderSocialProfiles: [
     "https://www.linkedin.com/in/praveenshekhawat/",

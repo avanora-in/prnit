@@ -103,7 +103,7 @@ export default function FooterSection() {
             <div className="space-y-3 sm:space-y-4 md:text-center py-6 md:py-0 md:px-6">
               <h3 className="text-base sm:text-lg font-black">Social Media</h3>
               <div className="space-y-3 sm:space-y-4 flex flex-col md:items-center">
-                <Link href="https://www.facebook.com/prnitsoftware" target="_blank"
+                <Link href="https://www.facebook.com/PRNITINDIALLP/" target="_blank"
                   className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
@@ -111,7 +111,7 @@ export default function FooterSection() {
                     hover:after:scale-x-100 w-fit">
                   Facebook
                 </Link>
-                <Link href="https://www.instagram.com/prnitsoftware" target="_blank"
+                <Link href="https://www.instagram.com/prnitindiallp/" target="_blank"
                   className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
@@ -119,7 +119,7 @@ export default function FooterSection() {
                     hover:after:scale-x-100 w-fit">
                   Instagram
                 </Link>
-                <Link href="https://www.twitter.com/prnitsoftware" target="_blank"
+                <Link href="https://x.com/PrnitIndiaLLP" target="_blank"
                   className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
@@ -127,7 +127,7 @@ export default function FooterSection() {
                     hover:after:scale-x-100 w-fit">
                   Twitter/X
                 </Link>
-                <Link href="https://www.linkedin.com/company/prnitsoftware" target="_blank"
+                <Link href="https://www.linkedin.com/company/prnit/" target="_blank"
                   className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
@@ -135,7 +135,7 @@ export default function FooterSection() {
                     hover:after:scale-x-100 w-fit">
                   LinkedIn
                 </Link>
-                <Link href="https://www.dribbble.com/prnitsoftware" target="_blank"
+                <Link href="https://dribbble.com/prnit" target="_blank"
                   className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
