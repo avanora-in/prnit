@@ -51,12 +51,12 @@ export default function HeroSection() {
             </SectionLabel>
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-normal primary-black">
-                Driving Business Growth with
-                <span className="md:block font-black red-text"> AI, Data, and Cloud</span>
+              Driving Business Growth with{" "}
+                <span className="md:block font-black red-text">AI, Data, and Cloud</span>
               </h1>
               <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
-                Unlock the power of modern technology with custom-built digital solutions designed to optimize
-                operations, reduce costs, and drive measurable business results.
+                We build AI-powered apps, cloud infrastructure, and distributed engineering teams for
+                scaling startups — founded in 2011, based in Jaipur, India.
               </p>
             </div>
             <ButtonLink href="#contact" className="block w-fit">

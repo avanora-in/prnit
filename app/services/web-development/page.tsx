@@ -6,11 +6,13 @@ import LogoSlider from "@/components/sections/LogoSlider";
 import ProcessSection from "@/components/sections/ProcessSection";
 import TechnologiesSection from "@/components/sections/Technologies";
 import ServicesSection from "@/components/sections/ServicesSection";
+import PageLead from "@/components/ui/PageLead";
+import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 
 export const metadata = {
-  title: "Web Development Services | PRNIT",
+  title: "Web Development Services in India | PRNIT",
   description:
-    "We provide exceptional web development services. Our team builds responsive websites, web applications, and enterprise solutions that drive business growth.",
+    "PRNIT builds scalable web applications and websites in India with modern architecture, performance optimization, and reliable engineering delivery.",
 };
 
 export default function WebDevelopmentPage() {
@@ -18,6 +20,30 @@ export default function WebDevelopmentPage() {
     <main className="deep-navy scroll-smooth">
       <WebDevHeroSection />
       <LogoSlider />
+      <PageLead>
+        PRNIT builds web platforms for startups and businesses that need scale, speed, and security.
+        We design architecture, ship production-ready applications, and optimize performance across
+        modern stacks. The goal is clear: stable growth and faster product delivery.
+      </PageLead>
+      <ServiceSeoSection
+        h1="Web Development Services in India"
+        explanation="PRNIT delivers web development services in India for startups and growth businesses that need fast, secure, and scalable products. We design architecture, build production-ready applications, and support continuous improvement with clear technical ownership."
+        internalLinks={[
+          { href: "/services/app-development", label: "App Development" },
+          { href: "/services/cloud", label: "Cloud Services" },
+          { href: "/services/web-development-faq", label: "Web Development FAQ" },
+        ]}
+        faqs={[
+          {
+            question: "How long does a web development project take?",
+            answer: "Most projects range from 6 to 16 weeks depending on scope, integrations, and review cycles.",
+          },
+          {
+            question: "Do you rebuild legacy systems?",
+            answer: "Yes. We modernize legacy codebases incrementally to reduce risk while improving performance and maintainability.",
+          },
+        ]}
+      />
       <ProcessSection />
       <ServicesSection />
       <TechnologiesSection />

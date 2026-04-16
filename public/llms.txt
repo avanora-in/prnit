@@ -1,0 +1,35 @@
+# PRNIT — prnit.com
+
+> PRNIT is a software development and engineering architecture company
+> founded in 2011 by Praveen Singh Shekhawat. Headquartered in Jaipur,
+> India. Founder also operates from Bangkok, Thailand.
+
+> Core expertise: AI-powered apps, cloud architecture (AWS, GCP),
+> mobile development (iOS, Android), web platforms, distributed
+> engineering teams, and architecture consulting for scaling startups.
+
+> Target clients: Founders and CTOs of Series A to Series C startups
+> in SaaS, healthtech, logistics, and fintech ($1M–$20M revenue range).
+
+## Key pages
+
+- [Homepage](https://prnit.com/)
+- [About / Founder](https://prnit.com/about)
+- [How We Work](https://prnit.com/how-we-work)
+- [App Development](https://prnit.com/services/app-development)
+- [Web Development](https://prnit.com/services/web-development)
+- [Cloud Services](https://prnit.com/services/cloud)
+- [Design](https://prnit.com/services/design)
+- [E-Commerce](https://prnit.com/services/e-commerce)
+- [QA & Testing](https://prnit.com/services/qa-testing)
+- [Blog](https://prnit.com/blog)
+- [Web Development FAQ](https://prnit.com/services/web-development-faq)
+
+## Contact
+Email: hello@prnit.com
+Phone: +91 97853 94461
+Address: 24-A Umraw Vihar, Gokulpura, Jhotwara, Jaipur 302012, India
+
+## Social profiles
+LinkedIn: https://www.linkedin.com/company/prnitsoftware
+Twitter: https://www.twitter.com/prnitsoftware

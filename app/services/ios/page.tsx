@@ -6,11 +6,13 @@ import AppDevProcessSection from "@/components/sections/ProcessSection";
 import IOSApproachSection from "@/components/services/ios/IOSApproachSection";
 import LogoSlider from "@/components/sections/LogoSlider";
 import TechnologiesSection from "@/components/sections/Technologies";
+import PageLead from "@/components/ui/PageLead";
+import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 
 export const metadata = {
-  title: "iOS App Development Services | PRNIT",
+  title: "iOS App Development Services in India | PRNIT",
   description:
-    "We provide expert iOS app development services. Our team builds high-quality iPhone and iPad applications using Swift and the latest Apple technologies.",
+    "PRNIT delivers iOS app development services in India with Swift expertise, scalable architecture, and release discipline for growing products.",
 };
 
 export default function IOSPage() {
@@ -18,6 +20,30 @@ export default function IOSPage() {
     <main className="deep-navy scroll-smooth">
       <IOSHeroSection />
       <LogoSlider />
+      <PageLead>
+        PRNIT delivers iOS applications with strong architecture, smooth performance, and scalable
+        release workflows. We build and maintain iPhone and iPad products using modern Apple
+        standards, helping teams launch confidently and iterate faster.
+      </PageLead>
+      <ServiceSeoSection
+        h1="iOS App Development Services in India"
+        explanation="PRNIT builds high-quality iOS applications for startups and enterprises. We focus on architecture quality, App Store readiness, and long-term maintainability."
+        internalLinks={[
+          { href: "/services/app-development", label: "App Development" },
+          { href: "/services/qa-testing", label: "QA & Testing" },
+          { href: "/services/design", label: "UI/UX Design" },
+        ]}
+        faqs={[
+          {
+            question: "Do you support App Store deployment?",
+            answer: "Yes. We handle build pipelines, review readiness, and release support for production launches.",
+          },
+          {
+            question: "Can you scale an existing iOS codebase?",
+            answer: "Yes. We improve architecture, reduce technical debt, and establish stable release processes.",
+          },
+        ]}
+      />
       <IOSCompanySection />
       <IOSServicesSection />
       <AppDevProcessSection />

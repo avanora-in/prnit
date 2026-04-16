@@ -58,7 +58,7 @@ const serviceCards = [
   {
     title: "Cloud",
     description: "Google Cloud & AWS infrastructure",
-    href: "/#services",
+    href: "/services/cloud",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
@@ -186,6 +186,12 @@ export default function HeaderSection() {
                 <Link href="/how-we-work" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
                   HOW WE WORK
                 </Link>
+                <Link href="/about" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
+                  ABOUT
+                </Link>
+                <Link href="/work" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
+                  WORK
+                </Link>
                 {/* Services with dropdown */}
                 <div
                   className="relative"
@@ -261,6 +267,20 @@ export default function HeaderSection() {
                 className="text-sm font-semibold primary-black transition-colors hover:text-[var(--support-blue,#1f4fd8)] py-2"
               >
                 HOW WE WORK
+              </Link>
+              <Link
+                href="/about"
+                onClick={closeMobileMenu}
+                className="text-sm font-semibold primary-black transition-colors hover:text-[var(--support-blue,#1f4fd8)] py-2"
+              >
+                ABOUT
+              </Link>
+              <Link
+                href="/work"
+                onClick={closeMobileMenu}
+                className="text-sm font-semibold primary-black transition-colors hover:text-[var(--support-blue,#1f4fd8)] py-2"
+              >
+                WORK
               </Link>
               {/* Mobile Services Accordion */}
               <div>

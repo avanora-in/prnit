@@ -21,6 +21,17 @@ export type RecentComment = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "11",
+    slug: "why-your-saas-is-slowing-down-at-series-a",
+    title: "Why your SaaS is slowing down at Series A",
+    excerpt:
+      "Many SaaS teams hit a performance wall right after Series A. This guide explains why growth introduces architectural drag and how to fix it with clear engineering priorities.",
+    image: blog_image_2,
+    category: "SaaS Architecture",
+    tags: ["SaaS", "Series A", "Architecture", "Performance"],
+    date: "MAR, 2026",
+  },
+  {
     id: "1",
     slug: "why-every-business-needs-a-professional-website",
     title: "Why Every Business Needs a Professional Website",

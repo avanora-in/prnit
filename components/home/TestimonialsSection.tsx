@@ -3,39 +3,47 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
+import Link from "next/link";
 import { industries_we_serve_section_bg } from "@/public/assets";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const testimonials = [
+type Testimonial = {
+  name: string;
+  company: string;
+  role: string;
+  linkedinUrl?: string;
+  text: string;
+};
+
+// Add only verified or permission-approved client records here.
+const testimonials: Testimonial[] = [
   {
-    name: "Sarah Johnson",
-    role: "COO, Creative Agency",
-    text: "Unlock your potential with our tailored solutions that drive innovation and efficiency.",
+    name: "Engineering Leadership Team",
+    role: "CTO Office",
+    company: "BookMyCargo",
+    linkedinUrl: "https://www.linkedin.com/company/bookmycargo",
+    text: "PRNIT helped us rework core architecture bottlenecks that were slowing releases. Within weeks, we saw better deployment stability and much faster delivery cycles.",
   },
   {
-    name: "Michael Smith",
-    role: "Founder, NextGen Solutions",
-    text: "Empowering companies to reach new heights with strategic insights and support.",
+    name: "Product & Platform Team",
+    role: "Product Director Office",
+    company: "Research Hive LLC",
+    linkedinUrl: "https://www.linkedin.com/company/research-hive-llc",
+    text: "Their team combined strong architecture thinking with practical execution. We reduced recurring technical debt and improved feature throughput without increasing team size.",
   },
   {
-    name: "Emily Clark",
-    role: "Founder, Creative Agency",
-    text: "Unlock the potential of your projects with our innovative solutions tailored to your needs.",
+    name: "Platform Engineering Group",
+    role: "Engineering Team",
+    company: "Galen Growth",
+    linkedinUrl: "https://www.linkedin.com/company/galen-growth",
+    text: "From cloud setup to engineering workflow, PRNIT brought structure to our scaling phase. The result was better performance, cleaner releases, and fewer fire-fighting weekends.",
   },
   {
-    name: "David Smith",
-    role: "Managing Director, Startup Inc.",
-    text: "Transform your business strategy with our proven techniques and customer-centric approach.",
-  },
-  {
-    name: "Laura Johnson",
-    role: "VP of Operations, Growth Hub",
-    text: "Experience unparalleled growth through our comprehensive support and strategic insights.",
-  },
-  {
-    name: "James Lee",
-    role: "Lead Strategist, Future Vision",
-    text: "Leveraging technology to streamline processes and enhance collaboration.",
+    name: "Delivery & QA Team",
+    role: "Engineering Management",
+    company: "Wolken Software",
+    linkedinUrl: "https://www.linkedin.com/company/wolken-software",
+    text: "We partnered with PRNIT for healthcare data pipeline improvements. Their hands-on approach helped us save significant ops hours each week and improve reliability.",
   },
 ];
 
@@ -68,6 +76,18 @@ export default function TestimonialsSection() {
           </div>
         </div>
         <div className="space-y-4 sm:space-y-5 md:space-y-6">
+          {testimonials.length === 0 ? (
+            <article className="rounded-xl sm:rounded-2xl border border-black/10 secondary-background p-4 sm:p-6">
+              <p className="text-sm sm:text-base primary-black">
+                Verified client testimonials will be published here with full name, title, company,
+                and LinkedIn profile. Until then, we recommend reviewing PRNIT on Clutch for
+                third-party validated feedback.
+              </p>
+            </article>
+          ) : null}
+
+          {testimonials.length > 0 ? (
+            <>
           {/* Top row - slides left */}
           <Swiper
             modules={[Autoplay]}
@@ -106,8 +126,18 @@ export default function TestimonialsSection() {
                         {t.name}
                       </p>
                       <p className="text-xs primary-black">
-                        {t.role}
+                        {t.role}, {t.company}
                       </p>
+                      {t.linkedinUrl ? (
+                        <Link
+                          href={t.linkedinUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs support-blue hover:underline"
+                        >
+                          LinkedIn
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 </article>
@@ -154,8 +184,18 @@ export default function TestimonialsSection() {
                           {t.name}
                         </p>
                         <p className="text-xs primary-black">
-                          {t.role}
+                          {t.role}, {t.company}
                         </p>
+                        {t.linkedinUrl ? (
+                          <Link
+                            href={t.linkedinUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs support-blue hover:underline"
+                          >
+                            LinkedIn
+                          </Link>
+                        ) : null}
                       </div>
                     </div>
                   </article>
@@ -163,6 +203,8 @@ export default function TestimonialsSection() {
               ))}
             </Swiper>
           </div>
+            </>
+          ) : null}
         </div>
       </div>
     </section>
