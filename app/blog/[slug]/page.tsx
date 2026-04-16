@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/components/blog/blog-data";
 import BlogPostContent from "@/components/blog/BlogPostContent";
+import { siteConfig } from "@/lib/seo/entity";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -40,5 +41,31 @@ export default async function BlogPostPage({ params }: Props) {
     relatedPosts.push(...otherPosts);
   }
 
-  return <BlogPostContent post={post} relatedPosts={relatedPosts} />;
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.organizationName,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.organizationName,
+    },
+    mainEntityOfPage: `${siteConfig.siteUrl}/blog/${post.slug}`,
+    image: `${siteConfig.siteUrl}/og-image.jpg`,
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <BlogPostContent post={post} relatedPosts={relatedPosts} />
+    </>
+  );
 }

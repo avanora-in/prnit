@@ -41,19 +41,27 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
-              PRNIT is a forward-thinking technology company, driven by a passionate team dedicated to building
-              intelligent, scalable, and future-ready digital solutions. We specialize in AI-powered innovation,
-              modern software development, cloud transformation, engineering, and next-gen digital services—delivering
-              unmatched value through our expanding portfolio of products and solutions.
+              PRNIT was founded in January 2011 by Praveen Singh Shekhawat to solve a recurring
+              startup challenge: products that break as they scale. We combine architecture-first
+              thinking with hands-on engineering delivery for teams that need both strategy and
+              execution.
             </p>
             <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
-              We collaborate with businesses across key industries, offering tailored solutions for Finance,
-              Manufacturing, Healthcare, Technology, Media, Retail, Mobility, and Public Services. With consistent
-              growth and a strong vision, PRNIT continues to evolve as a trusted partner for companies seeking faster
-              development, smarter systems, and seamless digital transformation.
+              We work with founders and product teams across SaaS, healthtech, logistics, and
+              fintech, helping them ship faster with stable, scalable systems.
             </p>
+            <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base md:text-lg leading-normal primary-black">
+              <li>Founded in January 2011 by Praveen Singh Shekhawat</li>
+              <li>Team of engineers with 8-14 years of experience</li>
+              <li>Projects delivered across 8 industries</li>
+              <li>Clients save 30-40 hours per week through automation</li>
+              <li>Active AI projects in logistics and healthcare</li>
+            </ul>
           </div>
-          <ButtonLink href="#contact" className="block w-fit mt-6">Let&apos;s Talk</ButtonLink>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <ButtonLink href="/about" className="block w-fit">Read Full Story</ButtonLink>
+            <ButtonLink href="/work" variant="secondary" className="block w-fit">View Our Work</ButtonLink>
+          </div>
         </div>
       </div>
     </section>

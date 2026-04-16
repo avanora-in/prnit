@@ -6,7 +6,7 @@ const variantStyles = {
   secondary:
     "rounded bg-[#FAFAF7] text-[#1F4FD8] hover:bg-[#8B1E2D] hover:text-[#FAFAF7] px-6 py-3 text-xs sm:text-sm md:text-base font-semibold transition-colors cursor-pointer",
   "primary-light":
-    "rounded bg-white text-[#1F4FD8] hover:bg-[#0F0F0F] hover:text-white px-6 py-3 text-xs sm:text-sm md:text-base font-semibold transition-colors cursor-pointer",
+    "rounded bg-white text-[#1F4FD8] hover:bg-[#8B1E2D] hover:text-white px-6 py-3 text-xs sm:text-sm md:text-base font-semibold transition-colors cursor-pointer",
   "secondary-light":
     "rounded bg-transparent border border-white text-white hover:bg-white hover:text-[#1F4FD8] px-6 py-3 text-xs sm:text-sm md:text-base font-semibold transition-colors cursor-pointer",
 } as const;

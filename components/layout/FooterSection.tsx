@@ -33,59 +33,77 @@ export default function FooterSection() {
             <div className="space-y-3 sm:space-y-4 py-6 md:py-0 md:pr-6">
               <h3 className="text-base sm:text-lg font-black">Our Services</h3>
               <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 sm:gap-y-2.5 md:gap-y-3">
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services/app-development" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">App Development</Link>
 
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services/cloud" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">Cloud Services</Link>
 
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services/web-development" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">Web Development</Link>
 
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services/cms" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">CMS Development</Link>
 
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services/design" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">UI/UX Design</Link>
 
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services/qa-testing" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">QA &amp; Testing</Link>
 
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services/e-commerce" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">eCommerce Solutions</Link>
 
-                <Link href="/#services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="/services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">Pricing &amp; Plans</Link>
+
+                <Link href="/about" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                    after:content-[''] after:absolute after:left-0 after:bottom-0 
+                    after:w-full after:h-[2px] after:bg-[#8B1E2D]
+                    after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
+                    hover:after:scale-x-100 w-fit">About</Link>
+
+                <Link href="/work" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                    after:content-[''] after:absolute after:left-0 after:bottom-0 
+                    after:w-full after:h-[2px] after:bg-[#8B1E2D]
+                    after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
+                    hover:after:scale-x-100 w-fit">Work</Link>
+
+                <Link href="/blog" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                    after:content-[''] after:absolute after:left-0 after:bottom-0 
+                    after:w-full after:h-[2px] after:bg-[#8B1E2D]
+                    after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
+                    hover:after:scale-x-100 w-fit">Blog</Link>
               </div>
             </div>
             <div className="space-y-3 sm:space-y-4 md:text-center py-6 md:py-0 md:px-6">
               <h3 className="text-base sm:text-lg font-black">Social Media</h3>
               <div className="space-y-3 sm:space-y-4 flex flex-col md:items-center">
-                <Link href="https://www.facebook.com/prnitsoftware" target="_blank"
+                <Link href="https://www.facebook.com/PRNITINDIALLP/" target="_blank"
                   className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
@@ -93,32 +111,32 @@ export default function FooterSection() {
                     hover:after:scale-x-100 w-fit">
                   Facebook
                 </Link>
-                <Link href="https://www.instagram.com/prnitsoftware" target="_blank" 
-                className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="https://www.instagram.com/prnitindiallp/" target="_blank"
+                  className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">
                   Instagram
                 </Link>
-                <Link href="https://www.twitter.com/prnitsoftware" target="_blank" 
-                className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="https://x.com/PrnitIndiaLLP" target="_blank"
+                  className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">
                   Twitter/X
                 </Link>
-                  <Link href="https://www.linkedin.com/company/prnitsoftware" target="_blank" 
-                className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="https://www.linkedin.com/company/prnit/" target="_blank"
+                  className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">
                   LinkedIn
                 </Link>
-                <Link href="https://www.dribbble.com/prnitsoftware" target="_blank" 
-                className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <Link href="https://dribbble.com/prnit" target="_blank"
+                  className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
@@ -159,10 +177,19 @@ export default function FooterSection() {
               </div>
             </div>
           </div>
-          <hr className="border-white/20" />
-          <p className="pt-6 sm:pt-7 md:pt-8 text-center text-xs">
-            © 2026 PRNIT. All Rights Reserved.
-          </p>
+          <div className="flex items-center justify-between pt-6 sm:pt-8 border-t border-white/20">
+            <Image
+              src="/assets/iso-27001-certified-badge-v2.png"
+              alt="ISO/IEC 27001:2022 Certified Company"
+              width={420}
+              height={120}
+              className="h-14 w-auto object-contain"
+            />
+
+            <p className="text-xs">
+              © 2026 PRNIT. All Rights Reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

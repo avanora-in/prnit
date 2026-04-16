@@ -108,7 +108,7 @@ export default function BlogPageHero() {
             id="blog"
             className="relative w-full secondary-background rounded-b-[24px] sm:rounded-b-[32px] md:rounded-b-[48px] overflow-hidden"
         >
-            <div className="mx-auto max-w-[1320px] flex items-center py-20 md:py-28 lg:py-24 px-4 sm:px-6 md:px-8">
+            <div className="mx-auto max-w-[1320px] flex items-center py-20 md:py-28 lg:py-24 min-h-screen px-4 sm:px-6 md:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 lg:gap-16 items-center w-full">
                     <div className="max-w-xl space-y-6 col-span-1" ref={heroLeftSectionRef}>
                         <SectionLabel>
