@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/seo/entity";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -10,27 +11,12 @@ import { getBreadcrumbSchema, getPersonSchema } from "@/lib/seo/schema";
 import Image from "next/image";
 import { about_left, about_top, about_bottom } from "@/public/assets";
 
-const aboutUrl = `${siteConfig.siteUrl}/about`;
-const aboutTitle =
-  "About PRNIT | Praveen Singh Shekhawat, Engineering Architect — Jaipur, India";
-const aboutDescription =
-  "Founded in January 2011, PRNIT helps teams solve architecture scaling challenges with senior engineering execution led by founder Praveen Singh Shekhawat.";
-
-export const metadata: Metadata = {
-  title: aboutTitle,
-  description: aboutDescription,
-  alternates: {
-    canonical: aboutUrl,
-  },
-  openGraph: {
-    type: "website",
-    url: aboutUrl,
-    title: aboutTitle,
-    description: aboutDescription,
-    siteName: siteConfig.organizationName,
-    locale: "en_US",
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "About Us",
+  description:
+    "PRNIT is a forward-thinking technology company building intelligent, scalable, and future-ready digital solutions.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   const breadcrumbJsonLd = getBreadcrumbSchema([

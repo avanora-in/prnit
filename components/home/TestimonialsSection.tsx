@@ -3,7 +3,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
-import Link from "next/link";
 import { industries_we_serve_section_bg } from "@/public/assets";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -11,41 +10,40 @@ type Testimonial = {
   name: string;
   company: string;
   role: string;
-  linkedinUrl?: string;
   text: string;
 };
 
-// Add only verified or permission-approved client records here.
+/** Representative feedback only — names and companies are anonymised. */
 const testimonials: Testimonial[] = [
   {
-    name: "Engineering Leadership Team",
-    role: "CTO Office",
-    company: "BookMyCargo",
-    linkedinUrl: "https://www.linkedin.com/company/bookmycargo",
-    text: "PRNIT helped us rework core architecture bottlenecks that were slowing releases. Within weeks, we saw better deployment stability and much faster delivery cycles.",
+    name: "VP of Engineering",
+    role: "Technology leadership",
+    company: "B2B logistics platform",
+    text: "PRNIT helped us address core architecture bottlenecks that were slowing releases. Within weeks, we saw better deployment stability and noticeably faster delivery cycles.",
   },
   {
-    name: "Product & Platform Team",
-    role: "Product Director Office",
-    company: "Research Hive LLC",
-    linkedinUrl: "https://www.linkedin.com/company/research-hive-llc",
-    text: "Their team combined strong architecture thinking with practical execution. We reduced recurring technical debt and improved feature throughput without increasing team size.",
+    name: "Director of Product",
+    role: "Product & platform",
+    company: "Research software company",
+    text: "Their team combined solid architecture thinking with practical execution. We reduced recurring technical debt and improved feature throughput without growing headcount.",
   },
   {
-    name: "Platform Engineering Group",
-    role: "Engineering Team",
-    company: "Galen Growth",
-    linkedinUrl: "https://www.linkedin.com/company/galen-growth",
-    text: "From cloud setup to engineering workflow, PRNIT brought structure to our scaling phase. The result was better performance, cleaner releases, and fewer fire-fighting weekends.",
+    name: "Head of Platform Engineering",
+    role: "Engineering",
+    company: "Health analytics organisation",
+    text: "From cloud foundations to delivery workflow, they brought structure to our scaling phase. Performance improved, releases got cleaner, and on-call noise dropped.",
   },
   {
-    name: "Delivery & QA Team",
-    role: "Engineering Management",
-    company: "Wolken Software",
-    linkedinUrl: "https://www.linkedin.com/company/wolken-software",
-    text: "We partnered with PRNIT for healthcare data pipeline improvements. Their hands-on approach helped us save significant ops hours each week and improve reliability.",
+    name: "Engineering Manager",
+    role: "Delivery & quality",
+    company: "Enterprise SaaS provider",
+    text: "We engaged PRNIT for critical data-path improvements. The hands-on work cut weekly operational toil and made our pipelines more dependable for production traffic.",
   },
 ];
+
+/** Fixed card shell so every slide matches height regardless of quote length. */
+const cardShellClass =
+  "flex h-full min-h-[340px] sm:min-h-[360px] md:min-h-[380px] w-full min-w-[260px] sm:min-w-[280px] md:min-w-[312px] flex-col gap-4 rounded-xl sm:rounded-2xl border border-black/5 secondary-background p-3 sm:p-4";
 
 export default function TestimonialsSection() {
   return (
@@ -79,130 +77,110 @@ export default function TestimonialsSection() {
           {testimonials.length === 0 ? (
             <article className="rounded-xl sm:rounded-2xl border border-black/10 secondary-background p-4 sm:p-6">
               <p className="text-sm sm:text-base primary-black">
-                Verified client testimonials will be published here with full name, title, company,
-                and LinkedIn profile. Until then, we recommend reviewing PRNIT on Clutch for
-                third-party validated feedback.
+                Verified client testimonials will appear here once approved. Until then, you can explore our services and case studies elsewhere on this site.
               </p>
             </article>
           ) : null}
 
           {testimonials.length > 0 ? (
             <>
-          {/* Top row - slides left */}
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={12}
-            slidesPerView="auto"
-            loop={true}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            speed={4000}
-            allowTouchMove={false}
-            className="testimonial-swiper-left"
-            breakpoints={{
-              640: {
-                spaceBetween: 14,
-              },
-              768: {
-                spaceBetween: 16,
-              },
-            }}
-          >
-            {[...testimonials, ...testimonials].map((t, index) => (
-              <SwiperSlide key={`${t.name}-top-${index}`} className="!w-[260px] sm:!w-[280px] md:!w-[312px]">
-                <article className="flex h-full min-w-[260px] sm:min-w-[280px] md:min-w-[312px] flex-col gap-4 rounded-xl sm:rounded-2xl border border-black/5 secondary-background p-3 sm:p-4">
-                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16">
-                    <path d="M20.1866 25.7745C21.4453 25.7745 22.4851 26.2647 23.306 27.2451C24.1269 28.171 24.5373 29.5055 24.5373 31.2484C24.5373 32.3377 24.3731 33.3725 24.0448 34.3529C23.7164 35.3333 23.2239 36.2048 22.5672 36.9673C21.9104 37.7298 21.0896 38.3562 20.1045 38.8464C19.1194 39.2821 17.9701 39.5 16.6567 39.5C15.7811 39.5 14.9602 39.3911 14.194 39.1732C13.4826 38.9009 12.8532 38.4924 12.306 37.9477C11.7587 37.3486 11.3209 36.5588 10.9925 35.5784C10.6642 34.598 10.5 33.3453 10.5 31.8203C10.5 29.6416 10.8284 27.5174 11.4851 25.4477C12.1418 23.378 13.0174 21.5261 14.1119 19.8922C15.2612 18.2582 16.5473 16.951 17.9701 15.9706C19.393 14.9902 20.898 14.5 22.4851 14.5C23.7438 14.5 24.5647 14.7996 24.9478 15.3987C25.3856 15.9434 25.6045 16.597 25.6045 17.3595C25.6045 17.5773 25.3035 17.9586 24.7015 18.5033C24.1542 19.0479 23.5522 19.7015 22.8955 20.4641C22.2388 21.1721 21.6095 21.9891 21.0075 22.915C20.4602 23.841 20.1866 24.7941 20.1866 25.7745ZM38.0821 25.7745C39.3408 25.7745 40.3806 26.2647 41.2015 27.2451C42.0224 28.171 42.4328 29.5055 42.4328 31.2484C42.4328 32.3377 42.2687 33.3725 41.9403 34.3529C41.6119 35.3333 41.1194 36.2048 40.4627 36.9673C39.806 37.7298 38.9851 38.3562 38 38.8464C37.0149 39.2821 35.8657 39.5 34.5522 39.5C33.6766 39.5 32.8557 39.3911 32.0896 39.1732C31.3781 38.9009 30.7488 38.4924 30.2015 37.9477C29.6542 37.3486 29.2164 36.5588 28.8881 35.5784C28.5597 34.598 28.3955 33.3453 28.3955 31.8203C28.3955 29.6416 28.7239 27.5174 29.3806 25.4477C30.0373 23.378 30.9129 21.5261 32.0075 19.8922C33.1567 18.2582 34.4428 16.951 35.8657 15.9706C37.2886 14.9902 38.7935 14.5 40.3806 14.5C41.6393 14.5 42.4602 14.7996 42.8433 15.3987C43.2811 15.9434 43.5 16.597 43.5 17.3595C43.5 17.5773 43.199 17.9586 42.597 18.5033C42.0498 19.0479 41.4478 19.7015 40.791 20.4641C40.1343 21.1721 39.505 21.9891 38.903 22.915C38.3557 23.841 38.0821 24.7941 38.0821 25.7745Z" fill="#8B1E2D" />
-                  </svg>
-                  <p className="text-sm sm:text-base primary-black italic">
-                    {t.text}
-                  </p>
-                  <div className="mt-auto flex items-center gap-2">
-                    <div className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full neutral-grey-background" />
-                    <div className="space-y-0.5">
-                      <p className="text-sm sm:text-base primary-black font-semibold">
-                        {t.name}
+              {/* Top row - slides left */}
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={12}
+                slidesPerView="auto"
+                loop={true}
+                autoplay={{
+                  delay: 0,
+                  disableOnInteraction: false,
+                }}
+                speed={4000}
+                allowTouchMove={false}
+                className="testimonial-swiper-left"
+                breakpoints={{
+                  640: {
+                    spaceBetween: 14,
+                  },
+                  768: {
+                    spaceBetween: 16,
+                  },
+                }}
+              >
+                {[...testimonials, ...testimonials].map((t, index) => (
+                  <SwiperSlide
+                    key={`${t.name}-top-${index}`}
+                    className="!flex !h-auto !w-[260px] sm:!w-[280px] md:!w-[312px]"
+                  >
+                    <article className={cardShellClass}>
+                      <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 shrink-0 sm:w-12 sm:h-12 md:w-16 md:h-16">
+                        <path d="M20.1866 25.7745C21.4453 25.7745 22.4851 26.2647 23.306 27.2451C24.1269 28.171 24.5373 29.5055 24.5373 31.2484C24.5373 32.3377 24.3731 33.3725 24.0448 34.3529C23.7164 35.3333 23.2239 36.2048 22.5672 36.9673C21.9104 37.7298 21.0896 38.3562 20.1045 38.8464C19.1194 39.2821 17.9701 39.5 16.6567 39.5C15.7811 39.5 14.9602 39.3911 14.194 39.1732C13.4826 38.9009 12.8532 38.4924 12.306 37.9477C11.7587 37.3486 11.3209 36.5588 10.9925 35.5784C10.6642 34.598 10.5 33.3453 10.5 31.8203C10.5 29.6416 10.8284 27.5174 11.4851 25.4477C12.1418 23.378 13.0174 21.5261 14.1119 19.8922C15.2612 18.2582 16.5473 16.951 17.9701 15.9706C19.393 14.9902 20.898 14.5 22.4851 14.5C23.7438 14.5 24.5647 14.7996 24.9478 15.3987C25.3856 15.9434 25.6045 16.597 25.6045 17.3595C25.6045 17.5773 25.3035 17.9586 24.7015 18.5033C24.1542 19.0479 23.5522 19.7015 22.8955 20.4641C22.2388 21.1721 21.6095 21.9891 21.0075 22.915C20.4602 23.841 20.1866 24.7941 20.1866 25.7745ZM38.0821 25.7745C39.3408 25.7745 40.3806 26.2647 41.2015 27.2451C42.0224 28.171 42.4328 29.5055 42.4328 31.2484C42.4328 32.3377 42.2687 33.3725 41.9403 34.3529C41.6119 35.3333 41.1194 36.2048 40.4627 36.9673C39.806 37.7298 38.9851 38.3562 38 38.8464C37.0149 39.2821 35.8657 39.5 34.5522 39.5C33.6766 39.5 32.8557 39.3911 32.0896 39.1732C31.3781 38.9009 30.7488 38.4924 30.2015 37.9477C29.6542 37.3486 29.2164 36.5588 28.8881 35.5784C28.5597 34.598 28.3955 33.3453 28.3955 31.8203C28.3955 29.6416 28.7239 27.5174 29.3806 25.4477C30.0373 23.378 30.9129 21.5261 32.0075 19.8922C33.1567 18.2582 34.4428 16.951 35.8657 15.9706C37.2886 14.9902 38.7935 14.5 40.3806 14.5C41.6393 14.5 42.4602 14.7996 42.8433 15.3987C43.2811 15.9434 43.5 16.597 43.5 17.3595C43.5 17.5773 43.199 17.9586 42.597 18.5033C42.0498 19.0479 41.4478 19.7015 40.791 20.4641C40.1343 21.1721 39.505 21.9891 38.903 22.915C38.3557 23.841 38.0821 24.7941 38.0821 25.7745Z" fill="#8B1E2D" />
+                      </svg>
+                      <p className="flex-1 min-h-0 line-clamp-6 text-sm sm:text-base primary-black italic">
+                        {t.text}
                       </p>
-                      <p className="text-xs primary-black">
-                        {t.role}, {t.company}
-                      </p>
-                      {t.linkedinUrl ? (
-                        <Link
-                          href={t.linkedinUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs support-blue hover:underline"
-                        >
-                          LinkedIn
-                        </Link>
-                      ) : null}
-                    </div>
-                  </div>
-                </article>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Bottom row - slides right */}
-          <div className="testimonial-swiper-right-wrapper">
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={12}
-              slidesPerView="auto"
-              loop={true}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-              }}
-              speed={4000}
-              allowTouchMove={false}
-              className="testimonial-swiper-right"
-              breakpoints={{
-                640: {
-                  spaceBetween: 14,
-                },
-                768: {
-                  spaceBetween: 16,
-                },
-              }}
-            >
-              {[...testimonials, ...testimonials].map((t, index) => (
-                <SwiperSlide key={`${t.name}-bottom-${index}`} className="!w-[260px] sm:!w-[280px] md:!w-[312px]">
-                  <article className="flex h-full min-w-[260px] sm:min-w-[280px] md:min-w-[312px] flex-col gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-black/5 secondary-background p-3 sm:p-4">
-                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-12 sm:h-12 md:w-[54px] md:h-[54px]">
-                      <path d="M20.1866 25.7745C21.4453 25.7745 22.4851 26.2647 23.306 27.2451C24.1269 28.171 24.5373 29.5055 24.5373 31.2484C24.5373 32.3377 24.3731 33.3725 24.0448 34.3529C23.7164 35.3333 23.2239 36.2048 22.5672 36.9673C21.9104 37.7298 21.0896 38.3562 20.1045 38.8464C19.1194 39.2821 17.9701 39.5 16.6567 39.5C15.7811 39.5 14.9602 39.3911 14.194 39.1732C13.4826 38.9009 12.8532 38.4924 12.306 37.9477C11.7587 37.3486 11.3209 36.5588 10.9925 35.5784C10.6642 34.598 10.5 33.3453 10.5 31.8203C10.5 29.6416 10.8284 27.5174 11.4851 25.4477C12.1418 23.378 13.0174 21.5261 14.1119 19.8922C15.2612 18.2582 16.5473 16.951 17.9701 15.9706C19.393 14.9902 20.898 14.5 22.4851 14.5C23.7438 14.5 24.5647 14.7996 24.9478 15.3987C25.3856 15.9434 25.6045 16.597 25.6045 17.3595C25.6045 17.5773 25.3035 17.9586 24.7015 18.5033C24.1542 19.0479 23.5522 19.7015 22.8955 20.4641C22.2388 21.1721 21.6095 21.9891 21.0075 22.915C20.4602 23.841 20.1866 24.7941 20.1866 25.7745ZM38.0821 25.7745C39.3408 25.7745 40.3806 26.2647 41.2015 27.2451C42.0224 28.171 42.4328 29.5055 42.4328 31.2484C42.4328 32.3377 42.2687 33.3725 41.9403 34.3529C41.6119 35.3333 41.1194 36.2048 40.4627 36.9673C39.806 37.7298 38.9851 38.3562 38 38.8464C37.0149 39.2821 35.8657 39.5 34.5522 39.5C33.6766 39.5 32.8557 39.3911 32.0896 39.1732C31.3781 38.9009 30.7488 38.4924 30.2015 37.9477C29.6542 37.3486 29.2164 36.5588 28.8881 35.5784C28.5597 34.598 28.3955 33.3453 28.3955 31.8203C28.3955 29.6416 28.7239 27.5174 29.3806 25.4477C30.0373 23.378 30.9129 21.5261 32.0075 19.8922C33.1567 18.2582 34.4428 16.951 35.8657 15.9706C37.2886 14.9902 38.7935 14.5 40.3806 14.5C41.6393 14.5 42.4602 14.7996 42.8433 15.3987C43.2811 15.9434 43.5 16.597 43.5 17.3595C43.5 17.5773 43.199 17.9586 42.597 18.5033C42.0498 19.0479 41.4478 19.7015 40.791 20.4641C40.1343 21.1721 39.505 21.9891 38.903 22.915C38.3557 23.841 38.0821 24.7941 38.0821 25.7745Z" fill="#8B1E2D" />
-                    </svg>
-                    <p className="text-sm sm:text-base primary-black italic">
-                      {t.text}
-                    </p>
-                    <div className="mt-auto flex items-center gap-2">
-                      <div className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full neutral-grey-background" />
-                      <div className="space-y-0.5">
-                        <p className="text-sm sm:text-base primary-black font-semibold">
-                          {t.name}
-                        </p>
-                        <p className="text-xs primary-black">
-                          {t.role}, {t.company}
-                        </p>
-                        {t.linkedinUrl ? (
-                          <Link
-                            href={t.linkedinUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs support-blue hover:underline"
-                          >
-                            LinkedIn
-                          </Link>
-                        ) : null}
+                      <div className="mt-auto flex shrink-0 items-center gap-2 pt-1">
+                        <div className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 shrink-0 rounded-full neutral-grey-background" aria-hidden />
+                        <div className="min-w-0 space-y-0.5">
+                          <p className="text-sm sm:text-base primary-black font-semibold">{t.name}</p>
+                          <p className="text-xs primary-black">
+                            {t.role} · {t.company}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+                    </article>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              {/* Bottom row - slides right */}
+              <div className="testimonial-swiper-right-wrapper">
+                <Swiper
+                  modules={[Autoplay]}
+                  spaceBetween={12}
+                  slidesPerView="auto"
+                  loop={true}
+                  autoplay={{
+                    delay: 0,
+                    disableOnInteraction: false,
+                  }}
+                  speed={4000}
+                  allowTouchMove={false}
+                  className="testimonial-swiper-right"
+                  breakpoints={{
+                    640: {
+                      spaceBetween: 14,
+                    },
+                    768: {
+                      spaceBetween: 16,
+                    },
+                  }}
+                >
+                  {[...testimonials, ...testimonials].map((t, index) => (
+                    <SwiperSlide
+                      key={`${t.name}-bottom-${index}`}
+                      className="!flex !h-auto !w-[260px] sm:!w-[280px] md:!w-[312px]"
+                    >
+                      <article className={cardShellClass}>
+                        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 shrink-0 sm:w-12 sm:h-12 md:w-[54px] md:h-[54px]">
+                          <path d="M20.1866 25.7745C21.4453 25.7745 22.4851 26.2647 23.306 27.2451C24.1269 28.171 24.5373 29.5055 24.5373 31.2484C24.5373 32.3377 24.3731 33.3725 24.0448 34.3529C23.7164 35.3333 23.2239 36.2048 22.5672 36.9673C21.9104 37.7298 21.0896 38.3562 20.1045 38.8464C19.1194 39.2821 17.9701 39.5 16.6567 39.5C15.7811 39.5 14.9602 39.3911 14.194 39.1732C13.4826 38.9009 12.8532 38.4924 12.306 37.9477C11.7587 37.3486 11.3209 36.5588 10.9925 35.5784C10.6642 34.598 10.5 33.3453 10.5 31.8203C10.5 29.6416 10.8284 27.5174 11.4851 25.4477C12.1418 23.378 13.0174 21.5261 14.1119 19.8922C15.2612 18.2582 16.5473 16.951 17.9701 15.9706C19.393 14.9902 20.898 14.5 22.4851 14.5C23.7438 14.5 24.5647 14.7996 24.9478 15.3987C25.3856 15.9434 25.6045 16.597 25.6045 17.3595C25.6045 17.5773 25.3035 17.9586 24.7015 18.5033C24.1542 19.0479 23.5522 19.7015 22.8955 20.4641C22.2388 21.1721 21.6095 21.9891 21.0075 22.915C20.4602 23.841 20.1866 24.7941 20.1866 25.7745ZM38.0821 25.7745C39.3408 25.7745 40.3806 26.2647 41.2015 27.2451C42.0224 28.171 42.4328 29.5055 42.4328 31.2484C42.4328 32.3377 42.2687 33.3725 41.9403 34.3529C41.6119 35.3333 41.1194 36.2048 40.4627 36.9673C39.806 37.7298 38.9851 38.3562 38 38.8464C37.0149 39.2821 35.8657 39.5 34.5522 39.5C33.6766 39.5 32.8557 39.3911 32.0896 39.1732C31.3781 38.9009 30.7488 38.4924 30.2015 37.9477C29.6542 37.3486 29.2164 36.5588 28.8881 35.5784C28.5597 34.598 28.3955 33.3453 28.3955 31.8203C28.3955 29.6416 28.7239 27.5174 29.3806 25.4477C30.0373 23.378 30.9129 21.5261 32.0075 19.8922C33.1567 18.2582 34.4428 16.951 35.8657 15.9706C37.2886 14.9902 38.7935 14.5 40.3806 14.5C41.6393 14.5 42.4602 14.7996 42.8433 15.3987C43.2811 15.9434 43.5 16.597 43.5 17.3595C43.5 17.5773 43.199 17.9586 42.597 18.5033C42.0498 19.0479 41.4478 19.7015 40.791 20.4641C40.1343 21.1721 39.505 21.9891 38.903 22.915C38.3557 23.841 38.0821 24.7941 38.0821 25.7745Z" fill="#8B1E2D" />
+                        </svg>
+                        <p className="flex-1 min-h-0 line-clamp-6 text-sm sm:text-base primary-black italic">
+                          {t.text}
+                        </p>
+                        <div className="mt-auto flex shrink-0 items-center gap-2 pt-1">
+                          <div className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 shrink-0 rounded-full neutral-grey-background" aria-hidden />
+                          <div className="min-w-0 space-y-0.5">
+                            <p className="text-sm sm:text-base primary-black font-semibold">{t.name}</p>
+                            <p className="text-xs primary-black">
+                              {t.role} · {t.company}
+                            </p>
+                          </div>
+                        </div>
+                      </article>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </>
           ) : null}
         </div>

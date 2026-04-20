@@ -39,7 +39,7 @@ export default function BlogSearchBar() {
           name="q"
           defaultValue={urlSearch}
           placeholder="Search articles..."
-          className="w-full pl-4 pr-11 py-3 rounded-xl border border-black/5 secondary-background text-sm primary-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--support-blue,#1f4fd8)] focus:border-transparent transition-shadow"
+          className="w-full pl-4 pr-11 py-3 rounded-xl border border-black/5 secondary-background text-sm text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-[var(--support-blue,#1f4fd8)] focus:border-transparent transition-shadow"
         />
         <button
           type="button"

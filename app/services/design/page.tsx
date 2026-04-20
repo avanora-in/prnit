@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import DesignHeroSection from "@/components/services/design/DesignHeroSection";
 import DesignSolutionsSection from "@/components/services/design/DesignSolutionsSection";
 import DesignServicesSection from "@/components/services/design/DesignServicesSection";
@@ -6,12 +7,14 @@ import DesignApproachSection from "@/components/services/design/DesignApproachSe
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "UI/UX Design Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "UI/UX Design Services in India",
   description:
     "PRNIT delivers UI/UX design services in India that improve usability, conversion, and product clarity across web and mobile experiences.",
-};
+  path: "/services/design",
+});
 
 export default function DesignPage() {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import EcommerceHeroSection from "@/components/services/e-commerce/EcommerceHeroSection";
 import EcommerceSolutionsSection from "@/components/services/e-commerce/EcommerceSolutionsSection";
 import EcommerceChallengesSection from "@/components/services/e-commerce/EcommerceChallengesSection";
@@ -5,12 +6,14 @@ import EcommerceFeaturesSection from "@/components/services/e-commerce/Ecommerce
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "E-Commerce Development Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "E-Commerce Development Services in India",
   description:
     "PRNIT provides e-commerce development services in India for scalable storefronts, secure checkout flows, and high-performance operations.",
-};
+  path: "/services/e-commerce",
+});
 
 export default function EcommercePage() {
   return (

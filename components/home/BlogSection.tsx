@@ -64,8 +64,8 @@ export default function BlogSection() {
                     <p className="text-sm sm:text-base md:text-lg font-semibold primary-black syne-font">
                       {post.date}
                     </p>
-                    <Link href={`/blog/${post.slug}`} className="text-lg sm:text-xl md:text-2xl font-black hover:text-[#8b1e2d]">
-                      <h3 className="text-xl md:text-2xl xl:text-3xl font-black hover:text-[#8b1e2d] leading-normal">
+                    <Link href={`/blog/${post.slug}`} className="text-lg sm:text-xl md:text-2xl font-black primary-black hover:text-[#8b1e2d]">
+                      <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black hover:text-[#8b1e2d] leading-normal">
                         {post.title}
                       </h3>
                     </Link>

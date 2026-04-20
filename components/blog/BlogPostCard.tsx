@@ -27,7 +27,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
           {post.category} · {post.date}
         </p>
         <Link href={`/blog/${post.slug}`}>
-          <h5 className="mt-1 text-base md:text-lg xl:text-xl font-bold group-hover:text-[#8B1E2D] line-clamp-2">
+          <h5 className="mt-1 text-base md:text-lg xl:text-xl font-bold primary-black group-hover:text-[#8B1E2D] line-clamp-2">
             {post.title}
           </h5>
         </Link>

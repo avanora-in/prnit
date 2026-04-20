@@ -139,7 +139,7 @@ export default function IndustriesSection() {
                     </div>
 
                     <div className="col-span-2 grid grid-cols-1 md:grid-cols-3 items-center gap-4">
-                      <p className="text-sm sm:text-base md:text-lg text-left col-span-1 md:col-span-2">
+                      <p className="text-sm sm:text-base md:text-lg text-left primary-black col-span-1 md:col-span-2">
                         {industry.description}
                       </p>
 

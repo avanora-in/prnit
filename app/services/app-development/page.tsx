@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AppDevHeroSection from "@/components/services/app-development/AppDevHeroSection";
 import AppDevProcessSection from "@/components/sections/ProcessSection";
 import AppDevIndustrySection from "@/components/services/app-development/AppDevIndustrySection";
@@ -8,12 +9,14 @@ import TechnologiesSection from "@/components/sections/Technologies";
 import ServicesSection from "@/components/sections/ServicesSection";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "App Development Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "App Development Services in India",
   description:
     "PRNIT provides mobile and cross-platform app development services in India, focused on scalable architecture, quality releases, and product growth.",
-};
+  path: "/services/app-development",
+});
 
 export default function AppDevelopmentPage() {
   return (

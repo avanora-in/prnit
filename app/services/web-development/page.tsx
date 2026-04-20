@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import WebDevHeroSection from "@/components/services/web-development/WebDevHeroSection";
 import WebDevSolutionsSection from "@/components/services/web-development/WebDevSolutionsSection";
 import WebDevDesignTechSection from "@/components/services/web-development/WebDevDesignTechSection";
@@ -8,12 +9,14 @@ import TechnologiesSection from "@/components/sections/Technologies";
 import ServicesSection from "@/components/sections/ServicesSection";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "Web Development Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "Web Development Services in India",
   description:
     "PRNIT builds scalable web applications and websites in India with modern architecture, performance optimization, and reliable engineering delivery.",
-};
+  path: "/services/web-development",
+});
 
 export default function WebDevelopmentPage() {
   return (

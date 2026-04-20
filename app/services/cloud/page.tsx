@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CloudHeroSection from "@/components/services/cloud/CloudHeroSection";
 import CloudServicesSection from "@/components/services/cloud/CloudServicesSection";
 import CloudWhyChooseSection from "@/components/services/cloud/CloudWhyChooseSection";
@@ -5,12 +6,14 @@ import CloudBenefitsSection from "@/components/services/cloud/CloudBenefitsSecti
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "Cloud Consulting Services in India (AWS & GCP) | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "Cloud Consulting Services in India (AWS & GCP)",
   description:
     "PRNIT provides cloud consulting services in India for AWS and Google Cloud, covering migration, optimization, reliability, and DevOps delivery.",
-};
+  path: "/services/cloud",
+});
 
 export default function CloudPage() {
   return (

@@ -2,6 +2,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 import { banner_illustration } from "@/public/assets";
 import ButtonLink from "@/components/ui/ButtonLink";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -59,13 +60,21 @@ export default function HeroSection() {
                 scaling startups — founded in 2011, based in Jaipur, India.
               </p>
             </div>
-            <ButtonLink href="#contact" className="block w-fit">
-              Let&apos;s Talk
-            </ButtonLink>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <ButtonLink href="#contact" className="block w-fit">
+                Let&apos;s Talk
+              </ButtonLink>
+              <Link
+                href="/services"
+                className="text-sm sm:text-base font-semibold text-[#1F4FD8] hover:text-[#8B1E2D] underline-offset-4 hover:underline transition-colors"
+              >
+                View Our Services →
+              </Link>
+            </div>
           </div>
 
           <div className="col-span-1 relative flex items-center justify-center lg:justify-end" ref={heroRightSectionRef}>
-            <Image src={banner_illustration} alt="Banner Illustration" width={800} height={800} className="w-full max-w-full md:max-w-[400px] lg:max-w-[500px] h-fit lg:h-full object-cover" />
+            <Image src={banner_illustration} alt="Banner Illustration" width={800} height={800} priority={true} className="w-full max-w-full md:max-w-[400px] lg:max-w-[500px] h-fit lg:h-full object-cover" />
           </div>
         </div>
       </div>

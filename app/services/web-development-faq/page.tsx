@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import FAQHeroSection from "@/components/services/faq/FAQHeroSection";
 import FAQSection from "@/components/services/faq/FAQSection";
 import LogoSlider from "@/components/sections/LogoSlider";
@@ -6,12 +7,14 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbSchema, getFaqSchema, getServiceSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/entity";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "Web Development FAQ in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "Web Development FAQ in India",
   description:
     "Common web development questions answered by PRNIT, covering timelines, pricing, scope, and delivery process for teams in India and globally.",
-};
+  path: "/services/web-development-faq",
+});
 
 export default function WebDevelopmentFAQPage() {
   const faqItems = [

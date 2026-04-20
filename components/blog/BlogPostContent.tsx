@@ -533,7 +533,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                       {relatedPost.category} · {relatedPost.date}
                     </p>
                     <Link href={`/blog/${relatedPost.slug}`}>
-                      <h3 className="mt-1 text-lg sm:text-xl font-bold group-hover:text-[#8B1E2D] line-clamp-2">
+                      <h3 className="mt-1 text-lg sm:text-xl font-bold primary-black group-hover:text-[#8B1E2D] line-clamp-2">
                         {relatedPost.title}
                       </h3>
                     </Link>

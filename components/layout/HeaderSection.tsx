@@ -311,7 +311,7 @@ export default function HeaderSection() {
                         key={item.name}
                         href={item.href}
                         onClick={closeMobileMenu}
-                        className="block text-sm primary-black/80 transition-colors hover:text-[var(--support-blue,#1f4fd8)] py-3 min-h-[44px] flex items-center"
+                        className="block text-sm text-neutral-800 transition-colors hover:text-[var(--support-blue,#1f4fd8)] py-3 min-h-[44px] flex items-center"
                       >
                         {item.name}
                       </Link>
@@ -393,7 +393,7 @@ export default function HeaderSection() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setServicesDropdownOpen(false)}
-                      className="group flex items-center gap-2 py-1.5 lg:py-2 text-sm primary-black/80 transition-colors hover:text-[var(--support-blue,#1f4fd8)] whitespace-nowrap"
+                      className="group flex items-center gap-2 py-1.5 lg:py-2 text-sm text-neutral-800 transition-colors hover:text-[var(--support-blue,#1f4fd8)] whitespace-nowrap"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-current opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                       <span className="truncate">{item.name}</span>
@@ -427,7 +427,7 @@ export default function HeaderSection() {
                         <h4 className="font-bold primary-black text-sm group-hover:text-[var(--support-blue,#1f4fd8)] transition-colors">
                           {card.title}
                         </h4>
-                        <p className="text-xs primary-black/60 mt-0.5 lg:mt-1 line-clamp-1 lg:line-clamp-2 hidden md:block">
+                        <p className="text-xs text-neutral-600 mt-0.5 lg:mt-1 line-clamp-1 lg:line-clamp-2 hidden md:block">
                           {card.description}
                         </p>
                       </div>

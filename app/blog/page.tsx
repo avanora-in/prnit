@@ -1,14 +1,17 @@
 import { Suspense } from "react";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 import BlogPageHero from "@/components/blog/BlogPageHero";
 import BlogPageContent from "@/components/blog/BlogPageContent";
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 
-export const metadata = {
-  title: "Blog | PRNIT - Insights, Updates & Industry Trends",
+export const metadata: Metadata = pageMetadata({
+  title: "Blog",
   description:
-    "Stay ahead with the latest articles on web development, AI, cloud solutions, digital transformation, and technology trends from PRNIT.",
-};
+    "Insights on AI, cloud, app development, and digital transformation from the PRNIT team.",
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (

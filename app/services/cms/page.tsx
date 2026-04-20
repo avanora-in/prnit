@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CMSHeroSection from "@/components/services/cms/CMSHeroSection";
 import CMSSolutionsSection from "@/components/services/cms/CMSSolutionsSection";
 import CMSServicesSection from "@/components/services/cms/CMSServicesSection";
@@ -6,12 +7,14 @@ import CMSFeaturesSection from "@/components/services/cms/CMSFeaturesSection";
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "CMS & WordPress Development Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "CMS & WordPress Development Services in India",
   description:
     "PRNIT offers CMS and WordPress development services in India for secure, scalable, and easy-to-manage content platforms.",
-};
+  path: "/services/cms",
+});
 
 export default function CMSPage() {
   return (

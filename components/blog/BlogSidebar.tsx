@@ -49,7 +49,7 @@ export default function BlogSidebar({ hideSearch = false }: BlogSidebarProps) {
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-black/5 text-xs font-bold group-hover:bg-[#1F4FD8] group-hover:text-white transition-colors">
                   {i + 1}
                 </span>
-                <span className="relative text-sm font-medium line-clamp-1 transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                <span className="relative text-sm font-medium primary-black line-clamp-1 transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
@@ -72,7 +72,7 @@ export default function BlogSidebar({ hideSearch = false }: BlogSidebarProps) {
               <p className="text-xs font-bold support-blue mb-1">{comment.author}</p>
               <Link
                 href={`/blog/${comment.postSlug}`}
-                className="relative text-sm font-semibold line-clamp-1 mb-1.5 transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                className="relative text-sm font-semibold primary-black line-clamp-1 mb-1.5 transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
