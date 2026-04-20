@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import ServicesHeroSection from "@/components/services/ServicesHeroSection";
 import ServicesGridSection from "@/components/services/ServicesGridSection";
 import ServicesCTASection from "@/components/services/ServicesCTASection";
@@ -6,12 +6,14 @@ import LogoSlider from "@/components/sections/LogoSlider";
 import ServicesSection from "@/components/sections/ServicesSection";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata: Metadata = {
-  title: "Software Development Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "Software Development Services in India",
   description:
     "Explore PRNIT software development services in India including web, app, cloud, QA, design, CMS, and e-commerce delivery.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

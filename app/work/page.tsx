@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ButtonLink from "@/components/ui/ButtonLink";
 import { siteConfig } from "@/lib/seo/entity";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbSchema } from "@/lib/seo/schema";
 import CaseStudyListingSection from "@/components/work/CaseStudyListingSection";
@@ -9,22 +10,12 @@ import LogoSlider from "@/components/sections/LogoSlider";
 
 const workUrl = `${siteConfig.siteUrl}/work`;
 
-export const metadata: Metadata = {
-  title: "Case Studies | PRNIT — Our Work",
+export const metadata: Metadata = pageMetadata({
+  title: "Our Work",
   description:
-    "Real projects and outcomes across logistics, healthtech, e-commerce, travel, and more. Filter by website, mobile, or industry.",
-  alternates: {
-    canonical: workUrl,
-  },
-  openGraph: {
-    type: "website",
-    title: "Case Studies | PRNIT",
-    description:
-      "Real projects. Real results. Explore PRNIT case studies by category and industry.",
-    url: workUrl,
-    siteName: siteConfig.organizationName,
-  },
-};
+    "Explore PRNIT's case studies — real projects delivering real results across web, app, and cloud.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   const breadcrumbSchema = getBreadcrumbSchema([

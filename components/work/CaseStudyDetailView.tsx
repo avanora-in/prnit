@@ -13,6 +13,22 @@ type Props = {
   next: CaseStudy | null;
 };
 
+/** Map case study platform to relevant service landing pages for internal linking. */
+function caseStudyServiceLinks(study: CaseStudy): { href: string; label: string }[] {
+  switch (study.platformOverview) {
+    case "App":
+      return [{ href: "/services/app-development", label: "See our App Development Services →" }];
+    case "Both":
+      return [
+        { href: "/services/web-development", label: "See our Web Development Services →" },
+        { href: "/services/app-development", label: "See our App Development Services →" },
+      ];
+    case "Website":
+    default:
+      return [{ href: "/services/web-development", label: "See our Web Development Services →" }];
+  }
+}
+
 function Pill({ children }: { children: ReactNode }) {
   return (
     <span className="inline-flex items-center rounded-full border border-black/10 px-3 py-1.5 text-xs sm:text-sm font-semibold primary-black">
@@ -22,6 +38,8 @@ function Pill({ children }: { children: ReactNode }) {
 }
 
 export default function CaseStudyDetailView({ study, prev, next }: Props) {
+  const serviceLinks = caseStudyServiceLinks(study);
+
   return (
     <>
       <section
@@ -173,6 +191,18 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
                 </Link>
               ) : null}
             </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-black/10 pt-8">
+            {serviceLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm sm:text-base font-semibold text-[#1F4FD8] hover:text-[#8B1E2D] underline-offset-4 hover:underline transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

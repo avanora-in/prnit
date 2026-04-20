@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gray_background, industries_we_serve_section_bg, custom_mobile_app_development, custom_website_development, custom_ecommerce_development, cloud_devops_solutions, crm_development_services, api_development_services, custom_data_engineering, web_application_security } from "@/public/assets";
@@ -13,6 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: "app-dev",
+    serviceHref: "/services/app-development",
+    exploreLabel: "Explore App Development →",
     tag: "App Development Solution",
     title: "Custom Mobile App Development Services",
     description:
@@ -29,6 +32,8 @@ const services = [
   },
   {
     id: "web-dev",
+    serviceHref: "/services/web-development",
+    exploreLabel: "Explore Web Development →",
     tag: "Web Development Solution",
     title: "Custom Website Development Services",
     description:
@@ -45,6 +50,8 @@ const services = [
   },
   {
     id: "e-commerce-dev",
+    serviceHref: "/services/e-commerce",
+    exploreLabel: "Explore E-Commerce Development →",
     tag: "E-Commerce Development",
     title: "Custom E-Commerce Development Services",
     description:
@@ -61,6 +68,8 @@ const services = [
   },
   {
     id: "cloud-consulting",
+    serviceHref: "/services/cloud",
+    exploreLabel: "Explore Cloud Services →",
     tag: "Cloud Consulting",
     title: "Cloud & DevOps Solutions for Faster, Smarter Growth",
     description:
@@ -77,6 +86,8 @@ const services = [
   },
   {
     id: "crm-dev",
+    serviceHref: "/services/cms",
+    exploreLabel: "Explore CMS & Custom Platforms →",
     tag: "CRM Software Development",
     title: "Custom CRM Development & Implementation Services",
     description:
@@ -93,6 +104,8 @@ const services = [
   },
   {
     id: "api-dev",
+    serviceHref: "/services/web-development",
+    exploreLabel: "Explore Web & API Services →",
     tag: "API Development",
     title: "Custom API Development & Integration Services",
     description:
@@ -109,6 +122,8 @@ const services = [
   },
   {
     id: "data-engineering",
+    serviceHref: "/services/cloud",
+    exploreLabel: "Explore Cloud & Data Services →",
     tag: "Data Engineering",
     title: "Custom Data Engineering Services",
     description:
@@ -125,6 +140,8 @@ const services = [
   },
   {
     id: "cyber-security",
+    serviceHref: "/services/qa-testing",
+    exploreLabel: "Explore QA & Testing Services →",
     tag: "Cyber Security",
     title: "Web Application Security",
     description:
@@ -275,9 +292,17 @@ export default function ServicesSection() {
                         </ul>
                       </div>
 
-                      <ButtonLink href="#contact" className="block w-fit">
-                        Let&apos;s Talk
-                      </ButtonLink>
+                      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                        <ButtonLink href="#contact" className="block w-fit shrink-0">
+                          Let&apos;s Talk
+                        </ButtonLink>
+                        <Link
+                          href={service.serviceHref}
+                          className="text-sm sm:text-base font-semibold text-[#1F4FD8] hover:text-[#8B1E2D] underline-offset-4 hover:underline transition-colors w-fit"
+                        >
+                          {service.exploreLabel}
+                        </Link>
+                      </div>
                     </div>
 
                     {/* Image block - scroll-triggered reveal */}

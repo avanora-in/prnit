@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import IOSHeroSection from "@/components/services/ios/IOSHeroSection";
 import IOSCompanySection from "@/components/services/ios/IOSCompanySection";
 import IOSServicesSection from "@/components/services/ios/IOSServicesSection";
@@ -8,12 +9,14 @@ import LogoSlider from "@/components/sections/LogoSlider";
 import TechnologiesSection from "@/components/sections/Technologies";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "iOS App Development Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "iOS App Development Services in India",
   description:
     "PRNIT delivers iOS app development services in India with Swift expertise, scalable architecture, and release discipline for growing products.",
-};
+  path: "/services/ios",
+});
 
 export default function IOSPage() {
   return (

@@ -4,6 +4,11 @@
 @import "swiper/css/autoplay";
 @import "swiper/css/pagination";
 
+/*
+  Marketing UI is light-first. Without this, prefers-color-scheme: dark sets a light `--foreground`
+  on body while cards/sections stay off-white — text inherits “white-ish” and vanishes on Windows/Linux
+  (ClearType + lower contrast monitors). We keep document colors light always unless you add real dark UI.
+*/
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -11,6 +16,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -18,12 +24,15 @@ html {
   --color-foreground: var(--foreground);
   --font-sans: var(--font-poppins);
   --font-syne: 'Syne', sans-serif;
+  /* Explicit label / secondary text (WCAG-friendly on non-Retina displays) */
+  --color-heading: #1f2937;
+  --color-body: #4b5563;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import QAHeroSection from "@/components/services/qa-testing/QAHeroSection";
 import QAServicesSection from "@/components/services/qa-testing/QAServicesSection";
 import QAProcessSection from "@/components/services/qa-testing/QAProcessSection";
@@ -10,12 +11,14 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbSchema, getFaqSchema, getServiceSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/entity";
+import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 
-export const metadata = {
-  title: "QA & Software Testing Services in India | PRNIT",
+export const metadata: Metadata = servicePageMetadata({
+  title: "QA & Software Testing Services in India",
   description:
     "PRNIT offers QA and software testing services in India including manual, automation, and performance testing for reliable product releases.",
-};
+  path: "/services/qa-testing",
+});
 
 export default function QATestingPage() {
   const faqItems = [
