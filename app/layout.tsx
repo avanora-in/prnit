@@ -6,6 +6,7 @@ import ContactSection from "@/components/sections/ContactSection";
 import FooterSection from "@/components/layout/FooterSection";
 import { siteConfig } from "@/lib/seo/entity";
 import WebVitalsTracker from "@/components/analytics/WebVitalsTracker";
+import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import JsonLd from "@/components/seo/JsonLd";
 import { getOrganizationSchema, getWebSiteSchema } from "@/lib/seo/schema";
 
@@ -69,6 +70,9 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  verification: {
+    google: "M5TnQ09wS8jy5y-ktxC4YUvsR0WRhjjWAcS-dxOqJMY",
+  },
 };
 
 export default function RootLayout({
@@ -77,8 +81,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${syne.variable} antialiased`} suppressHydrationWarning>
+        <GoogleTagManager />
         <JsonLd data={getOrganizationSchema()} />
         <JsonLd data={getWebSiteSchema()} />
         <WebVitalsTracker />
