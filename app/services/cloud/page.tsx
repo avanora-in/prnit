@@ -6,7 +6,9 @@ import CloudBenefitsSection from "@/components/services/cloud/CloudBenefitsSecti
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
+import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Cloud Consulting Services in India (AWS & GCP)",
@@ -18,6 +20,7 @@ export const metadata: Metadata = servicePageMetadata({
 export default function CloudPage() {
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={serviceDetailBreadcrumb("cloud")} />
       <CloudHeroSection />
       <LogoSlider />
       <PageLead>

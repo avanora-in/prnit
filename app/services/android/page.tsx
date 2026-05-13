@@ -9,7 +9,9 @@ import LogoSlider from "@/components/sections/LogoSlider";
 import TechnologiesSection from "@/components/sections/Technologies";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
+import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Android App Development Services in India",
@@ -21,6 +23,7 @@ export const metadata: Metadata = servicePageMetadata({
 export default function AndroidPage() {
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={serviceDetailBreadcrumb("android")} />
       <AndroidHeroSection />
       <LogoSlider />
       <PageLead>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/seo/entity";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbSchema } from "@/lib/seo/schema";
+import { buildBreadcrumbSchema } from "@/lib/seo/schema";
 import CaseStudyDetailView from "@/components/work/CaseStudyDetailView";
 import {
   getAdjacentCaseStudies,
@@ -47,10 +47,10 @@ export default async function CaseStudyPage({ params }: Props) {
   const { prev, next } = getAdjacentCaseStudies(slug);
   const pageUrl = `${siteConfig.siteUrl}/work/${slug}`;
 
-  const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `${siteConfig.siteUrl}/` },
-    { name: "Case Studies", url: `${siteConfig.siteUrl}/work` },
-    { name: study.title, url: pageUrl },
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Our Work", path: "/work" },
+    { name: study.title, path: `/work/${slug}` },
   ]);
 
   const articleSchema = {

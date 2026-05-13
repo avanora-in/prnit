@@ -19,6 +19,7 @@ const serviceMenuItems = [
   { name: "Android", href: "/services/android" },
   { name: "Cloud (Google Cloud | AWS)", href: "/services/cloud" },
   { name: "QA & Testing", href: "/services/qa-testing" },
+  { name: "SolarOS", href: "/solar-os" },
   { name: "Strategy & Consulting", href: "/how-we-work" },
   { name: "Web Development FAQ", href: "/services/web-development-faq" },
 ];
@@ -62,6 +63,21 @@ const serviceCards = [
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+      </svg>
+    ),
+  },
+  {
+    title: "SolarOS",
+    description: "Solar ERP, CRM, website, stock & GST for Indian solar businesses",
+    href: "/solar-os",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        />
       </svg>
     ),
   },
@@ -179,32 +195,38 @@ export default function HeaderSection() {
             </div>
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
               {/* Desktop Navigation */}
-              <nav className="hidden items-center gap-2 sm:gap-3 md:gap-4 text-xs sm:text-sm font-semibold primary-black md:flex">
-                <Link href="/" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
+              <nav className="hidden items-center gap-3 text-sm font-semibold primary-black xl:gap-4 lg:flex lg:flex-nowrap">
+                <Link
+                  href="/"
+                  className="shrink-0 whitespace-nowrap transition-colors hover:text-[var(--support-blue,#1f4fd8)]"
+                >
                   HOME
                 </Link>
-                <Link href="/how-we-work" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
+                <Link
+                  href="/how-we-work"
+                  className="shrink-0 whitespace-nowrap transition-colors hover:text-[var(--support-blue,#1f4fd8)]"
+                >
                   HOW WE WORK
                 </Link>
-                <Link href="/about" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
+                <Link href="/about" className="shrink-0 whitespace-nowrap transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
                   ABOUT
                 </Link>
-                <Link href="/work" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
+                <Link href="/work" className="shrink-0 whitespace-nowrap transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
                   WORK
                 </Link>
                 {/* Services with dropdown */}
                 <div
-                  className="relative"
+                  className="relative shrink-0"
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
                 >
                   <button
-                    className={`flex items-center gap-1 transition-colors hover:text-[var(--support-blue,#1f4fd8)] ${servicesDropdownOpen ? "text-[var(--support-blue,#1f4fd8)]" : ""
+                    className={`flex items-center gap-1 whitespace-nowrap transition-colors hover:text-[var(--support-blue,#1f4fd8)] ${servicesDropdownOpen ? "text-[var(--support-blue,#1f4fd8)]" : ""
                       }`}
                   >
                     SERVICES
                     <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""
+                      className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""
                         }`}
                       fill="none"
                       stroke="currentColor"
@@ -214,7 +236,7 @@ export default function HeaderSection() {
                     </svg>
                   </button>
                 </div>
-                <Link href="/blog" className="transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
+                <Link href="/blog" className="shrink-0 whitespace-nowrap transition-colors hover:text-[var(--support-blue,#1f4fd8)]">
                   BLOG
                 </Link>
               </nav>
@@ -222,7 +244,7 @@ export default function HeaderSection() {
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMobileMenu}
-                className="md:hidden p-2 rounded-lg transition-colors hover:bg-[rgba(15,15,15,0.05)]"
+                className="lg:hidden p-2 rounded-lg transition-colors hover:bg-[rgba(15,15,15,0.05)]"
                 aria-label="Toggle menu"
               >
                 <svg
@@ -242,13 +264,13 @@ export default function HeaderSection() {
                 </svg>
               </button>
 
-              <ButtonLink href="#contact" className="hidden md:block text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5">Get a quote</ButtonLink>
+              <ButtonLink href="#contact" className="hidden md:block shrink-0 text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 md:px-4 md:py-2 lg:px-5 lg:py-2.5">Get a quote</ButtonLink>
             </div>
           </div>
 
           {/* Mobile Menu */}
           <nav
-            className={`md:hidden transition-all duration-300 ease-in-out ${mobileMenuOpen
+            className={`lg:hidden transition-all duration-300 ease-in-out ${mobileMenuOpen
               ? "max-h-[70vh] overflow-y-auto opacity-100 mt-4 pt-4 border-t neutral-grey-border"
               : "max-h-0 overflow-hidden opacity-0 mt-0 pt-0 border-t-0"
               }`}
@@ -366,7 +388,7 @@ export default function HeaderSection() {
 
       {/* Services Dropdown (Desktop only) */}
       <div
-        className={`fixed inset-x-0 z-40 hidden md:flex justify-center transition-all duration-300 ease-out ${servicesDropdownOpen && visible
+        className={`fixed inset-x-0 z-40 hidden lg:flex justify-center transition-all duration-300 ease-out ${servicesDropdownOpen && visible
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 -translate-y-4 pointer-events-none"
           }`}
@@ -463,7 +485,7 @@ export default function HeaderSection() {
 
       {/* Backdrop overlay when dropdown is open */}
       <div
-        className={`fixed inset-0 z-30 bg-black/10 backdrop-blur-sm transition-opacity duration-300 hidden md:block ${servicesDropdownOpen && visible
+        className={`fixed inset-0 z-30 bg-black/10 backdrop-blur-sm transition-opacity duration-300 hidden lg:block ${servicesDropdownOpen && visible
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
           }`}

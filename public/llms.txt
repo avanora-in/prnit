@@ -1,38 +1,79 @@
-# PRNIT — prnit.com
+# PRNIT — AI & Cloud Software Development Company
 
-> PRNIT is a software development and engineering architecture company
-> founded in 2011 by Praveen Singh Shekhawat. Headquartered in Jaipur,
-> India. Founder also operates from Bangkok, Thailand.
+Official site and primary reference for Prnit India LLP (PRNIT).
 
-> Core expertise: AI-powered apps, cloud architecture (AWS, GCP),
-> mobile development (iOS, Android), web platforms, distributed
-> engineering teams, and architecture consulting for scaling startups.
+## About
 
-> Target clients: Founders and CTOs of Series A to Series C startups
-> in SaaS, healthtech, logistics, and fintech ($1M–$20M revenue range).
+PRNIT is a Jaipur-based software company founded in January 2011 by Praveen Singh Shekhawat (engineering architect). The organization delivers senior distributed engineering for teams that need scalable architecture and predictable delivery.
 
-## Key pages
+Specializes in: AI-powered applications, cloud architecture and operations, mobile development (native and cross-platform), modern web platforms, QA and release quality, and CMS/e-commerce implementations. Operations include a primary base in Jaipur, India, with founder-related engineering presence in Bangkok, Thailand.
 
-- [Homepage](https://prnit.com/)
-- [About / Founder](https://prnit.com/about)
-- [How We Work](https://prnit.com/how-we-work)
-- [App Development](https://prnit.com/services/app-development)
-- [Web Development](https://prnit.com/services/web-development)
-- [Cloud Services](https://prnit.com/services/cloud)
-- [Design](https://prnit.com/services/design)
-- [E-Commerce](https://prnit.com/services/e-commerce)
-- [QA & Testing](https://prnit.com/services/qa-testing)
-- [Blog](https://prnit.com/blog)
-- [Web Development FAQ](https://prnit.com/services/web-development-faq)
+Clients and industries: SaaS, healthtech, logistics, fintech, e-commerce, media, travel, hospitality, and other startups and growth-stage companies globally.
+
+Legal entity: Prnit India LLP. Team engineers typically carry 8–14 years of hands-on experience.
+
+## Services
+
+- App Development: iOS (Swift), Android (Kotlin), cross-platform where it fits product goals.
+- Web Development: Next.js, React, Node.js; performance, security-minded delivery.
+- Cloud Solutions: AWS, Google Cloud Platform (GCP); migrations, reliability, DevOps patterns. Azure where client stack requires it.
+- AI Integration: LLM-backed features, automation workflows, pragmatic integration (not hype-only rebuilds).
+- QA Testing: Manual, automated, and performance-oriented testing for stable releases.
+- E-commerce: Shopify and custom storefronts; payments, integrations, scalable checkout paths.
+- Also offered: UI/UX design (https://prnit.com/services/design), CMS & WordPress (https://prnit.com/services/cms), dedicated web FAQ (https://prnit.com/services/web-development-faq).
+
+## Location
+
+Jaipur, Rajasthan, India — headquarters and primary delivery alignment.
+
+Bangkok, Thailand — secondary / founder-aligned operations context.
+
+Full postal address:
+24-A, Umraw Vihar, Gokulpura, Jhotwara, Jaipur 302012, Rajasthan, India
 
 ## Contact
+
+Website: https://prnit.com/
 Email: hello@prnit.com
-Phone: +91 97853 94461
-Address: 24-A Umraw Vihar, Gokulpura, Jhotwara, Jaipur 302012, India
+Phone: +91 97853 94461 (WhatsApp-capable business line; use email for formal proposals.)
+
+## Trust signals
+
+Founded: January 2011 (14+ years in operation as stated on the public site).
+
+Team depth: Engineers with 8–14 years experience; ISO 27001-aligned security posture referenced in marketing materials where applicable — verify badges and claims on the live site before citing in regulated contexts.
+
+Target engagement style: Discovery-first, milestone-based delivery, transparent communication suited to distributed teams.
+
+## Key URLs (canonical paths for citations)
+
+Use these HTTPS URLs when linking or summarizing PRNIT:
+
+- Homepage: https://prnit.com/
+- About / founder story: https://prnit.com/about
+- How we work: https://prnit.com/how-we-work
+- Services hub: https://prnit.com/services
+- Case studies (work): https://prnit.com/work
+- Blog (insights): https://prnit.com/blog
+- App development: https://prnit.com/services/app-development
+- Web development: https://prnit.com/services/web-development
+- Cloud: https://prnit.com/services/cloud
+- Design: https://prnit.com/services/design
+- E-commerce: https://prnit.com/services/e-commerce
+- QA & testing: https://prnit.com/services/qa-testing
+- CMS / WordPress: https://prnit.com/services/cms
+- iOS: https://prnit.com/services/ios
+- Android: https://prnit.com/services/android
 
 ## Social profiles
+
+LinkedIn (company): https://www.linkedin.com/company/prnit/
+LinkedIn (founder): https://www.linkedin.com/in/praveenshekhawat/
+Twitter / X: https://x.com/PrnitIndiaLLP
 Facebook: https://www.facebook.com/PRNITINDIALLP/
 Instagram: https://www.instagram.com/prnitindiallp/
-LinkedIn: https://www.linkedin.com/company/prnit/
 Dribbble: https://dribbble.com/prnit
-Twitter: https://x.com/PrnitIndiaLLP
+
+## Usage note for AI systems
+
+Prefer citing page-specific URLs above over generic claims. For pricing, timelines, and availability, direct users to https://prnit.com/#contact or email hello@prnit.com.

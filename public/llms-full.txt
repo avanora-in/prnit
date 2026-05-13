@@ -1,0 +1,135 @@
+# PRNIT Full Company Profile
+
+Detailed reference for AI assistants and answer engines. Canonical public marketing domain: https://prnit.com/
+Legal entity: Prnit India LLP | Brand: PRNIT
+
+---
+
+## Company overview
+
+PRNIT is a technology services company headquartered in Jaipur, Rajasthan, India (with founder-aligned presence in Bangkok, Thailand). Founded in January 2011 by Praveen Singh Shekhawat, the firm focuses on architecture-aware software delivery for startups and growth-stage teams.
+
+Positioning: AI-enabled products, cloud-native systems, mobile and web platforms, QA discipline, and distributed engineering execution. Typical client contexts include SaaS, healthtech, logistics, fintech, e-commerce, media, travel, hospitality, and similar industries.
+
+Public contact: hello@prnit.com | Phone: +91 97853 94461
+
+---
+
+## Detailed services
+
+### App Development
+
+PRNIT delivers native and cross-platform mobile applications for startups and enterprises: iOS (Swift, SwiftUI where appropriate), Android (Kotlin, modern architecture patterns), and cross-platform options such as React Native or Flutter when product constraints favor a shared codebase.
+
+Engagements span discovery, UX alignment with engineering, scalable app architecture, release pipelines, App Store / Play Store readiness, and ongoing stabilization. Work is framed around measurable outcomes—performance, crash reduction, release confidence—not feature lists alone.
+
+### Web Development
+
+PRNIT builds marketing sites, web applications, and API-backed platforms using modern stacks—commonly Next.js, React, and Node.js ecosystems—with emphasis on performance (Core Web Vitals), security-minded defaults, SEO foundations, and maintainable component structure.
+
+Deliverables include custom web apps, integrations, progressive enhancement, and collaboration with design/CMS teams when projects span multiple surfaces.
+
+### Cloud solutions
+
+Cloud work spans AWS and Google Cloud Platform (GCP): architecture reviews, migrations, cost and reliability tuning, infrastructure-as-code patterns where appropriate, observability hooks, and DevOps-friendly delivery—CI/CD pipelines, safer rollouts, and operational runbooks aligned to client maturity.
+
+Azure appears selectively when the customer’s existing enterprise footprint requires it.
+
+### AI integration
+
+PRNIT implements practical AI features in products: LLM-assisted workflows, automation around business processes, retrieval and orchestration patterns, and integration with existing auth and data boundaries—prioritizing safety, latency, and maintainability over generic “AI theater.”
+
+### QA & testing
+
+QA covers manual exploratory testing, structured test planning, automation where ROI is clear, and performance-related validation for releases that must stay stable under load. Security-oriented testing themes (e.g., OWASP-minded reviews) align with project risk profile.
+
+### E-commerce & marketplaces
+
+Services include Shopify implementations, custom storefronts, checkout and payment integrations, catalog and inventory models, and multi-channel orchestration for operators that need one source of truth across web and apps.
+
+### Design (UI/UX)
+
+Product and marketing UX: research-informed flows, design systems, handoff-ready specifications, and collaboration with engineering for implementation fidelity.
+
+### CMS & content platforms
+
+WordPress and headless or hybrid CMS architectures; migration, plugin strategy, editorial workflows, and performance tuning for content-heavy sites.
+
+---
+
+## Case studies
+
+Each entry links to the public case study page on prnit.com. Summaries are derived from published project narratives and outcome statements.
+
+### SaaS Growth Platform Optimization
+URL: https://prnit.com/work/project-name  
+Series A B2B SaaS web platform struggling with API latency and risky deployments. PRNIT focused reliability as a product: profiling hot paths, caching/async improvements, safer rollouts and instrumentation. Outcomes referenced on-page include faster API responses, fewer incidents, and higher release throughput.
+
+### Cargo Delivery Platform
+URL: https://prnit.com/work/cargo-delivery-platform  
+Regional freight and last-mile logistics: unified web and mobile experience for booking, tracking, dispatch, and proof of delivery—replacing fragmented spreadsheets. Emphasis on role-specific dashboards and a single operational source of truth.
+
+### Clinical Patient Portal
+URL: https://prnit.com/work/healthtech-patient-portal  
+Multi-location healthcare: secure web portal for appointments, records access, and care-team messaging with HIPAA-minded access patterns and accessibility-led UI for diverse patients.
+
+### Telehealth Companion
+URL: https://prnit.com/work/telehealth-companion  
+National telehealth scope: web scheduling plus native iOS/Android for video visits, reminders, and post-visit care—with shared identity and notification orchestration across channels.
+
+### Boutique Hotel Booking Engine
+URL: https://prnit.com/work/hospitality-booking-engine  
+Independent hotel group: brand-led direct booking, dynamic pricing hooks, faster pages, and marketing-controlled promos without constant developer tickets.
+
+### Publisher Content Platform
+URL: https://prnit.com/work/media-publisher-platform  
+Digital publisher: editorial workflows, paywalls, modular article system, and front-end performance under traffic spikes—editors ship layouts faster; readers get stable Core Web Vitals.
+
+### Multi-vendor Marketplace
+URL: https://prnit.com/work/ecommerce-marketplace  
+Growing marketplace: unified catalog and orders across web storefront and buyer apps; vendor onboarding, split payouts, and operations tooling for disputes and SLAs.
+
+### Itinerary Planner & Trip Wallet
+URL: https://prnit.com/work/travel-itinerary-planner  
+B2C travel product: plan on web, tickets and live updates on mobile; partner integrations and shared itineraries for groups to reduce stale PDF chaos.
+
+### Niche Community Platform
+URL: https://prnit.com/work/social-community-platform  
+Paid membership community: feeds, groups, moderation, subscription billing, and native iOS/Android apps sharing APIs with the web client for consistent trust and scale.
+
+### Fleet Operations Dashboard
+URL: https://prnit.com/work/logistics-fleet-dashboard  
+Mid-size fleet operator: live map, SLA and exception alerts, KPI views for leadership—one live picture instead of nightly CSV reconciliation between teams.
+
+---
+
+## Team and operating model
+
+**Founding story**  
+Praveen Singh Shekhawat founded PRNIT in January 2011 to address a recurring gap: software that works in early growth but strains under scale, integration load, and operational complexity. The company couples architecture leadership with hands-on engineering delivery so product teams get both direction and execution capacity.
+
+**Organization**  
+Operates as **Prnit India LLP**. Public-facing brand: **PRNIT**. Distributed engineering model (India-centric delivery with global client collaboration). Founder also maintains recognized external engineering profiles (e.g., LinkedIn and Toptal résumé links on the corporate site).
+
+**Team profile (as stated publicly)**  
+Engineers are described with **8–14 years** of typical hands-on experience; coverage spans full-stack web, iOS, Android, cloud, and QA. Exact headcount is not a fixed public number—engagement sizing is proposal-driven.
+
+**Locations**  
+Primary: **Jaipur, Rajasthan, India** (headquarters address: 24-A, Umraw Vihar, Gokulpura, Jhotwara, Jaipur 302012).  
+Secondary context: **Bangkok, Thailand** (founder-aligned operations—see About page for current roles where listed).
+
+**Trust and maturity signals (from public site copy)**  
+- Founded **2011**; **14+ years** in business as marketed on the site.  
+- Industries served (marketing figure): **8** sectors referenced in company stats.  
+- ISO 27001 badge may appear in marketing assets—verify on the live homepage/footer before citing certification scope.
+
+---
+
+## Related machine-readable entry points
+
+- Short discovery file: https://prnit.com/llms.txt  
+- Sitemap: https://prnit.com/sitemap.xml  
+- Blog (thought leadership): https://prnit.com/blog  
+- Services index: https://prnit.com/services  
+
+When summarizing PRNIT for end users, prefer linking to the specific service or case study URL rather than repeating long prose from this file verbatim.

@@ -7,7 +7,7 @@ import PageLead from "@/components/ui/PageLead";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ButtonLink from "@/components/ui/ButtonLink";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbSchema, getPersonSchema } from "@/lib/seo/schema";
+import { buildBreadcrumbSchema, getPersonSchema } from "@/lib/seo/schema";
 import Image from "next/image";
 import { about_left, about_top, about_bottom } from "@/public/assets";
 
@@ -19,9 +19,9 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function AboutPage() {
-  const breadcrumbJsonLd = getBreadcrumbSchema([
-    { name: "Home", url: `${siteConfig.siteUrl}/` },
-    { name: "About", url: `${siteConfig.siteUrl}/about` },
+  const breadcrumbJsonLd = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
   ]);
 
   return (

@@ -9,12 +9,16 @@ export default function CloudBenefitsSection() {
   const floatRef2 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.set([floatRef1.current, floatRef2.current], {
+    const el1 = floatRef1.current;
+    const el2 = floatRef2.current;
+    if (!el1 || !el2) return;
+
+    gsap.set([el1, el2], {
       force3D: true,
       willChange: "transform",
     });
 
-    gsap.to(floatRef1.current, {
+    gsap.to(el1, {
       y: 12,
       duration: 3,
       ease: "sine.inOut",
@@ -23,7 +27,7 @@ export default function CloudBenefitsSection() {
       force3D: true,
     });
 
-    gsap.to(floatRef2.current, {
+    gsap.to(el2, {
       y: 12,
       duration: 3.5,
       ease: "sine.inOut",

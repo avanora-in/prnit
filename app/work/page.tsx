@@ -4,7 +4,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import { siteConfig } from "@/lib/seo/entity";
 import { pageMetadata } from "@/lib/seo/page-metadata";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbSchema } from "@/lib/seo/schema";
+import { buildBreadcrumbSchema } from "@/lib/seo/schema";
 import CaseStudyListingSection from "@/components/work/CaseStudyListingSection";
 import LogoSlider from "@/components/sections/LogoSlider";
 
@@ -18,9 +18,9 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function WorkPage() {
-  const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `${siteConfig.siteUrl}/` },
-    { name: "Case Studies", url: workUrl },
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Our Work", path: "/work" },
   ]);
 
   const collectionSchema = {

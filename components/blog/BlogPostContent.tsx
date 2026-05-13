@@ -6,6 +6,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import ButtonLink from "@/components/ui/ButtonLink";
 import { BlogPost } from "@/components/blog/blog-data";
+import { getLongFormArticle } from "@/lib/blog/local-seo-articles";
 
 // Share icons
 const TwitterIcon = () => (
@@ -47,9 +48,12 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
+  const longForm = getLongFormArticle(post.slug);
   const isSeriesAPost = post.slug === "why-your-saas-is-slowing-down-at-series-a";
 
-  const introParagraphs = isSeriesAPost
+  const introParagraphs = longForm?.intro
+    ? longForm.intro
+    : isSeriesAPost
     ? [
       "If your SaaS feels slower after Series A, you are not imagining it. Growth changes system behavior faster than most teams expect. More customers, more integrations, more internal workflows, and more team members all introduce friction. What worked for your first thousand users often fails at your next ten thousand. Latency rises, incidents increase, and release confidence drops. The issue is rarely one bug. It is usually architecture debt meeting real business scale.",
       "Series A introduces a new operating model. You are no longer building only for product-market fit. You are building for repeatable growth. That means your platform must absorb changing demand, new customer segments, and a faster roadmap without breaking core experience. Teams that move quickly at this stage usually do three things well: they simplify service boundaries, they protect critical user journeys, and they make reliability part of product planning instead of a late-stage cleanup.",
@@ -60,7 +64,9 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
       "In today's rapidly evolving digital landscape, staying ahead of the curve is more important than ever. Whether you're a startup looking to make your mark or an established enterprise seeking to modernize, understanding the latest trends and best practices can make all the difference.",
     ];
 
-  const keyPointsParagraphs = isSeriesAPost
+  const keyPointsParagraphs = longForm?.keyPoints
+    ? longForm.keyPoints
+    : isSeriesAPost
     ? [
       "First, fix observability before adding features. If your team cannot quickly answer why latency spiked or where failures cluster, you will always react too late. Instrument key endpoints, queue consumers, and database calls around business flows such as onboarding, billing, and search. Define SLOs for those flows and track error budgets weekly. This turns reliability from opinion into measurable execution.",
       "Second, focus on data and dependency hotspots. Most Series A slowdowns come from chatty services, unbounded queries, and synchronous dependencies in request paths. Audit your top customer journeys and remove unnecessary network calls. Introduce caching where access patterns are stable. Move non-critical work to asynchronous pipelines. Add index strategy and query guards to protect write-heavy and read-heavy tables. Small, targeted changes here often cut p95 latency dramatically without a platform rewrite.",
@@ -72,7 +78,9 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     ];
 
-  const conclusionParagraphs = isSeriesAPost
+  const conclusionParagraphs = longForm?.conclusion
+    ? longForm.conclusion
+    : isSeriesAPost
     ? [
       "Series A does not slow SaaS companies by default. Unmanaged complexity does. The teams that keep momentum are the ones that treat architecture as a growth system: observable, measurable, and intentionally improved in small, high-value steps.",
       "If your product is under strain, start with a focused architecture reset: define critical journeys, remove bottlenecks, and establish reliability operating practices. This creates room for faster product execution while improving customer experience. PRNIT helps SaaS teams make this transition with practical engineering leadership, not unnecessary rewrites.",
@@ -82,11 +90,15 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
       "Ready to transform your digital presence? Let's discuss how we can help bring your vision to life with cutting-edge technology and thoughtful design.",
     ];
 
-  const featureList = isSeriesAPost
+  const featureList = longForm?.featureList
+    ? longForm.featureList
+    : isSeriesAPost
     ? ["SLOs for critical user journeys", "Async processing for heavy workflows", "Database and query optimization", "Safer releases with feature flags"]
     : ["User Experience Focus", "Performance Optimization", "Scalable Architecture", "Security First"];
 
-  const quoteText = isSeriesAPost
+  const quoteText = longForm?.quote
+    ? longForm.quote
+    : isSeriesAPost
     ? "\"At Series A, speed without architecture discipline becomes fragility. The right architecture focus helps you move faster and break less.\""
     : "\"The best way to predict the future is to create it. Digital transformation isn't just about technology-it's about reimagining how your business operates and delivers value.\"";
 
@@ -189,7 +201,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span>5 min read</span>
+                <span>{longForm ? `${longForm.readTimeMinutes} min read` : "5 min read"}</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-white/40" />
               <div className="flex items-center gap-2">
