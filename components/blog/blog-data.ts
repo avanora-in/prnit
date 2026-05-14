@@ -21,6 +21,50 @@ export type RecentComment = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "15",
+    slug: "software-development-company-in-jaipur",
+    title: "How to Choose a Software Development Company in Jaipur (2026 Guide)",
+    excerpt:
+      "Evaluate Jaipur software partners with a practical checklist: architecture proof, QA integration, CI/CD maturity, IP clarity, and alignment with your sector—beyond hourly rates alone.",
+    image: blog_image_2,
+    category: "Jaipur · Software",
+    tags: ["Jaipur", "Software Development", "Outsourcing", "Architecture"],
+    date: "APR, 2026",
+  },
+  {
+    id: "14",
+    slug: "app-development-jaipur-guide",
+    title: "App Development in Jaipur: A Founder’s Playbook for Mobile Success",
+    excerpt:
+      "Native vs cross-platform trade-offs, store readiness, offline-first design, and QA discipline—what to demand from app development Jaipur teams building iOS and Android products.",
+    image: blog_image_3,
+    category: "Jaipur · Mobile",
+    tags: ["App Development", "Jaipur", "iOS", "Android"],
+    date: "APR, 2026",
+  },
+  {
+    id: "13",
+    slug: "ai-development-company-india-guide",
+    title: "Choosing an AI Development Company in India: Due Diligence Checklist",
+    excerpt:
+      "From evaluation harnesses and governance to inference economics—how to vet an AI development company India buyers can trust for LLM apps, automation, and production ML.",
+    image: blog_image_1,
+    category: "India · AI",
+    tags: ["AI", "India", "LLM", "Governance"],
+    date: "APR, 2026",
+  },
+  {
+    id: "12",
+    slug: "cloud-solutions-jaipur-businesses",
+    title: "Cloud Solutions in Jaipur: Reliable AWS & GCP Operations for Businesses",
+    excerpt:
+      "Migration waves, observability, FinOps, and security baselines—what mature cloud solutions Jaipur engagements include before you lift-and-shift critical workloads.",
+    image: blog_image_2,
+    category: "Jaipur · Cloud",
+    tags: ["Cloud", "Jaipur", "AWS", "GCP"],
+    date: "APR, 2026",
+  },
+  {
     id: "11",
     slug: "why-your-saas-is-slowing-down-at-series-a",
     title: "Why your SaaS is slowing down at Series A",

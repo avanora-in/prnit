@@ -5,6 +5,8 @@ import ProcessSection from "@/components/how-we-work/ProcessSection";
 import IndustryCoverageSection from "@/components/how-we-work/IndustryCoverageSection";
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = pageMetadata({
   title: "How We Work",
@@ -14,8 +16,14 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function HowWeWorkPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "How We Work", path: "/how-we-work" },
+  ]);
+
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={breadcrumbSchema} />
       <HowWeWorkHeroSection />
       <LogoSlider />
       <PageLead>

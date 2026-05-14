@@ -8,6 +8,8 @@ import CustomAiSection from "@/components/home/CustomAiSection";
 import BlogSection from "@/components/home/BlogSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import { siteConfig } from "@/lib/seo/entity";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/seo/schema";
 
 const homeUrl = `${siteConfig.siteUrl}/`;
 const homeTitle = "PRNIT | AI & Cloud Software Development Company in Jaipur, India";
@@ -63,8 +65,11 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }]);
+
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={breadcrumbSchema} />
       <HeroSection />
       <LogoSlider />
       <AboutSection />

@@ -8,7 +8,12 @@ import { siteConfig } from "@/lib/seo/entity";
 import WebVitalsTracker from "@/components/analytics/WebVitalsTracker";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import JsonLd from "@/components/seo/JsonLd";
-import { getOrganizationSchema, getWebSiteSchema } from "@/lib/seo/schema";
+import {
+  getLocalBusinessSchema,
+  getOrganizationSchema,
+  getSoftwareApplicationSchema,
+  getWebSiteSchema,
+} from "@/lib/seo/schema";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -86,8 +91,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${syne.variable} antialiased`} suppressHydrationWarning>
         <GoogleTagManager />
-        <JsonLd data={getOrganizationSchema()} />
-        <JsonLd data={getWebSiteSchema()} />
+        <JsonLd
+          data={[
+            getOrganizationSchema(),
+            getWebSiteSchema(),
+            getLocalBusinessSchema(),
+            getSoftwareApplicationSchema(),
+          ]}
+        />
         <WebVitalsTracker />
         <HeaderSection />
         {children}

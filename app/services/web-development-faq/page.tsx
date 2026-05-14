@@ -5,9 +5,10 @@ import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbSchema, getFaqSchema, getServiceSchema } from "@/lib/seo/schema";
+import { getFaqSchema, getServiceSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/entity";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
+import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Web Development FAQ in India",
@@ -35,15 +36,15 @@ export default function WebDevelopmentFAQPage() {
     url: `${siteConfig.siteUrl}/services/web-development-faq`,
   });
 
-  const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `${siteConfig.siteUrl}/` },
-    { name: "Services", url: `${siteConfig.siteUrl}/services` },
-    { name: "Web Development FAQ", url: `${siteConfig.siteUrl}/services/web-development-faq` },
-  ]);
-
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={[serviceSchema, breadcrumbSchema, getFaqSchema(faqItems)]} />
+      <JsonLd
+        data={[
+          serviceSchema,
+          serviceDetailBreadcrumb("web-development-faq"),
+          getFaqSchema(faqItems),
+        ]}
+      />
       <FAQHeroSection />
       <LogoSlider />
       <PageLead>

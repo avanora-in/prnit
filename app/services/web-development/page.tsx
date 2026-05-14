@@ -9,7 +9,9 @@ import TechnologiesSection from "@/components/sections/Technologies";
 import ServicesSection from "@/components/sections/ServicesSection";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
+import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Web Development Services in India",
@@ -21,6 +23,7 @@ export const metadata: Metadata = servicePageMetadata({
 export default function WebDevelopmentPage() {
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={serviceDetailBreadcrumb("web-development")} />
       <WebDevHeroSection />
       <LogoSlider />
       <PageLead>

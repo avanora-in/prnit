@@ -7,6 +7,8 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Software Development Services in India",
@@ -16,8 +18,14 @@ export const metadata: Metadata = servicePageMetadata({
 });
 
 export default function ServicesPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ]);
+
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={breadcrumbSchema} />
       <ServicesHeroSection />
       <LogoSlider />
       <PageLead>
@@ -26,6 +34,7 @@ export default function ServicesPage() {
         Engagements focus on performance, predictable timelines, and architecture that supports
         business growth.
       </PageLead>
+      <ServicesGridSection />
       <ServiceSeoSection
         h1="Software Development Services in India"
         explanation="PRNIT provides software development services in India for startups and enterprises that need scalable architecture and reliable execution across web, mobile, cloud, QA, and design."
@@ -33,6 +42,7 @@ export default function ServicesPage() {
           { href: "/services/web-development", label: "Web Development" },
           { href: "/services/app-development", label: "App Development" },
           { href: "/services/cloud", label: "Cloud Services" },
+          { href: "/solar-os", label: "SolarOS" },
         ]}
         faqs={[
           {

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { blogPosts } from "@/components/blog/blog-data";
 import { siteConfig } from "@/lib/seo/entity";
 import ButtonLink from "@/components/ui/ButtonLink";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/seo/schema";
 
 type Props = {
   searchParams: Promise<{ q?: string | string[] }>;
@@ -22,6 +24,11 @@ export const metadata: Metadata = {
 };
 
 export default async function SearchPage({ searchParams }: Props) {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Search", path: "/search" },
+  ]);
+
   const sp = await searchParams;
   const q = normalizeQuery(sp.q);
   const qLower = q.toLowerCase();
@@ -36,6 +43,7 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <main className="deep-navy scroll-smooth min-h-[60vh]">
+      <JsonLd data={breadcrumbSchema} />
       <section className="secondary-background rounded-b-[24px] sm:rounded-b-[32px] md:rounded-b-[48px]">
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8 py-16 md:py-20 lg:py-24">
           <h1 className="text-3xl sm:text-4xl font-bold primary-black">Search</h1>

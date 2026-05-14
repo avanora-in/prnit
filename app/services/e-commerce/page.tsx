@@ -6,7 +6,9 @@ import EcommerceFeaturesSection from "@/components/services/e-commerce/Ecommerce
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
+import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "E-Commerce Development Services in India",
@@ -18,6 +20,7 @@ export const metadata: Metadata = servicePageMetadata({
 export default function EcommercePage() {
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={serviceDetailBreadcrumb("e-commerce")} />
       <EcommerceHeroSection />
       <LogoSlider />
       <PageLead>

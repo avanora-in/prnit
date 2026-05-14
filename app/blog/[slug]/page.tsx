@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { blogPosts } from "@/components/blog/blog-data";
 import BlogPostContent from "@/components/blog/BlogPostContent";
 import { siteConfig } from "@/lib/seo/entity";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildBreadcrumbSchema } from "@/lib/seo/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -41,6 +43,12 @@ export default async function BlogPostPage({ params }: Props) {
     relatedPosts.push(...otherPosts);
   }
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: post.title, path: `/blog/${post.slug}` },
+  ]);
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -61,10 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
+      <JsonLd data={[breadcrumbSchema, articleJsonLd]} />
       <BlogPostContent post={post} relatedPosts={relatedPosts} />
     </>
   );

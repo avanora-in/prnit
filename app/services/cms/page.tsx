@@ -7,7 +7,9 @@ import CMSFeaturesSection from "@/components/services/cms/CMSFeaturesSection";
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
+import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
+import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "CMS & WordPress Development Services in India",
@@ -19,6 +21,7 @@ export const metadata: Metadata = servicePageMetadata({
 export default function CMSPage() {
   return (
     <main className="deep-navy scroll-smooth">
+      <JsonLd data={serviceDetailBreadcrumb("cms")} />
       <CMSHeroSection />
       <LogoSlider />
       <PageLead>

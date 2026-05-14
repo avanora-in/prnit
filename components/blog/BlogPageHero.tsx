@@ -76,7 +76,10 @@ export default function BlogPageHero() {
     }, []);
 
     useEffect(() => {
-        gsap.fromTo(heroLeftSectionRef.current, {
+        const el = heroLeftSectionRef.current;
+        if (!el) return;
+
+        gsap.fromTo(el, {
             opacity: 0,
             x: "-100%",
             duration: 0.5,
@@ -90,7 +93,10 @@ export default function BlogPageHero() {
     }, []);
 
     useEffect(() => {
-        gsap.fromTo(heroRightSectionRef.current, {
+        const el = heroRightSectionRef.current;
+        if (!el) return;
+
+        gsap.fromTo(el, {
             opacity: 0,
             x: "100%",
             duration: 0.5,

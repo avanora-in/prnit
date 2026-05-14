@@ -117,6 +117,23 @@ const services = [
     ),
   },
   {
+    title: "SolarOS",
+    description:
+      "Run your solar business from one platform: website, CRM, quotations, inventory, GST billing, analytics, and AI SEO — built for Indian dealers, EPCs, and installers.",
+    href: "/solar-os",
+    features: ["Website & AI SEO", "CRM & Quotations", "Stock & GST", "Analytics & Reports"],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+    ),
+  },
+  {
     title: "Strategy & Consulting",
     description:
       "Get expert guidance on your digital transformation journey. We help businesses define strategies, optimize processes, and achieve their technology goals.",

@@ -80,12 +80,17 @@ export default function EcommerceFeaturesSection() {
   const floatRef3 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.set([floatRef1.current, floatRef2.current, floatRef3.current], {
+    const el1 = floatRef1.current;
+    const el2 = floatRef2.current;
+    const el3 = floatRef3.current;
+    if (!el1 || !el2 || !el3) return;
+
+    gsap.set([el1, el2, el3], {
       force3D: true,
       willChange: "transform",
     });
 
-    gsap.to(floatRef1.current, {
+    gsap.to(el1, {
       y: 15,
       duration: 2.5,
       ease: "sine.inOut",
@@ -94,7 +99,7 @@ export default function EcommerceFeaturesSection() {
       force3D: true,
     });
 
-    gsap.to(floatRef2.current, {
+    gsap.to(el2, {
       y: 12,
       duration: 3,
       ease: "sine.inOut",
@@ -104,7 +109,7 @@ export default function EcommerceFeaturesSection() {
       delay: 0.3,
     });
 
-    gsap.to(floatRef3.current, {
+    gsap.to(el3, {
       y: 10,
       duration: 2.8,
       ease: "sine.inOut",

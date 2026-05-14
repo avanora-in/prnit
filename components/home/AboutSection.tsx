@@ -11,7 +11,12 @@ export default function AboutSection() {
   const aboutTopRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    gsap.to([aboutLeftRef.current, aboutTopRef.current], {
+    const targets = [aboutLeftRef.current, aboutTopRef.current].filter(
+      (node): node is HTMLImageElement => node != null
+    );
+    if (targets.length === 0) return;
+
+    gsap.to(targets, {
       y: 20,
       duration: 2,
       ease: "power1.inOut",
