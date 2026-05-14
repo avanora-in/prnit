@@ -158,7 +158,7 @@ export default function ProcessSection() {
                   </h3>
 
                   {/* Subtitle */}
-                  <p className={`text-sm font-bold mt-1 sm:mt-2 transition-colors duration-300 syne-font ${isHovered ? "text-white/80" : "red-text"
+                  <p className={`text-sm font-semibold mt-1 sm:mt-2 transition-colors duration-300 ${isHovered ? "text-white/80" : "red-text"
                     }`}>
                     {step.subtitle}
                   </p>

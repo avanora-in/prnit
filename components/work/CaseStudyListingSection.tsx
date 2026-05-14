@@ -73,7 +73,7 @@ function FilterDropdown<T extends string>({
     <div ref={rootRef} className="relative w-full">
       <p
         id={`${btnId}-label`}
-        className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black/50 syne-font"
+        className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black/50"
       >
         <span className={`h-px w-6 ${accentBar} rounded-full`} aria-hidden />
         {label}
@@ -127,7 +127,7 @@ function FilterDropdown<T extends string>({
                   ) : (
                     <span className="h-5 w-5 shrink-0 rounded-full border border-black/15" aria-hidden />
                   )}
-                  <span className="truncate syne-font">{opt}</span>
+                  <span className="truncate">{opt}</span>
                 </button>
               </li>
             );
@@ -156,9 +156,9 @@ export default function CaseStudyListingSection() {
       <div className="mx-auto max-w-[1320px] px-4 py-10 sm:px-5 sm:py-12 md:px-6 md:py-16">
         <div className="relative rounded-3xl border border-black/10 shadow-sm p-6 sm:p-8">
           <div className="relative">
-            <p className="syne-font text-lg font-black primary-black sm:text-xl">
-              Filter <span className="red-text">projects</span>
-            </p>
+            <h3 className="font-black transition-colors duration-300 text-xl sm:text-2xl md:text-3xl">
+              Filter <span className="red-text">Projects</span>
+            </h3>
             <p className="mt-1 max-w-xl text-sm text-black/60">
               Pick a delivery type and industry — cards update instantly.
             </p>
@@ -213,7 +213,7 @@ export default function CaseStudyListingSection() {
                       <div className="flex h-full flex-col">
                         <div className="mb-4 flex items-start justify-between sm:mb-5 md:mb-6">
                           <span
-                            className={`mt-1 text-sm font-bold transition-colors duration-300 sm:mt-2 syne-font ${isHovered ? "text-white/80" : "red-text"
+                            className={`mt-1 text-sm font-bold transition-colors duration-300 sm:mt-2 ${isHovered ? "text-white/80" : "red-text"
                               }`}
                           >
                             {item.industry}
