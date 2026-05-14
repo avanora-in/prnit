@@ -27,7 +27,7 @@ export default function ServiceSeoSection({
     <section className="secondary-background primary-black">
       <div className="mx-auto max-w-[1320px] px-4 py-10 sm:px-5 sm:py-12 md:px-6 md:py-14 space-y-6">
         <div className="space-y-3">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black syne-font">{h1}</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black">{h1}</h1>
           <p className="max-w-4xl text-sm sm:text-base md:text-lg leading-relaxed">
             {explanation}
           </p>

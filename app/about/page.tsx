@@ -159,27 +159,27 @@ export default function AboutPage() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             <article className="rounded-2xl border border-white/20 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.18em] text-white/70">Founded</p>
-              <p className="mt-2 text-2xl sm:text-3xl font-black syne-font">2011</p>
+              <p className="mt-2 text-2xl sm:text-3xl font-black">2011</p>
             </article>
             <article className="rounded-2xl border border-white/20 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.18em] text-white/70">Years of Operation</p>
-              <p className="mt-2 text-2xl sm:text-3xl font-black syne-font">{siteConfig.yearsInBusiness}</p>
+              <p className="mt-2 text-2xl sm:text-3xl font-black">{siteConfig.yearsInBusiness}</p>
             </article>
             <article className="rounded-2xl border border-white/20 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.18em] text-white/70">Projects Delivered</p>
-              <p className="mt-2 text-xl sm:text-2xl font-black syne-font">
+              <p className="mt-2 text-xl sm:text-2xl font-black">
                 {siteConfig.projectsCount}
               </p>
             </article>
             <article className="rounded-2xl border border-white/20 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.18em] text-white/70">Industries Served</p>
-              <p className="mt-2 text-2xl sm:text-3xl font-black syne-font">
+              <p className="mt-2 text-2xl sm:text-3xl font-black">
                 {siteConfig.industriesCount}
               </p>
             </article>
             <article className="rounded-2xl border border-white/20 bg-white/5 p-5">
               <p className="text-xs uppercase tracking-[0.18em] text-white/70">Time Saved</p>
-              <p className="mt-2 text-2xl sm:text-3xl font-black syne-font">
+              <p className="mt-2 text-2xl sm:text-3xl font-black">
                 {siteConfig.weeklyTimeSaved}
               </p>
             </article>

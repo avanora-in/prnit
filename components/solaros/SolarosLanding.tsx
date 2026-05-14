@@ -269,7 +269,7 @@ function SectionHeading({
       ) : null}
       <h2
         id={id}
-        className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black syne-font leading-tight"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-tight"
       >
         {title}
       </h2>
@@ -425,7 +425,7 @@ export default function SolarosLanding() {
                 key={m.title}
                 className="rounded-2xl border border-black/10 bg-[#FAFAF7] p-5 sm:p-6"
               >
-                <h3 className="text-lg font-bold syne-font mb-2 support-blue-text">{m.title}</h3>
+                <h3 className="text-lg font-bold mb-2 support-blue-text">{m.title}</h3>
                 <p className="text-sm sm:text-base text-[var(--color-body,#4b5563)] leading-relaxed">{m.body}</p>
               </article>
             ))}
@@ -464,7 +464,7 @@ export default function SolarosLanding() {
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div className="space-y-4 lg:order-2">
-              <h2 id="solaros-crm" className="text-2xl sm:text-3xl font-bold syne-font leading-tight">
+              <h2 id="solaros-crm" className="text-2xl sm:text-3xl font-bold leading-tight">
                 Close More Deals with Smart <span className="red-text">CRM & Quotations</span>
               </h2>
               <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] leading-relaxed">
@@ -489,7 +489,7 @@ export default function SolarosLanding() {
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div className="space-y-4">
-              <h2 id="solaros-stock" className="text-2xl sm:text-3xl font-bold syne-font leading-tight">
+              <h2 id="solaros-stock" className="text-2xl sm:text-3xl font-bold leading-tight">
                 Inventory & Material Management Built for <span className="red-text">Solar</span>
               </h2>
               <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] leading-relaxed">
@@ -511,7 +511,7 @@ export default function SolarosLanding() {
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div className="space-y-4 lg:order-2">
-              <h2 id="solaros-gst" className="text-2xl sm:text-3xl font-bold syne-font leading-tight">
+                <h2 id="solaros-gst" className="text-2xl sm:text-3xl font-bold leading-tight">
                 GST Billing & <span className="red-text">Payment Automation</span>
               </h2>
               <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] leading-relaxed">
@@ -533,7 +533,7 @@ export default function SolarosLanding() {
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div className="space-y-4">
-              <h2 id="solaros-gbp" className="text-2xl sm:text-3xl font-bold syne-font leading-tight">
+              <h2 id="solaros-gbp" className="text-2xl sm:text-3xl font-bold leading-tight">
                 Manage Your <span className="red-text">Google Presence</span> Automatically
               </h2>
               <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] leading-relaxed">
@@ -578,7 +578,7 @@ export default function SolarosLanding() {
       >
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-3 mb-12">
-            <h2 id="solaros-flow" className="text-2xl sm:text-3xl md:text-4xl font-bold syne-font">
+            <h2 id="solaros-flow" className="text-2xl sm:text-3xl md:text-4xl font-bold">
               One Workflow. Zero Double Entry.
             </h2>
             <p className="text-base sm:text-lg text-white/85 leading-relaxed">
@@ -614,7 +614,7 @@ export default function SolarosLanding() {
             {customizationSteps.map((s, i) => (
               <article key={s.title} className="rounded-2xl border border-black/10 bg-white/70 p-6">
                 <span className="text-sm font-bold support-blue-text">Step {i + 1}</span>
-                <h3 className="mt-2 text-xl font-bold syne-font">{s.title}</h3>
+                <h3 className="mt-2 text-xl font-bold">{s.title}</h3>
                 <p className="mt-2 text-[var(--color-body,#4b5563)] leading-relaxed">{s.body}</p>
               </article>
             ))}
@@ -638,7 +638,7 @@ export default function SolarosLanding() {
                 {plan.highlight ? (
                   <p className="text-xs font-bold uppercase tracking-wide support-blue-text mb-2">Popular</p>
                 ) : null}
-                <h3 className="text-xl font-bold syne-font">{plan.name}</h3>
+                <h3 className="text-xl font-bold">{plan.name}</h3>
                 <p className="mt-2 text-3xl font-black primary-black">
                   {plan.price}
                   <span className="text-base font-semibold text-[var(--color-body,#4b5563)]">{plan.period}</span>
@@ -673,7 +673,7 @@ export default function SolarosLanding() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {whyChoose.map((w) => (
               <article key={w.title} className="rounded-2xl border border-black/10 bg-white/60 p-5">
-                <h3 className="text-lg font-bold syne-font">{w.title}</h3>
+                <h3 className="text-lg font-bold">{w.title}</h3>
                 <p className="mt-2 text-sm sm:text-base text-[var(--color-body,#4b5563)]">{w.body}</p>
               </article>
             ))}
