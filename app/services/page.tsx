@@ -43,6 +43,7 @@ export default function ServicesPage() {
           { href: "/services/app-development", label: "App Development" },
           { href: "/services/cloud", label: "Cloud Services" },
           { href: "/solar-os", label: "SolarOS" },
+          { href: "/zoho-consulting-partner", label: "Zoho Consulting" },
         ]}
         faqs={[
           {

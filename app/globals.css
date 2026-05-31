@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
 @import "tailwindcss";
 @import "swiper/css";
 @import "swiper/css/autoplay";
@@ -23,7 +22,6 @@ html {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-poppins);
-  --font-syne: 'Syne', sans-serif;
   /* Explicit label / secondary text (WCAG-friendly on non-Retina displays) */
   --color-heading: #1f2937;
   --color-body: #4b5563;
@@ -42,8 +40,43 @@ body {
   font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Heading/display type — Syne via next/font (--font-heading). Keeps .syne-font class site-wide. */
 .syne-font {
-  font-family: var(--font-syne);
+  font-family: var(--font-heading), var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/*
+ * Syne glyphs for g / & are replaced with system-ui. It reads closer to Syne weight
+ * than Poppins, so we step down one–two weights to match visually.
+ */
+.glyph-fallback {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  font-weight: 500;
+  font-style: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+:is(.font-medium, .font-semibold) .glyph-fallback {
+  font-weight: 500;
+}
+
+.font-bold .glyph-fallback {
+  font-weight: 500;
+}
+
+.font-extrabold .glyph-fallback {
+  font-weight: 600;
+}
+
+.font-black .glyph-fallback {
+  font-weight: 700;
 }
 
 /* Swiper custom styles for smooth infinite scrolling */

@@ -8,6 +8,7 @@ import { siteConfig } from "@/lib/seo/entity";
 import WebVitalsTracker from "@/components/analytics/WebVitalsTracker";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import JsonLd from "@/components/seo/JsonLd";
+import GlyphFixApplier from "@/components/typography/GlyphFixApplier";
 import {
   getLocalBusinessSchema,
   getOrganizationSchema,
@@ -22,10 +23,10 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const syne = Syne({
+const headingFont = Syne({
   weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--font-syne",
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -89,7 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${syne.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${poppins.variable} ${headingFont.variable} antialiased`} suppressHydrationWarning>
         <GoogleTagManager />
         <JsonLd
           data={[
@@ -100,6 +101,7 @@ export default function RootLayout({
           ]}
         />
         <WebVitalsTracker />
+        <GlyphFixApplier />
         <HeaderSection />
         {children}
         <ContactSection />

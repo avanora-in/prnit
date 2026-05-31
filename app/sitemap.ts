@@ -53,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/search`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     { url: `${base}/solar-os`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/zoho-consulting-partner`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     ...serviceEntries,
     ...blogEntries,
     ...workEntries,
