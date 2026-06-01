@@ -81,6 +81,12 @@ export default function FooterSection() {
                     after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
                     hover:after:scale-x-100 w-fit">SolarOS</Link>
 
+                <Link href="/zoho-consulting-partner" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
+                    after:content-[''] after:absolute after:left-0 after:bottom-0 
+                    after:w-full after:h-[2px] after:bg-[#8B1E2D]
+                    after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out
+                    hover:after:scale-x-100 w-fit">Zoho Consulting</Link>
+
                 <Link href="/services" className="relative block transition-colors duration-300 ease-in-out hover:text-[#8B1E2D]
                     after:content-[''] after:absolute after:left-0 after:bottom-0 
                     after:w-full after:h-[2px] after:bg-[#8B1E2D]

@@ -20,6 +20,7 @@ const serviceMenuItems = [
   { name: "Cloud (Google Cloud | AWS)", href: "/services/cloud" },
   { name: "QA & Testing", href: "/services/qa-testing" },
   { name: "SolarOS", href: "/solar-os" },
+  { name: "Zoho Consulting", href: "/zoho-consulting-partner" },
   { name: "Strategy & Consulting", href: "/how-we-work" },
   { name: "Web Development FAQ", href: "/services/web-development-faq" },
 ];
