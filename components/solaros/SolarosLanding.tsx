@@ -296,7 +296,7 @@ export default function SolarosLanding() {
                   <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] items-center rounded-full border support-blue-border">
                     <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] rounded-full support-blue-background" />
                   </div>
-                  <p className="text-lg sm:text-xl font-semibold primary-black syne-font">SolarOS</p>
+                  <p className="text-lg sm:text-xl font-semibold primary-black sora-font">SolarOS</p>
                 </div>
                 <div className="h-px w-24 sm:w-32 primary-black-background" />
               </div>
@@ -403,7 +403,7 @@ export default function SolarosLanding() {
                 key={p.title}
                 className="rounded-2xl border border-black/10 bg-white/60 p-5 sm:p-6 shadow-sm"
               >
-                <h3 className="text-lg font-bold syne-font mb-2">{p.title}</h3>
+                <h3 className="text-lg font-bold sora-font mb-2">{p.title}</h3>
                 <p className="text-sm sm:text-base text-[var(--color-body,#4b5563)] leading-relaxed">{p.body}</p>
               </article>
             ))}
@@ -438,7 +438,7 @@ export default function SolarosLanding() {
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div className="space-y-4">
-              <h2 id="solaros-web-seo" className="text-2xl sm:text-3xl font-bold syne-font leading-tight">
+              <h2 id="solaros-web-seo" className="text-2xl sm:text-3xl font-bold sora-font leading-tight">
                 Professional Solar Website + <span className="red-text">AI SEO</span>
               </h2>
               <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] leading-relaxed">
@@ -701,7 +701,7 @@ export default function SolarosLanding() {
       {/* 16. FAQ — content + schema in page */}
       <section id="faq" className="secondary-background primary-black py-16 md:py-24">
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold syne-font text-center mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold sora-font text-center mb-10">Frequently Asked Questions</h2>
           <div className="mx-auto max-w-3xl space-y-3">
             {solarosFaqs.map((item) => (
               <details key={item.question} className="rounded-xl border border-black/10 bg-white/50 p-4">
@@ -718,7 +718,7 @@ export default function SolarosLanding() {
       {/* 17. Final CTA */}
       <section className="primary-black-background secondary-text py-16 md:py-24" aria-labelledby="solaros-final-cta">
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8 text-center space-y-6">
-          <h2 id="solaros-final-cta" className="text-2xl sm:text-3xl md:text-4xl font-bold syne-font max-w-2xl mx-auto">
+          <h2 id="solaros-final-cta" className="text-2xl sm:text-3xl md:text-4xl font-bold sora-font max-w-2xl mx-auto">
             Ready to Transform Your Solar Business?
           </h2>
           <p className="text-base sm:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">

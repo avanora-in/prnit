@@ -40,9 +40,9 @@ body {
   font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Heading/display type — Syne via next/font (--font-heading). Keeps .syne-font class site-wide. */
-.syne-font {
-  font-family: var(--font-heading), var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+/* Heading/display type — Sora via next/font (--font-sora). Keeps .sora-font class site-wide. */
+.sora-font {
+  font-family: var(--font-sora), var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 

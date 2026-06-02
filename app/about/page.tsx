@@ -73,7 +73,7 @@ export default function AboutPage() {
       <section>
         <div className="mx-auto max-w-[1320px] py-12 sm:py-16 md:py-20 lg:py-24 border-b border-white/20">
           <SectionLabel
-            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white syne-font"
+            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white sora-font"
             lineClassName="w-50 sm:w-60 md:w-70 bg-white/50">Our Story</SectionLabel>
           <p className="mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-white">
             PRNIT was founded in <strong>January 2011</strong> to solve a recurring challenge:
@@ -85,7 +85,7 @@ export default function AboutPage() {
         </div>
         <div className="mx-auto max-w-[1320px] py-12 sm:py-16 md:py-20 lg:py-24">
           <SectionLabel
-            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white syne-font"
+            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white sora-font"
             lineClassName="w-50 sm:w-60 md:w-70 bg-white/50">Team</SectionLabel>
           <div className="mt-5 space-y-4 text-sm sm:text-base md:text-lg leading-relaxed text-white">
             <p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
       <section className="secondary-background">
         <div className="mx-auto max-w-[1320px] px-4 py-12 sm:px-5 sm:py-16 md:px-6 md:py-20">
           <SectionLabel
-            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font"
+            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black sora-font"
             lineClassName="w-50 sm:w-60 md:w-70 bg-black"
           >
             Founder
@@ -151,7 +151,7 @@ export default function AboutPage() {
       <section>
         <div className="mx-auto max-w-[1320px] px-4 py-12 sm:px-5 sm:py-16 md:px-6 md:py-20">
           <SectionLabel
-            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white syne-font"
+            labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white sora-font"
             lineClassName="w-50 sm:w-60 md:w-70 bg-white/50"
           >
             Numbers

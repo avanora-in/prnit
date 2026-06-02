@@ -23,7 +23,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         />
       </Link>
       <div className="min-w-0 flex-1">
-        <p className="text-xs sm:text-sm md:text-base font-semibold support-blue syne-font">
+        <p className="text-xs sm:text-sm md:text-base font-semibold support-blue sora-font">
           {post.category} · {post.date}
         </p>
         <Link href={`/blog/${post.slug}`}>

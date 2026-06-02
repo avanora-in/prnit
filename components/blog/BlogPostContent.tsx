@@ -171,7 +171,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                 <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border border-white/30">
                   <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full bg-white/50" />
                 </div>
-                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white syne-font">
+                <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 text-white sora-font">
                   {post.category}
                 </p>
               </div>
@@ -358,7 +358,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                         <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
                           <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
                         </div>
-                        <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
+                        <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black sora-font">
                           Introduction
                         </p>
                       </div>
@@ -389,7 +389,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                         <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
                           <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
                         </div>
-                        <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
+                        <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black sora-font">
                           Key Points to Consider
                         </p>
                       </div>
@@ -431,7 +431,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                         </svg>
                       </div>
                       <div>
-                        <h4 className="text-base font-bold primary-black mb-1 syne-font">Pro Tip</h4>
+                        <h4 className="text-base font-bold primary-black mb-1 sora-font">Pro Tip</h4>
                         <p className="text-xs sm:text-sm md:text-base primary-black">
                           Always start with a clear strategy before diving into implementation.
                           This saves time and resources in the long run.
@@ -447,7 +447,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                         <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
                           <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
                         </div>
-                        <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
+                        <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black sora-font">
                           Conclusion
                         </p>
                       </div>
@@ -464,11 +464,11 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                 {/* Author Box */}
                 <div className="mt-10 pt-8 border-t border-black/5 secondary-background">
                   <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 p-5 sm:p-6 rounded-2xl border border-black/5 secondary-background">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl support-blue-background flex items-center justify-center text-white text-xl sm:text-2xl font-bold flex-shrink-0 syne-font">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl support-blue-background flex items-center justify-center text-white text-xl sm:text-2xl font-bold flex-shrink-0 sora-font">
                       P
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold primary-black syne-font">PRNIT Team</h3>
+                      <h3 className="text-base sm:text-lg font-bold primary-black sora-font">PRNIT Team</h3>
                       <p className="text-xs sm:text-sm md:text-base primary-black mt-1 mb-3">
                         We&apos;re a team of passionate developers, designers, and strategists dedicated to
                         helping businesses succeed in the digital world.
@@ -487,7 +487,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
 
                 {/* CTA Box */}
                 <div className="mt-8 p-6 sm:p-8 rounded-2xl support-blue-background text-center">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 syne-font">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sora-font">
                     Ready to Start Your Project?
                   </h3>
                   <p className="text-sm sm:text-base text-white/80 mb-6 max-w-lg mx-auto">
@@ -513,7 +513,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                   <div className="flex h-[14px] w-[28px] sm:h-[16px] sm:w-[32px] md:h-[18px] md:w-[34px] items-center rounded-full border support-blue-border">
                     <div className="mx-auto h-[8px] w-[20px] sm:h-[9px] sm:w-[24px] md:h-[10px] md:w-[26px] rounded-full support-blue-background" />
                   </div>
-                  <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font">
+                  <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black sora-font">
                     Keep Reading
                   </p>
                 </div>
@@ -541,7 +541,7 @@ export default function BlogPostContent({ post, relatedPosts }: BlogPostContentP
                     />
                   </Link>
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs sm:text-sm md:text-base font-semibold support-blue syne-font">
+                    <p className="text-xs sm:text-sm md:text-base font-semibold support-blue sora-font">
                       {relatedPost.category} · {relatedPost.date}
                     </p>
                     <Link href={`/blog/${relatedPost.slug}`}>

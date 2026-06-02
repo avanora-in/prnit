@@ -109,7 +109,7 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
               study.narrative!.numbersBar.map((item, i) => (
                 <div key={i}>
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50">{item.label}</p>
-                  <p className="mt-2 text-2xl sm:text-3xl font-black syne-font primary-black">{item.value}</p>
+                  <p className="mt-2 text-2xl sm:text-3xl font-black sora-font primary-black">{item.value}</p>
                   <p className="mt-1 text-sm text-black/75 leading-snug">{item.description}</p>
                 </div>
               ))
@@ -301,7 +301,7 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
                         name={m.icon}
                         className="h-7 w-7 shrink-0 text-[#1F4FD8] sm:h-8 sm:w-8"
                       />
-                      <p className="mt-3 text-2xl sm:text-3xl font-black syne-font primary-black">{m.value}</p>
+                      <p className="mt-3 text-2xl sm:text-3xl font-black sora-font primary-black">{m.value}</p>
                       <p className="mt-1 text-sm text-black/75 leading-snug">{m.label}</p>
                     </div>
                   ))}

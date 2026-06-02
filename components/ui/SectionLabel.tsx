@@ -9,7 +9,7 @@ interface SectionLabelProps {
 }
 
 const defaultLabelClass =
-  "text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font";
+  "text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black sora-font";
 const defaultLineClass = "w-50 sm:w-60 md:w-70 primary-black-background";
 
 function LabelPill() {
