@@ -46,39 +46,6 @@ body {
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/*
- * Syne glyphs for g / & are replaced with system-ui. It reads closer to Syne weight
- * than Poppins, so we step down one–two weights to match visually.
- */
-.glyph-fallback {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  font-weight: 500;
-  font-style: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  color: currentColor;
-  font-synthesis: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-:is(.font-medium, .font-semibold) .glyph-fallback {
-  font-weight: 500;
-}
-
-.font-bold .glyph-fallback {
-  font-weight: 500;
-}
-
-.font-extrabold .glyph-fallback {
-  font-weight: 600;
-}
-
-.font-black .glyph-fallback {
-  font-weight: 700;
-}
-
 /* Swiper custom styles for smooth infinite scrolling */
 .logo-swiper .swiper-wrapper {
   transition-timing-function: linear !important;

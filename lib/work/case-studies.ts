@@ -8,9 +8,12 @@ export type CaseStudyIndustry =
   | "Hospitality"
   | "Media"
   | "E-commerce"
+  | "Manufacturing"
   | "Travel"
   | "Social"
-  | "AI";
+  | "AI"
+  | "UAE"
+  | "Trading";
 
 export type CaseStudyPlatformOverview = "Website" | "App" | "Both";
 
@@ -23,6 +26,73 @@ export type CaseStudyResultMetric = {
 export type CaseStudyProjectVisual = {
   src: string;
   alt: string;
+};
+
+export type NarrativeProblemCard = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+export type NarrativeInsightBlock = {
+  text: string;
+};
+
+export type NarrativeBeforeAfterItem = {
+  text: string;
+};
+
+export type NarrativeSoundFamiliarTag = string;
+
+export type CaseStudyNarrative = {
+  /** Hero headline (multiline) */
+  heroHeadline: string[];
+  /** Hero subtext */
+  heroSubtext: string;
+  /** Numbers bar metrics */
+  numbersBar: {
+    label: string;
+    value: string;
+    description: string;
+  }[];
+  /** Problem section heading */
+  problemHeading: string;
+  /** Problem section subheading */
+  problemSubheading: string;
+  /** Problem cards */
+  problemCards: NarrativeProblemCard[];
+  /** Deeper problem heading */
+  deeperProblemHeading: string;
+  /** Deeper problem insight blocks */
+  deeperProblemInsights: NarrativeInsightBlock[];
+  /** What We Did heading */
+  whatWeDidHeading: string;
+  /** What We Did body */
+  whatWeDidBody: string;
+  /** What We Did caption (proprietary messaging) */
+  whatWeDidCaption: string;
+  /** Result heading */
+  resultHeading: string;
+  /** Before items */
+  beforeItems: NarrativeBeforeAfterItem[];
+  /** After items */
+  afterItems: NarrativeBeforeAfterItem[];
+  /** Client quote */
+  clientQuote: string;
+  /** Client quote attribution */
+  clientQuoteAttribution: string;
+  /** Sound familiar heading */
+  soundFamiliarHeading: string;
+  /** Sound familiar subtext */
+  soundFamiliarSubtext: string;
+  /** Sound familiar tags */
+  soundFamiliarTags: NarrativeSoundFamiliarTag[];
+  /** Sound familiar closing line */
+  soundFamiliarClosing: string;
+  /** CTA heading */
+  ctaHeading: string;
+  /** CTA subtext */
+  ctaSubtext: string;
 };
 
 export type CaseStudy = {
@@ -46,6 +116,8 @@ export type CaseStudy = {
   whatWeBuilt: string[];
   resultMetrics: [CaseStudyResultMetric, CaseStudyResultMetric, CaseStudyResultMetric];
   projectVisuals: readonly CaseStudyProjectVisual[];
+  /** Optional narrative content for custom case study layout */
+  narrative?: CaseStudyNarrative;
 };
 
 export const CASE_STUDY_CATEGORY_FILTERS = ["All", "Website", "Website + App"] as const;
@@ -56,15 +128,285 @@ export const CASE_STUDY_INDUSTRY_FILTERS = [
   "Hospitality",
   "Media",
   "E-commerce",
+  "Manufacturing",
   "Travel",
   "Social",
   "AI",
+  "UAE",
+  "Trading",
 ] as const;
 
 export type CaseStudyCategoryFilter = (typeof CASE_STUDY_CATEGORY_FILTERS)[number];
 export type CaseStudyIndustryFilter = (typeof CASE_STUDY_INDUSTRY_FILTERS)[number];
 
 export const CASE_STUDIES: CaseStudy[] = [
+  {
+    slug: "ecommerce-inventory-automation",
+    category: "Website",
+    industry: "E-commerce",
+    title: "E-Commerce Inventory Automation",
+    description:
+      "An online retail brand had inventory, orders and accounting in three separate systems. Month-end took 3 days. We fixed it entirely inside Zoho.",
+    resultHeadline: "Month-end went from 3 days to 3 hours",
+    outcomeStatement:
+      "Stock levels accurate and updated in real time. Every order captured and tracked automatically. Returns reflected instantly across all records. One system. One version of the truth.",
+    typeLabel: "E-Commerce Brand",
+    platformShort: "Web",
+    timeline: "4 months",
+    clientType: "Online retail brand",
+    servicesProvided: "Zoho Books, Zoho Inventory, Zoho CRM integration",
+    platformOverview: "Website",
+    challenge:
+      "Inventory in one platform, orders in another, and accounting in a third. Nobody had the full picture. Every month-end, someone paid for it with their weekend.",
+    approach:
+      "We designed and built a solution that unified their entire operation inside the Zoho ecosystem. Inventory, orders, customer records, returns and accounting now speak to each other in real time.",
+    whatWeBuilt: [
+      "Unified inventory, orders and accounting in Zoho ecosystem",
+      "Real-time stock level synchronization across all channels",
+      "Automated month-end reconciliation from 3 days to 3 hours",
+      "Single source of truth for business operations",
+    ],
+    resultMetrics: [
+      { icon: "timer", value: "3 hrs", label: "Month-end reconciliation (was 3 days)" },
+      { icon: "devices", value: "1", label: "Unified system of truth" },
+      { icon: "bolt", value: "Real-time", label: "Stock and order visibility" },
+    ],
+    projectVisuals: [
+      {
+        src: "/assets/custom_ecommerce_development.png",
+        alt: "E-commerce inventory and order management system integration with Zoho ecosystem",
+      },
+      {
+        src: "/assets/ecommerce_website_app_development.svg",
+        alt: "Unified business operations dashboard showing inventory, orders and accounting in real time",
+      },
+    ],
+    narrative: {
+      heroHeadline: [
+        "Three Systems. Three Teams.",
+        "Three Days Wasted Every Month.",
+        "We Connected Everything.",
+      ],
+      heroSubtext:
+        "An online retail brand had their inventory in one platform, orders in another, and accounting in a third. Nobody had the full picture. And every month-end, someone paid for it with their weekend.",
+      numbersBar: [
+        { label: "Systems", value: "3", description: "Systems that never spoke to each other" },
+        { label: "Time Lost", value: "3 days", description: "Lost every single month to manual reconciliation" },
+        { label: "Visibility", value: "0", description: "Real-time visibility into stock, revenue or returns" },
+      ],
+      problemHeading: "They were growing fast. Their systems were falling apart just as fast.",
+      problemSubheading:
+        "Scaling an e-commerce business is hard enough. Doing it while your data lives in three different places is a disaster waiting to happen.",
+      problemCards: [
+        {
+          icon: "box",
+          title: "Stock that lied",
+          description:
+            "Inventory numbers in their stock system never matched what was actually available. Overselling was a regular occurrence. Customer complaints followed every spike in orders.",
+        },
+        {
+          icon: "file-x",
+          title: "Orders lost in translation",
+          description:
+            "Orders came in from multiple channels. Each channel updated a different system. By the time someone manually reconciled everything, the data was already stale — and some orders had slipped through entirely.",
+        },
+        {
+          icon: "rotate-ccw",
+          title: "Returns were a black hole",
+          description:
+            "When a customer returned a product, three separate systems needed to be updated — manually. Stock rarely got restocked correctly. Refunds took too long. The accounting never balanced.",
+        },
+        {
+          icon: "trending-down",
+          title: "Month-end was a crisis",
+          description:
+            "Reconciling stock levels, order revenue, returns, and accounting took three full days every single month. The finance team worked weekends. Errors were found after the fact. Reports were always slightly wrong.",
+        },
+      ],
+      deeperProblemHeading: "It wasn't just inefficiency. It was decisions being made on bad data.",
+      deeperProblemInsights: [
+        {
+          text: "The business had no real-time view of which products were actually profitable after returns and fulfilment costs.",
+        },
+        {
+          text: "Customer service was making refund decisions without knowing if the item was even back in stock yet.",
+        },
+        {
+          text: "The accountant was building financial reports from data that was 72 hours out of date by the time it was compiled.",
+        },
+      ],
+      whatWeDidHeading: "We fixed it. We're not going to tell you how.",
+      whatWeDidBody:
+        "The client's problem wasn't that they had the wrong software. They had the right software — just completely disconnected. We designed and built a solution that unified their entire operation inside the Zoho ecosystem. Inventory, orders, customer records, returns and accounting now speak to each other in real time. We're deliberately keeping the details off this page. That conversation happens on a call.",
+      whatWeDidCaption:
+        "We keep our implementation approach proprietary. Book a call and we'll walk you through everything.",
+      resultHeading: "Month-end went from 3 days to 3 hours.",
+      beforeItems: [
+        { text: "Inventory numbers were always wrong" },
+        { text: "Orders fell through the gaps regularly" },
+        { text: "Returns caused accounting chaos every time" },
+        { text: "3 days of manual reconciliation every month" },
+        { text: "Reports built on stale, unreliable data" },
+        { text: "No single view of the business anywhere" },
+      ],
+      afterItems: [
+        { text: "Stock levels accurate and updated in real time" },
+        { text: "Every order captured and tracked automatically" },
+        { text: "Returns reflected instantly across all records" },
+        { text: "Month-end reconciliation down to hours not days" },
+        { text: "Live reports available to management at any time" },
+        { text: "One system. One version of the truth." },
+      ],
+      clientQuote:
+        "We didn't realise how much time we were spending just trying to figure out what was actually happening in our business. Now we just open Zoho and it's all there.",
+      clientQuoteAttribution: "Operations Director, E-Commerce Brand, India (Name withheld at client's request)",
+      soundFamiliarHeading: "This problem is more common than most businesses admit.",
+      soundFamiliarSubtext: "We've seen this exact situation across:",
+      soundFamiliarTags: [
+        "D2C Brands",
+        "Multi-Channel Online Retailers",
+        "Wholesale + Online Hybrid Businesses",
+        "Marketplace Sellers (Amazon, Flipkart, Noon)",
+        "Subscription Box Companies",
+      ],
+      soundFamiliarClosing: "If your stock, orders and accounting live in different places — this conversation is for you.",
+      ctaHeading: "Sound like your business? Book a free 30-minute call. We'll tell you exactly how we'd approach your specific setup — before you commit to anything.",
+      ctaSubtext: "",
+    },
+  },
+  {
+    slug: "manufacturing-margin-visibility",
+    category: "Website",
+    industry: "Manufacturing",
+    title: "Manufacturing Margin Visibility",
+    description:
+      "A manufacturing business was invoicing clients, paying suppliers, and running production — all without a single clear view of whether each product was actually making them money. We fixed it entirely inside Zoho.",
+    resultHeadline: "For the first time, they knew exactly which products to push and which to reprice",
+    outcomeStatement:
+      "Real cost per product updated automatically. Margin visible on every product in real time. Price change impact calculated before invoicing. Finance and production finally on the same numbers.",
+    typeLabel: "Manufacturing Company",
+    platformShort: "Web",
+    timeline: "3 months",
+    clientType: "Manufacturing company",
+    servicesProvided: "Zoho Books, Zoho Inventory integration",
+    platformOverview: "Website",
+    challenge:
+      "Revenue was growing. But nobody could tell if profit was growing with it. In manufacturing, the gap between what you invoice and what you actually keep is everything. This company had no way to measure that gap — in real time or at month end.",
+    approach:
+      "The client didn't need new software. They needed their existing systems to stop existing in isolation. We built a solution that connected raw material purchasing, production costs, and final invoicing into a single coherent view — so the business could finally see, in real time, whether each product was making or losing money.",
+    whatWeBuilt: [
+      "Connected raw material purchasing, production costs, and final invoicing",
+      "Real-time margin visibility on every product",
+      "Automated cost per product calculation",
+      "Finance and production on the same numbers",
+    ],
+    resultMetrics: [
+      { icon: "compass", value: "Real-time", label: "Margin visibility per product" },
+      { icon: "devices", value: "1", label: "Unified cost and invoice view" },
+      { icon: "target", value: "Data-driven", label: "Pricing decisions" },
+    ],
+    projectVisuals: [
+      {
+        src: "/assets/custom_ecommerce_development.png",
+        alt: "Manufacturing margin visibility system integration with Zoho ecosystem",
+      },
+      {
+        src: "/assets/ecommerce_website_app_development.svg",
+        alt: "Real-time product margin dashboard showing costs and profitability",
+      },
+    ],
+    narrative: {
+      heroHeadline: [
+        "They Knew Their Revenue.",
+        "They Had No Idea About Their Actual Margin.",
+      ],
+      heroSubtext:
+        "A manufacturing business was invoicing clients, paying suppliers, and running production — all without a single clear view of whether each product was actually making them money. They were busy. But were they profitable?",
+      numbersBar: [
+        { label: "Visibility", value: "0", description: "Real-time visibility into per-product profitability" },
+        { label: "Systems", value: "3", description: "Disconnected systems handling purchases, production and invoicing" },
+        { label: "Decisions", value: "Every month", description: "Decisions made on gut feeling instead of data" },
+      ],
+      problemHeading: "Revenue was growing. But nobody could tell if profit was growing with it.",
+      problemSubheading:
+        "In manufacturing, the gap between what you invoice and what you actually keep is everything. This company had no way to measure that gap — in real time or at month end.",
+      problemCards: [
+        {
+          icon: "box",
+          title: "Raw materials with no cost trail",
+          description:
+            "Purchase orders were raised. Materials arrived. But the actual landed cost — including freight, duties, and delays — was never captured against the product it went into. Every cost estimate was a guess.",
+        },
+        {
+          icon: "settings",
+          title: "Production costs that disappeared",
+          description:
+            "Labour, machine time, energy, wastage — none of it was tracked against individual production runs. The cost of making each product was an assumption, not a number. A wrong assumption, as it turned out.",
+        },
+        {
+          icon: "file-x",
+          title: "Invoices disconnected from reality",
+          description:
+            "Sales invoices were raised based on price lists set months ago. Nobody was checking whether those prices still covered actual costs. Some products were being sold below their real cost of production.",
+        },
+        {
+          icon: "trending-down",
+          title: "Margin erosion nobody noticed",
+          description:
+            "By the time the accountant prepared quarterly numbers, the damage was already done. Price increases were always reactive, always late, and always based on incomplete information.",
+        },
+      ],
+      deeperProblemHeading: "The business was making decisions with one eye closed.",
+      deeperProblemInsights: [
+        {
+          text: "The owner knew which clients were buying the most. They had no idea which products were actually worth selling.",
+        },
+        {
+          text: "When raw material prices went up, the impact on final product margin wasn't calculated until weeks later — after dozens of invoices had already gone out at the old price.",
+        },
+        {
+          text: "The finance team and the production team had different numbers for the same costs. Neither set was completely right.",
+        },
+      ],
+      whatWeDidHeading: "We connected the dots. We're not sharing the details here.",
+      whatWeDidBody:
+        "The client didn't need new software. They needed their existing systems to stop existing in isolation. We built a solution that connected raw material purchasing, production costs, and final invoicing into a single coherent view — so the business could finally see, in real time, whether each product was making or losing money. How we built it is a conversation for a call.",
+      whatWeDidCaption:
+        "We keep our implementation approach proprietary. Book a call and we'll walk you through everything.",
+      resultHeading: "For the first time, they knew exactly which products to push and which to reprice.",
+      beforeItems: [
+        { text: "No real cost per product — ever" },
+        { text: "Price lists updated reactively, months too late" },
+        { text: "Production costs tracked in a separate spreadsheet" },
+        { text: "Raw material cost increases absorbed silently" },
+        { text: "Quarterly financials always a surprise" },
+        { text: "Sales team selling unprofitable products unknowingly" },
+      ],
+      afterItems: [
+        { text: "Real cost per product updated automatically" },
+        { text: "Margin visible on every product in real time" },
+        { text: "Price change impact calculated before invoicing" },
+        { text: "Raw material cost increases reflected immediately" },
+        { text: "Finance and production finally on the same numbers" },
+        { text: "Sales team equipped with live margin data per product" },
+      ],
+      clientQuote:
+        "We'd been in business for eleven years and never actually known our true margin per product. Within a month of going live we repriced four product lines. That decision alone paid for the entire project.",
+      clientQuoteAttribution: "Director, Manufacturing Company, India (Name withheld at client's request)",
+      soundFamiliarHeading: "If you manufacture, assemble, or process — this is your problem too.",
+      soundFamiliarSubtext: "We've solved this for:",
+      soundFamiliarTags: [
+        "Small & Mid-Size Manufacturers",
+        "Custom Order / Made-to-Order Businesses",
+        "Assembly & Kitting Operations",
+        "Food & Beverage Producers",
+        "Export-Oriented Manufacturers",
+      ],
+      soundFamiliarClosing: "If your costs and your invoices live in different systems — you don't actually know your margin.",
+      ctaHeading: "Do you actually know your margin per product? Book a free 30-minute call. We'll look at your current setup and tell you exactly where the visibility gap is.",
+      ctaSubtext: "",
+    },
+  },
   {
     slug: "project-name",
     category: "Website",
@@ -475,6 +817,277 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Executive KPI strip and SLA breach visibility for the mid-size logistics fleet operator engagement",
       },
     ],
+  },
+  {
+    slug: "uae-multicurrency-vat-automation",
+    category: "Website",
+    industry: "UAE",
+    title: "UAE Multi-Currency VAT Automation",
+    description:
+      "A UAE-based trading company was managing AED, USD and INR manually with inconsistent VAT calculations. Audit season was a crisis every quarter. We fixed it in Zoho Books.",
+    resultHeadline: "Audit season went from weeks of panic to a one-day review",
+    outcomeStatement:
+      "Consistent exchange rate policy applied automatically. VAT calculated correctly on every transaction at source. Multi-currency invoices reconciled in real time. Audit preparation reduced to a single day.",
+    typeLabel: "Trading Company",
+    platformShort: "Web",
+    timeline: "3 months",
+    clientType: "UAE-based trading company",
+    servicesProvided: "Zoho Books configuration, multi-currency setup, VAT compliance automation",
+    platformOverview: "Website",
+    challenge:
+      "A UAE-based trading company was importing goods from India and exporting across the GCC — dealing in AED, USD and INR daily. Their VAT was calculated manually. Their exchange rates were applied inconsistently. And every audit season was a crisis.",
+    approach:
+      "The client needed their accounting system to handle multi-currency transactions, VAT calculations, and cross-border reconciliation without any manual intervention. We built that — entirely within their existing Zoho Books account, configured specifically for UAE FTA compliance requirements.",
+    whatWeBuilt: [
+      "Multi-currency transaction handling in Zoho Books",
+      "Automated VAT calculation at transaction source",
+      "Consistent exchange rate policy application",
+      "Real-time cross-border invoice reconciliation",
+      "FTA-compliant record maintenance",
+    ],
+    resultMetrics: [
+      { icon: "map", value: "3", label: "Currencies managed automatically" },
+      { icon: "check", value: "1 day", label: "Audit preparation (was 2-3 weeks)" },
+      { icon: "shield", value: "Compliant", label: "FTA VAT records maintained" },
+    ],
+    projectVisuals: [
+      {
+        src: "/assets/custom_ecommerce_development.png",
+        alt: "UAE multi-currency VAT automation system with Zoho Books integration",
+      },
+      {
+        src: "/assets/ecommerce_website_app_development.svg",
+        alt: "Real-time VAT liability dashboard for UAE trading company",
+      },
+    ],
+    narrative: {
+      heroHeadline: [
+        "Three Currencies. VAT Compliance.",
+        "Cross-Border Suppliers.",
+        "All Being Managed in One Excel File.",
+      ],
+      heroSubtext:
+        "A UAE-based trading company was importing goods from India and exporting across the GCC — dealing in AED, USD and INR daily. Their VAT was calculated manually. Their exchange rates were applied inconsistently. And every audit season was a crisis.",
+      numbersBar: [
+        { label: "Currencies", value: "3", description: "Currencies managed manually every day" },
+        { label: "Consistency", value: "0", description: "Consistent exchange rate policy across transactions" },
+        { label: "Audit", value: "Every audit", description: "A scramble to reconstruct months of transactions" },
+      ],
+      problemHeading: "In UAE cross-border trade, the margin for error is zero. Their process had margin for error everywhere.",
+      problemSubheading:
+        "VAT in the UAE is unforgiving. Exchange rate inconsistencies compound over months. Manual reconciliation across currencies is not a process — it's a liability.",
+      problemCards: [
+        {
+          icon: "dollar-sign",
+          title: "Exchange rates applied by feel",
+          description:
+            "There was no consistent rate policy. Different staff applied different rates on different days. By month end, AED-USD-INR conversions were impossible to reconcile cleanly.",
+        },
+        {
+          icon: "percent",
+          title: "VAT calculated transaction by transaction",
+          description:
+            "Every invoice required manual VAT calculation. Different rates applied to different goods. The risk of error on every single transaction was real — and it happened.",
+        },
+        {
+          icon: "globe",
+          title: "Supplier invoices in three currencies",
+          description:
+            "Indian suppliers invoiced in INR. Some international partners in USD. Local transactions in AED. Each one required manual conversion before it could be entered into the books.",
+        },
+        {
+          icon: "file-warning",
+          title: "Audit preparation took weeks",
+          description:
+            "When FTA audit season came, the finance team spent weeks reconstructing transaction histories, correcting exchange rate mismatches, and explaining VAT discrepancies. Every year.",
+        },
+        {
+          icon: "alert-circle",
+          title: "No real-time tax liability view",
+          description:
+            "The business never knew their actual VAT liability until the accountant calculated it at quarter end. Cash flow planning was impossible. Surprises were guaranteed.",
+        },
+      ],
+      deeperProblemHeading: "This wasn't just an accounting problem. It was a compliance risk.",
+      deeperProblemInsights: [
+        {
+          text: "In the UAE, VAT errors don't just cost money to fix — they attract FTA penalties that can significantly impact a business's standing and relationships.",
+        },
+        {
+          text: "Exchange rate inconsistencies meant profit margins on cross-border deals were never accurately known until well after the deal had closed.",
+        },
+        {
+          text: "The finance team was spending more time correcting data than analysing it. Strategic decisions were being delayed because the numbers couldn't be trusted.",
+        },
+      ],
+      whatWeDidHeading: "We made UAE compliance automatic. Details on a call.",
+      whatWeDidBody:
+        "The client needed their accounting system to handle multi-currency transactions, VAT calculations, and cross-border reconciliation without any manual intervention. We built that — entirely within their existing Zoho Books account, configured specifically for UAE FTA compliance requirements. The approach is something we walk through on a discovery call, not something we publish on a webpage.",
+      whatWeDidCaption:
+        "We keep our UAE compliance implementation approach proprietary. Book a call to see exactly how we'd approach your setup.",
+      resultHeading: "Audit season went from weeks of panic to a one-day review.",
+      beforeItems: [
+        { text: "Exchange rates applied inconsistently by different staff" },
+        { text: "VAT calculated manually on every transaction" },
+        { text: "Supplier invoices in 3 currencies reconciled by hand" },
+        { text: "Audit preparation took 2–3 weeks every quarter" },
+        { text: "VAT liability unknown until quarter end" },
+        { text: "FTA compliance always at risk of human error" },
+      ],
+      afterItems: [
+        { text: "Consistent exchange rate policy applied automatically" },
+        { text: "VAT calculated correctly on every transaction at source" },
+        { text: "Multi-currency invoices reconciled in real time" },
+        { text: "Audit preparation reduced to a single day" },
+        { text: "Live VAT liability visible at any point in time" },
+        { text: "FTA-compliant records maintained automatically" },
+      ],
+      clientQuote:
+        "Our accountant used to dread every quarter. Last quarter he told me the VAT return took him four hours. It used to take three weeks. That says everything.",
+      clientQuoteAttribution: "Managing Director, Trading Company, Dubai, UAE (Name withheld at client's request)",
+      soundFamiliarHeading: "If you operate across borders in the UAE — this is your risk too.",
+      soundFamiliarSubtext: "We've solved this for:",
+      soundFamiliarTags: [
+        "UAE Import / Export Businesses",
+        "GCC-Based Trading Companies",
+        "Indian-Owned Businesses Operating in UAE",
+        "Multi-Entity Businesses Across India and UAE",
+        "Businesses Preparing for FTA Audits",
+      ],
+      soundFamiliarClosing:
+        "If your VAT is calculated manually and your exchange rates are inconsistent — you have a compliance risk you may not know about yet.",
+      ctaHeading: "Is your UAE accounting actually audit-ready?",
+      ctaSubtext: "Book a free 30-minute call. We'll review your current Zoho Books setup and tell you exactly where your compliance gaps are.",
+    },
+  },
+  {
+    slug: "vendor-commission-automation",
+    category: "Website",
+    industry: "Trading",
+    title: "Vendor Commission Automation",
+    description:
+      "A trading company was spending 8 hours a month calculating broker commissions manually. We automated the entire process inside Zoho Books. Zero disputes. Zero double payments.",
+    resultHeadline: "One billing cycle. Zero manual work. No more disputes.",
+    outcomeStatement:
+      "Zero manual calculation — runs automatically. Every commission traceable to the exact invoice. Duplicate billing made impossible by the system. Real-time payment status visible at all times.",
+    typeLabel: "Trading & Distribution",
+    platformShort: "Web",
+    timeline: "2 months",
+    clientType: "Trading company in India",
+    servicesProvided: "Zoho Books automation, commission tracking, billing integration",
+    platformOverview: "Website",
+    challenge:
+      "Every month, their finance team dreaded commission day. Every invoice had to be checked by hand to calculate what each broker was owed. When disputes came up, there was no reliable record. The same commission was occasionally billed twice.",
+    approach:
+      "The client was already using Zoho Books. They didn't need new software — they needed their existing software to work harder. We designed and built a solution entirely within their Zoho Books account that automated the full commission lifecycle.",
+    whatWeBuilt: [
+      "Automated commission calculation in Zoho Books",
+      "Invoice-to-commission tracking system",
+      "Duplicate payment prevention",
+      "Real-time payment status visibility",
+      "Audit trail for every commission",
+    ],
+    resultMetrics: [
+      { icon: "timer", value: "8 hrs", label: "Manual work eliminated every month" },
+      { icon: "check", value: "0", label: "Commission disputes since go-live" },
+      { icon: "star", value: "1", label: "Billing cycle to see full ROI" },
+    ],
+    projectVisuals: [
+      {
+        src: "/assets/custom_ecommerce_development.png",
+        alt: "Vendor commission automation system in Zoho Books",
+      },
+      {
+        src: "/assets/ecommerce_website_app_development.svg",
+        alt: "Real-time commission tracking dashboard",
+      },
+    ],
+    narrative: {
+      heroHeadline: [
+        "From 8 Hours of Manual Work Every Month",
+        "to Zero.",
+        "Automatically.",
+      ],
+      heroSubtext:
+        "A trading company was calculating broker commissions by hand every month — in spreadsheets, outside their accounting system. We fixed it. Entirely inside Zoho Books.",
+      numbersBar: [
+        { label: "Manual work", value: "8 hrs", description: "Manual work eliminated every month" },
+        { label: "Disputes", value: "0", description: "Commission disputes since go-live" },
+        { label: "ROI", value: "1", description: "Billing cycle to see full ROI" },
+      ],
+      problemHeading: "Every month, their finance team dreaded commission day.",
+      problemSubheading:
+        "The manual process was error-prone, time-consuming, and created disputes that could have been avoided with a proper system.",
+      problemCards: [
+        {
+          icon: "timer",
+          title: "Hours of manual work",
+          description: "Every invoice had to be checked by hand to calculate what each broker was owed.",
+        },
+        {
+          icon: "bell",
+          title: "No audit trail",
+          description: "When disputes came up, there was no reliable record of which invoice generated which commission.",
+        },
+        {
+          icon: "trending-up",
+          title: "Double payments",
+          description: "The same commission was occasionally billed twice. Nobody knew until the broker called.",
+        },
+        {
+          icon: "lock",
+          title: "Zero visibility",
+          description: "Management had no idea of total commission liability at any point during the month.",
+        },
+      ],
+      deeperProblemHeading: "This wasn't just a time management problem. It was a risk to business relationships.",
+      deeperProblemInsights: [
+        {
+          text: "Commission disputes strained relationships with brokers who were critical to the business's revenue.",
+        },
+        {
+          text: "Double payments meant direct financial loss that went unnoticed until reconciliation.",
+        },
+        {
+          text: "The finance team was spending valuable time on manual calculations instead of strategic financial planning.",
+        },
+      ],
+      whatWeDidHeading: "We built a system inside Zoho Books that handles it all automatically.",
+      whatWeDidBody:
+        "The client was already using Zoho Books. They didn't need new software — they needed their existing software to work harder. We designed and built a solution entirely within their Zoho Books account that automated the full commission lifecycle, from the moment an invoice is raised to the moment a broker is paid. We're deliberately not going into the details here — that's what the discovery call is for.",
+      whatWeDidCaption:
+        "We keep our commission automation approach proprietary. Book a call to see exactly how we'd approach your setup.",
+      resultHeading: "One billing cycle. Zero manual work. No more disputes.",
+      beforeItems: [
+        { text: "6–8 hours of manual work every month" },
+        { text: "Commission disputes with no paper trail" },
+        { text: "Double payments with no way to prevent them" },
+        { text: "Brokers chasing payment status constantly" },
+        { text: "Month-end only reconciliation in spreadsheets" },
+      ],
+      afterItems: [
+        { text: "Zero manual calculation — runs automatically" },
+        { text: "Every commission traceable to the exact invoice" },
+        { text: "Duplicate billing made impossible by the system" },
+        { text: "Real-time payment status visible at all times" },
+        { text: "Live commission liability updated on every save" },
+      ],
+      clientQuote:
+        "Before this, our finance team dreaded month-end. Now commissions are calculated the moment we save an invoice — we just check and raise the bill. It took us one billing cycle to realise how much time we'd been wasting.",
+      clientQuoteAttribution: "Finance Manager, Trading Company, India (Name withheld at client's request)",
+      soundFamiliarHeading: "This isn't just a trading company problem.",
+      soundFamiliarSubtext: "We've built variations of this for:",
+      soundFamiliarTags: [
+        "Real Estate Brokers",
+        "Distribution Companies",
+        "Commission-Based Sales Teams",
+        "Service Agencies",
+        "Import / Export Businesses",
+      ],
+      soundFamiliarClosing: "If you pay commissions and track them manually — we should talk.",
+      ctaHeading: "Curious how this works?",
+      ctaSubtext: "Book a free 30-minute call. We'll show you exactly what we built and whether the same approach makes sense for your business.",
+    },
   },
 ];
 

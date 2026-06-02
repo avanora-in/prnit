@@ -34,7 +34,6 @@ type FilterDropdownProps<T extends string> = {
   value: T;
   options: readonly T[];
   onChange: (v: T) => void;
-  accent?: "blue" | "red";
 };
 
 function FilterDropdown<T extends string>({
@@ -42,14 +41,11 @@ function FilterDropdown<T extends string>({
   value,
   options,
   onChange,
-  accent = "blue",
 }: FilterDropdownProps<T>) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
   const btnId = useId();
-
-  const accentBar = accent === "red" ? "bg-[var(--red,#8B1E2D)]" : "bg-[var(--support-blue,#1F4FD8)]";
 
   useEffect(() => {
     if (!open) return;
@@ -71,13 +67,12 @@ function FilterDropdown<T extends string>({
 
   return (
     <div ref={rootRef} className="relative w-full">
-      <p
-        id={`${btnId}-label`}
-        className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black/50"
+      <label
+        htmlFor={btnId}
+        className="block text-xs font-semibold uppercase tracking-[0.14em] text-black/50 mb-2"
       >
-        <span className={`h-px w-6 ${accentBar} rounded-full`} aria-hidden />
         {label}
-      </p>
+      </label>
 
       <button
         type="button"
@@ -85,14 +80,10 @@ function FilterDropdown<T extends string>({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
-        aria-labelledby={`${btnId}-label`}
         onClick={() => setOpen((o) => !o)}
-        className="group mt-3 flex w-full items-center justify-between gap-3 rounded-2xl border border-black/10 px-4 py-3.5 text-left hover:shadow-sm transition-all duration-200 cursor-pointer"
+        className="flex w-full items-center justify-between gap-3 rounded-xl border border-black/10 secondary-background px-4 py-3 text-left hover:border-[#1F4FD8]/30 transition-all duration-200 cursor-pointer"
       >
-        <span className="relative flex min-w-0 flex-1 items-center gap-3">
-          <span className={`absolute -left-1 top-1/2 h-8 w-1 -translate-y-1/2 rounded-full ${accentBar} opacity-90`} />
-          <span className="pl-3 text-base font-black leading-tight primary-black syne-font truncate">{value}</span>
-        </span>
+        <span className="text-sm sm:text-base font-semibold primary-black truncate">{value}</span>
         <Chevron open={open} />
       </button>
 
@@ -100,8 +91,8 @@ function FilterDropdown<T extends string>({
         <ul
           id={listId}
           role="listbox"
-          aria-labelledby={`${btnId}-label`}
-          className="absolute left-0 right-0 z-30 mt-2 max-h-64 overflow-y-auto rounded-2xl border border-black/10 bg-white/95 py-2 shadow-[0_20px_50px_rgba(11,31,59,0.14)] backdrop-blur-md ring-1 ring-black/5"
+          aria-labelledby={btnId}
+          className="absolute left-0 right-0 z-30 mt-2 max-h-64 overflow-y-auto rounded-xl border border-black/10 secondary-background py-1 shadow-lg"
         >
           {options.map((opt) => {
             const selected = opt === value;
@@ -115,19 +106,12 @@ function FilterDropdown<T extends string>({
                     onChange(opt);
                     setOpen(false);
                   }}
-                  className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-semibold transition-colors sm:text-base ${selected
-                    ? "bg-[#1F4FD8]/10 text-[#1F4FD8]"
+                  className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm transition-colors cursor-pointer ${selected
+                    ? "bg-[#1F4FD8] text-white font-semibold"
                     : "text-primary-black hover:bg-black/[0.04]"
                     }`}
                 >
-                  {selected ? (
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#1F4FD8] text-[10px] text-white syne-font">
-                      ✓
-                    </span>
-                  ) : (
-                    <span className="h-5 w-5 shrink-0 rounded-full border border-black/15" aria-hidden />
-                  )}
-                  <span className="truncate">{opt}</span>
+                  {opt}
                 </button>
               </li>
             );
@@ -154,7 +138,7 @@ export default function CaseStudyListingSection() {
   return (
     <section className="secondary-background">
       <div className="mx-auto max-w-[1320px] px-4 py-10 sm:px-5 sm:py-12 md:px-6 md:py-16">
-        <div className="relative rounded-3xl border border-black/10 shadow-sm p-6 sm:p-8">
+        <div className="relative rounded-3xl border border-black/10 p-6 sm:p-8">
           <div className="relative">
             <h3 className="font-black transition-colors duration-300 text-xl sm:text-2xl md:text-3xl">
               Filter <span className="red-text">Projects</span>
@@ -169,14 +153,12 @@ export default function CaseStudyListingSection() {
                 value={category}
                 options={CASE_STUDY_CATEGORY_FILTERS}
                 onChange={setCategory}
-                accent="red"
               />
               <FilterDropdown
                 label="Industry"
                 value={industry}
                 options={CASE_STUDY_INDUSTRY_FILTERS}
                 onChange={setIndustry}
-                accent="blue"
               />
             </div>
           </div>

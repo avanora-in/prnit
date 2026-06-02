@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import GlyphFix from "@/components/typography/GlyphFix";
 
 interface SectionLabelProps {
   children: ReactNode;
@@ -27,14 +26,11 @@ export default function SectionLabel({
   lineClassName = defaultLineClass,
   align = "left",
 }: SectionLabelProps) {
-  const labelContent =
-    typeof children === "string" ? <GlyphFix text={children} /> : children;
-
   if (align === "center") {
     return (
       <div className="inline-flex flex-col items-center gap-2">
         <LabelPill />
-        <p className={`${labelClassName} text-center`}>{labelContent}</p>
+        <p className={`${labelClassName} text-center`}>{children}</p>
         <div className={`h-px ${lineClassName}`} />
       </div>
     );
@@ -44,7 +40,7 @@ export default function SectionLabel({
     <div className="inline-flex flex-col gap-2">
       <div className="inline-flex items-center gap-2 sm:gap-3">
         <LabelPill />
-        <p className={labelClassName}>{labelContent}</p>
+        <p className={labelClassName}>{children}</p>
       </div>
       <div className={`h-px ${lineClassName}`} />
     </div>
