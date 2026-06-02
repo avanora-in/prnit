@@ -8,7 +8,6 @@ import { siteConfig } from "@/lib/seo/entity";
 import WebVitalsTracker from "@/components/analytics/WebVitalsTracker";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import JsonLd from "@/components/seo/JsonLd";
-import GlyphFixApplier from "@/components/typography/GlyphFixApplier";
 import {
   getLocalBusinessSchema,
   getOrganizationSchema,
@@ -101,7 +100,6 @@ export default function RootLayout({
           ]}
         />
         <WebVitalsTracker />
-        <GlyphFixApplier />
         <HeaderSection />
         {children}
         <ContactSection />
