@@ -86,11 +86,11 @@ export default function ZohoLanding() {
         <div className="relative mx-auto max-w-[1320px] px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-28 lg:py-32">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-6 flex justify-center">
-              <SectionLabel labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black syne-font whitespace-nowrap" lineClassName="w-60 sm:w-70 md:w-86 primary-black-background">
+              <SectionLabel labelClassName="text-lg sm:text-xl md:text-2xl font-semibold leading-6 sm:leading-7 md:leading-8 primary-black sora-font whitespace-nowrap" lineClassName="w-60 sm:w-70 md:w-86 primary-black-background">
                 Zoho Consulting Partner
               </SectionLabel>
             </div>
-            <h1 className="syne-font text-3xl font-bold leading-tight primary-black sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+            <h1 className="sora-font text-3xl font-bold leading-tight primary-black sm:text-4xl md:text-5xl lg:text-[3.25rem]">
               Zoho Consulting Partner — End-to-End Zoho One Implementation
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-[var(--color-body,#4b5563)] sm:text-lg md:text-xl">
@@ -177,7 +177,7 @@ export default function ZohoLanding() {
                   <p className="text-2xl" aria-hidden>
                     {region.flag}
                   </p>
-                  <h3 className="syne-font mt-3 text-lg font-bold primary-black">{region.title}</h3>
+                  <h3 className="sora-font mt-3 text-lg font-bold primary-black">{region.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--color-body,#4b5563)] sm:text-base">
                     {region.body}
                   </p>
@@ -217,7 +217,7 @@ export default function ZohoLanding() {
                   <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--support-blue,#1f4fd8)]/10 text-[var(--support-blue,#1f4fd8)] transition-all duration-300 group-hover:bg-[var(--support-blue,#1f4fd8)] group-hover:text-white">
                     <ProductIcon />
                   </div>
-                  <h3 className="syne-font text-lg font-bold primary-black transition-colors group-hover:support-blue-text md:text-xl">
+                  <h3 className="sora-font text-lg font-bold primary-black transition-colors group-hover:support-blue-text md:text-xl">
                     {product.name}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--color-body,#4b5563)] sm:text-base">
@@ -241,7 +241,7 @@ export default function ZohoLanding() {
             {engagementIncludes.map((item) => (
               <ZohoFadeIn key={item.title}>
                 <article className={cardBase}>
-                  <h3 className="syne-font text-lg font-bold primary-black">{item.title}</h3>
+                  <h3 className="sora-font text-lg font-bold primary-black">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--color-body,#4b5563)] sm:text-base">
                     {item.body}
                   </p>
@@ -265,7 +265,7 @@ export default function ZohoLanding() {
                   <span className="support-blue-background secondary-text mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold">
                     {step.step}
                   </span>
-                  <h3 className="syne-font text-base font-bold primary-black sm:text-lg">{step.title}</h3>
+                  <h3 className="sora-font text-base font-bold primary-black sm:text-lg">{step.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--color-body,#4b5563)]">
                     {step.body}
                   </p>
@@ -286,7 +286,7 @@ export default function ZohoLanding() {
             {whyPrnit.map((item) => (
               <ZohoFadeIn key={item.title}>
                 <article className={cardBase}>
-                  <h3 className="syne-font text-lg font-bold primary-black">{item.title}</h3>
+                  <h3 className="sora-font text-lg font-bold primary-black">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--color-body,#4b5563)] sm:text-base">
                     {item.body}
                   </p>
@@ -318,7 +318,7 @@ export default function ZohoLanding() {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--support-blue,#1f4fd8)]/10 text-[var(--support-blue,#1f4fd8)] transition-all duration-300 group-hover:bg-[var(--support-blue,#1f4fd8)] group-hover:text-white sm:h-14 sm:w-14">
                       <IndustryIcon />
                     </div>
-                    <h3 className="syne-font min-w-0 flex-1 text-base font-bold leading-snug primary-black transition-colors group-hover:support-blue-text sm:text-lg">
+                    <h3 className="sora-font min-w-0 flex-1 text-base font-bold leading-snug primary-black transition-colors group-hover:support-blue-text sm:text-lg">
                       {industry.name}
                     </h3>
                   </article>
@@ -345,7 +345,7 @@ export default function ZohoLanding() {
           <div className="grid gap-6 md:grid-cols-2 md:gap-8">
             <ZohoFadeIn>
               <article className={`${cardBase} flex flex-col`}>
-                <h3 className="syne-font text-xl font-bold primary-black">
+                <h3 className="sora-font text-xl font-bold primary-black">
                   &ldquo;I&apos;m New to Zoho&rdquo;
                 </h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--color-body,#4b5563)] sm:text-base">
@@ -359,7 +359,7 @@ export default function ZohoLanding() {
             </ZohoFadeIn>
             <ZohoFadeIn>
               <article className={`${cardBase} flex flex-col`}>
-                <h3 className="syne-font text-xl font-bold primary-black">
+                <h3 className="sora-font text-xl font-bold primary-black">
                   &ldquo;I Already Use Zoho&rdquo;
                 </h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--color-body,#4b5563)] sm:text-base">
@@ -448,7 +448,7 @@ export default function ZohoLanding() {
                   <p className="support-blue-text text-sm font-bold uppercase tracking-wide">
                     {tier.name}
                   </p>
-                  <h3 className="syne-font mt-1 text-xl font-bold primary-black">{tier.subtitle}</h3>
+                  <h3 className="sora-font mt-1 text-xl font-bold primary-black">{tier.subtitle}</h3>
                   <p className="mt-2 text-sm text-[var(--color-body,#4b5563)]">{tier.description}</p>
                   <p className="mt-4 text-xs font-semibold uppercase text-[var(--color-body,#4b5563)]">
                     For

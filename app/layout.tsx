@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Syne } from "next/font/google";
+import { Poppins, Sora } from "next/font/google";
 import "./globals.css";
 import HeaderSection from "@/components/layout/HeaderSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -22,7 +22,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const headingFont = Syne({
+const headingFont = Sora({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin", "latin-ext"],
   variable: "--font-heading",

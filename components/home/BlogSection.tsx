@@ -61,7 +61,7 @@ export default function BlogSection() {
                 <Image src={post.image} alt={post.title} width={380} height={260} className="w-full min-h-[200px] sm:min-h-[240px] md:min-h-100 h-full object-cover rounded-xl sm:rounded-2xl col-span-1" />
                 <div className="flex flex-1 flex-col justify-between gap-4 sm:gap-5 md:gap-6 col-span-1">
                   <div className="space-y-2">
-                    <p className="text-sm sm:text-base md:text-lg font-semibold primary-black syne-font">
+                    <p className="text-sm sm:text-base md:text-lg font-semibold primary-black sora-font">
                       {post.date}
                     </p>
                     <Link href={`/blog/${post.slug}`} className="text-lg sm:text-xl md:text-2xl font-black primary-black hover:text-[#8b1e2d]">
