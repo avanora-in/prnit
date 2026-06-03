@@ -146,6 +146,30 @@ const services = [
     ),
   },
   {
+    title: "Tally to Zoho Books",
+    description:
+      "Migrate from Tally ERP/TallyPrime to Zoho Books with zero data loss. GST-compliant migration for India, UAE, US & UK. Fixed price, 10-day delivery.",
+    href: "/services/tally-to-zoho-books",
+    features: ["Zero Data Loss", "GST-Compliant", "Trial Balance Reconciliation", "30-Day Support"],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+      </svg>
+    ),
+  },
+  {
+    title: "Zoho Migration",
+    description:
+      "Migrate from Salesforce, QuickBooks, Xero, HubSpot, Excel, Tally & legacy systems to Zoho. Certified Zoho partner. Zero data loss. India, UAE, US, UK, Australia.",
+    href: "/zoho-migration",
+    features: ["Zero Data Loss", "Financial Reconciliation", "30-Day Support", "Fixed Price"],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+      </svg>
+    ),
+  },
+  {
     title: "Strategy & Consulting",
     description:
       "Get expert guidance on your digital transformation journey. We help businesses define strategies, optimize processes, and achieve their technology goals.",

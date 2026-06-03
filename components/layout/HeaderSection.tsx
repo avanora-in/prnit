@@ -21,6 +21,8 @@ const serviceMenuItems = [
   { name: "QA & Testing", href: "/services/qa-testing" },
   { name: "SolarOS", href: "/solar-os" },
   { name: "Zoho Consulting", href: "/zoho-consulting-partner" },
+  { name: "Zoho Migration", href: "/zoho-migration" },
+  { name: "Tally to Zoho Books", href: "/services/tally-to-zoho-books" },
   { name: "Strategy & Consulting", href: "/how-we-work" },
   { name: "Web Development FAQ", href: "/services/web-development-faq" },
 ];

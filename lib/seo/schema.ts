@@ -150,6 +150,8 @@ export function getLocalBusinessSchema() {
     { name: "Android Development", path: "/services/android" },
     { name: "QA & Software Testing", path: "/services/qa-testing" },
     { name: "Web Development FAQ", path: "/services/web-development-faq" },
+    { name: "Tally to Zoho Books Migration", path: "/services/tally-to-zoho-books" },
+    { name: "Zoho Migration Services", path: "/zoho-migration" },
   ];
 
   return {

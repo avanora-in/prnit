@@ -12,6 +12,8 @@ const SERVICE_SLUG_LABEL: Record<string, string> = {
   android: "Android Development",
   "qa-testing": "QA & Testing",
   "web-development-faq": "Web Development FAQ",
+  "tally-to-zoho-books": "Tally to Zoho Books Migration",
+  "zoho-migration": "Zoho Migration Services",
 };
 
 export function serviceDetailBreadcrumb(slug: string) {

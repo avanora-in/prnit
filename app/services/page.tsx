@@ -44,6 +44,7 @@ export default function ServicesPage() {
           { href: "/services/cloud", label: "Cloud Services" },
           { href: "/solar-os", label: "SolarOS" },
           { href: "/zoho-consulting-partner", label: "Zoho Consulting" },
+          { href: "/services/tally-to-zoho-books", label: "Tally to Zoho Books" },
         ]}
         faqs={[
           {
