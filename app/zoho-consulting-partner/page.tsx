@@ -15,6 +15,7 @@ import {
   zohoPageUrl,
   zohoTwitterDescription,
 } from "@/components/zoho/zoho-seo";
+import Link from "next/link";
 
 const path = "/zoho-consulting-partner";
 
@@ -77,6 +78,22 @@ export default function ZohoConsultingPartnerPage() {
     <main className="deep-navy scroll-smooth">
       <JsonLd data={[breadcrumbSchema, professionalServiceSchema, faqSchema]} />
       <ZohoLanding />
+      <div className="secondary-background py-8 text-center">
+        <p className="text-sm text-[var(--color-body,#4b5563)] mb-2">
+          Already using Tally? Migrate to Zoho Books with zero data loss.
+        </p>
+        <Link href="/services/tally-to-zoho-books" className="text-sm font-semibold support-blue hover:underline">
+          Learn about Tally to Zoho Books Migration →
+        </Link>
+      </div>
+      <div className="secondary-background py-8 text-center border-t border-black/5">
+        <p className="text-sm text-[var(--color-body,#4b5563)] mb-2">
+          Migrating from a different platform? We handle Salesforce, QuickBooks, Xero, HubSpot & more.
+        </p>
+        <Link href="/zoho-migration" className="text-sm font-semibold support-blue hover:underline">
+          Learn about Zoho migration from any platform →
+        </Link>
+      </div>
     </main>
   );
 }

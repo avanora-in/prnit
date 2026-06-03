@@ -156,6 +156,24 @@ const services = [
     ],
     image: web_application_security,
   },
+  {
+    id: "tally-migration",
+    serviceHref: "/services/tally-to-zoho-books",
+    exploreLabel: "Explore Tally Migration →",
+    tag: "Data Migration",
+    title: "Tally to Zoho Books Migration",
+    description:
+      "Migrate from Tally ERP/TallyPrime to Zoho Books with zero data loss. GST-compliant migration for India, UAE, US & UK. Fixed price, 10-day delivery with trial balance reconciliation.",
+    bullets: [
+      "Zero Data Loss Migration",
+      "GST-Compliant Setup",
+      "Trial Balance Reconciliation",
+      "Multi-Entity Support",
+      "30-Day Post-Migration Support",
+      "Fixed Price, No Hidden Charges",
+    ],
+    image: custom_data_engineering,
+  },
 ];
 
 export default function ServicesSection() {

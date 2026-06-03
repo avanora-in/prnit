@@ -18,6 +18,13 @@ const SERVICE_PATHS = [
   "/services/android",
   "/services/qa-testing",
   "/services/web-development-faq",
+  "/services/tally-to-zoho-books",
+] as const;
+
+/** Additional service pages not under /services/ */
+const ADDITIONAL_SERVICE_PATHS = [
+  "/zoho-consulting-partner",
+  "/zoho-migration",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -44,6 +51,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path.endsWith("web-development-faq") ? 0.75 : 0.85,
   }));
 
+  const additionalServiceEntries: MetadataRoute.Sitemap = ADDITIONAL_SERVICE_PATHS.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
   return [
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
@@ -53,8 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/search`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     { url: `${base}/solar-os`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/zoho-consulting-partner`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     ...serviceEntries,
+    ...additionalServiceEntries,
     ...blogEntries,
     ...workEntries,
   ];
