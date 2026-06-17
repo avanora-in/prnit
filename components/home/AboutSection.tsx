@@ -33,9 +33,9 @@ export default function AboutSection() {
     >
       <div className="mx-auto flex max-w-[1320px] grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 px-4 sm:px-5 md:px-6">
         <div className="relative col-span-1 pl-4 pr-8 sm:pl-5 sm:pr-12 md:pl-6 md:pr-16 flex items-center justify-center">
-          <Image src={about_left} alt="About Left" width={150} height={150} className="absolute top-8 left-2 lg:top-12 w-20 h-20 sm:w-24 sm:h-24 md:w-[150px] md:h-[150px]" ref={aboutLeftRef} />
-          <Image src={about_bottom} alt="About Bottom" width={500} height={500} className="w-[91%] h-auto" />
-          <Image src={about_top} alt="About Top" width={250} height={250} className="absolute bottom-8 right-2 lg:bottom-16 w-32 h-32 sm:w-40 sm:h-40 md:w-[250px] md:h-[250px]" ref={aboutTopRef} />
+          <Image src={about_left} alt="PRNIT team working on software architecture — Jaipur development studio" width={150} height={150} className="absolute top-8 left-2 lg:top-12 w-20 h-20 sm:w-24 sm:h-24 md:w-[150px] md:h-[150px]" ref={aboutLeftRef} />
+          <Image src={about_bottom} alt="PRNIT team working on software architecture — Jaipur development studio" width={500} height={500} className="w-[91%] h-auto" />
+          <Image src={about_top} alt="PRNIT team working on software architecture — Jaipur development studio" width={250} height={250} className="absolute bottom-8 right-2 lg:bottom-16 w-32 h-32 sm:w-40 sm:h-40 md:w-[250px] md:h-[250px]" ref={aboutTopRef} />
         </div>
         <div className="col-span-1 space-y-6">
           <div className="space-y-2">

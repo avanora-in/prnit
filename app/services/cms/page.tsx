@@ -10,6 +10,11 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
+import { siteConfig } from "@/lib/seo/entity";
+import {
+  getOrganizationSchema,
+  getServiceSchema,
+} from "@/lib/seo/schema";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "CMS & WordPress Development Services in India",
@@ -19,9 +24,17 @@ export const metadata: Metadata = servicePageMetadata({
 });
 
 export default function CMSPage() {
+  const organizationSchema = getOrganizationSchema();
+  const serviceSchema = getServiceSchema({
+    name: "CMS & WordPress Development Services in India",
+    description: "PRNIT offers CMS and WordPress development services in India for secure, scalable, and easy-to-manage content platforms.",
+    url: `${siteConfig.siteUrl}/services/cms`,
+  });
+  const breadcrumbSchema = serviceDetailBreadcrumb("cms");
+
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={serviceDetailBreadcrumb("cms")} />
+      <JsonLd data={[organizationSchema, serviceSchema, breadcrumbSchema]} />
       <CMSHeroSection />
       <LogoSlider />
       <PageLead>

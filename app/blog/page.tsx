@@ -6,7 +6,7 @@ import BlogPageContent from "@/components/blog/BlogPageContent";
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildBreadcrumbSchema } from "@/lib/seo/schema";
+import { buildBreadcrumbSchema, getOrganizationSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = pageMetadata({
   title: "Blog",
@@ -20,10 +20,11 @@ export default function BlogPage() {
     { name: "Home", path: "/" },
     { name: "Blog", path: "/blog" },
   ]);
+  const organizationSchema = getOrganizationSchema();
 
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={[organizationSchema, breadcrumbSchema]} />
       <BlogPageHero />
       <LogoSlider />
       <PageLead>

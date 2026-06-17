@@ -193,7 +193,7 @@ export default function HeaderSection() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Link href="/" onClick={closeMobileMenu}>
-                <Image src={logo} alt="PRNIT" width={120} height={120} className="h-6 w-auto sm:h-7 md:h-8" />
+                <Image src={logo} alt="PRNIT logo — AI & Cloud Software Development Company, Jaipur" width={120} height={120} className="h-6 w-auto sm:h-7 md:h-8" />
               </Link>
             </div>
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">

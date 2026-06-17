@@ -12,6 +12,11 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
+import { siteConfig } from "@/lib/seo/entity";
+import {
+  getOrganizationSchema,
+  getServiceSchema,
+} from "@/lib/seo/schema";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Android App Development Services in India",
@@ -21,9 +26,17 @@ export const metadata: Metadata = servicePageMetadata({
 });
 
 export default function AndroidPage() {
+  const organizationSchema = getOrganizationSchema();
+  const serviceSchema = getServiceSchema({
+    name: "Android App Development Services in India",
+    description: "PRNIT offers Android app development services in India using modern architecture, Kotlin-first practices, and robust QA for scalable releases.",
+    url: `${siteConfig.siteUrl}/services/android`,
+  });
+  const breadcrumbSchema = serviceDetailBreadcrumb("android");
+
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={serviceDetailBreadcrumb("android")} />
+      <JsonLd data={[organizationSchema, serviceSchema, breadcrumbSchema]} />
       <AndroidHeroSection />
       <LogoSlider />
       <PageLead>

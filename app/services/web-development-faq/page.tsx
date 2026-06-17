@@ -5,7 +5,7 @@ import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
-import { getFaqSchema, getServiceSchema } from "@/lib/seo/schema";
+import { getFaqSchema, getServiceSchema, getOrganizationSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/entity";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
@@ -29,20 +29,24 @@ export default function WebDevelopmentFAQPage() {
     },
   ];
 
+  const organizationSchema = getOrganizationSchema();
   const serviceSchema = getServiceSchema({
     name: "Web Development FAQ in India",
     description:
       "Common web development questions answered by PRNIT, covering timelines, pricing, scope, and delivery process for teams in India and globally.",
     url: `${siteConfig.siteUrl}/services/web-development-faq`,
   });
+  const breadcrumbSchema = serviceDetailBreadcrumb("web-development-faq");
+  const faqSchema = getFaqSchema(faqItems);
 
   return (
     <main className="deep-navy scroll-smooth">
       <JsonLd
         data={[
+          organizationSchema,
           serviceSchema,
-          serviceDetailBreadcrumb("web-development-faq"),
-          getFaqSchema(faqItems),
+          breadcrumbSchema,
+          faqSchema,
         ]}
       />
       <FAQHeroSection />

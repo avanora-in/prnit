@@ -10,6 +10,7 @@ const aiTabs = [
   {
     id: "automation",
     title: "AI Powered Automation",
+    alt: "AI-powered workflow automation — intelligent decision systems built by PRNIT",
     description:
       "Unlock the power of automation and smart decision-making with PRNIT's advanced AI solutions. We design intelligent systems that integrate seamlessly, optimize operations, and drive business growth.",
     features: [
@@ -23,6 +24,7 @@ const aiTabs = [
   {
     id: "intelligence",
     title: "Decision Intelligence",
+    alt: "AI-powered workflow automation — intelligent decision systems built by PRNIT",
     description:
       "Transform your business decisions with AI-powered insights. Our decision intelligence solutions help you analyze data, predict outcomes, and make informed choices that drive growth.",
     features: [
@@ -36,6 +38,7 @@ const aiTabs = [
   {
     id: "strategy",
     title: "Strategy & Development",
+    alt: "AI-powered workflow automation — intelligent decision systems built by PRNIT",
     description:
       "Build intelligent, future-ready systems with our strategic AI development services. We help you plan, develop, and deploy AI solutions that align with your business goals.",
     features: [
@@ -110,7 +113,7 @@ export default function CustomAiSection() {
                 </li>
               ))}
             </ul>
-            <Image src={activeContent.image} alt={activeContent.title} width={300} height={300} className="rounded-xl sm:rounded-2xl w-full h-auto sm:h-70 object-cover" />
+            <Image src={activeContent.image} alt={activeContent.alt || activeContent.title} width={300} height={300} className="rounded-xl sm:rounded-2xl w-full h-auto sm:h-70 object-cover" />
           </div>
         </div>
       </div>

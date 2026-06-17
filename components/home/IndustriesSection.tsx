@@ -13,6 +13,7 @@ const industries = [
   {
     id: "healthcare",
     title: "Healthcare Industry",
+    alt: "Healthcare software development — digital health solutions for providers and clinics",
     description:
       "Empowering healthcare providers with smart, secure, and scalable digital solutions that enhance care delivery and streamline every workflow.",
     image: healthcare_industry_image,
@@ -20,6 +21,7 @@ const industries = [
   {
     id: "education",
     title: "Education",
+    alt: "Education technology solutions — smart digital learning platforms by PRNIT",
     description:
       "Creating smart digital solutions that enhance learning, support educators, and make quality education more accessible for everyone.",
     image: education_industry_image,
@@ -27,6 +29,7 @@ const industries = [
   {
     id: "financial",
     title: "Financial Services",
+    alt: "Fintech software development — digital financial services and risk management solutions",
     description:
       "Delivering next-gen financial solutions that elevate customer experience, strengthen risk management, and accelerate growth across every digital channel.",
     image: financial_industry_image,
@@ -34,6 +37,7 @@ const industries = [
   {
     id: "retail",
     title: "Retail",
+    alt: "Retail technology solutions — inventory management and personalised commerce platforms",
     description:
       "Designing smart retail solutions that personalize customer journeys, streamline inventory operations, and boost profitability across all channels.",
     image: retail_industry_image,
@@ -160,7 +164,7 @@ export default function IndustriesSection() {
                     style={{ display: activeIndustry === industry.id ? "block" : "none" }}
                   >
                     <div className="flex justify-center sm:justify-end">
-                      <Image src={industry.image} alt={industry.title} width={800} height={800} className="w-full h-60 md:h-100 rounded-xl object-cover object-bottom sm:rounded-2xl" />
+                      <Image src={industry.image} alt={industry.alt || industry.title} width={800} height={800} className="w-full h-60 md:h-100 rounded-xl object-cover object-bottom sm:rounded-2xl" />
                     </div>
                   </div>
                 </div>

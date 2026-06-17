@@ -18,6 +18,7 @@ const services = [
     exploreLabel: "Explore App Development →",
     tag: "App Development Solution",
     title: "Custom Mobile App Development Services",
+    alt: "Custom mobile app development services — multi-platform iOS and Android apps by PRNIT",
     description:
       "Whether you need a brand-new application or want to upgrade your existing one with the latest technologies, PRNIT builds high-performance mobile apps tailored to your vision and business goals.",
     bullets: [
@@ -36,6 +37,7 @@ const services = [
     exploreLabel: "Explore Web Development →",
     tag: "Web Development Solution",
     title: "Custom Website Development Services",
+    alt: "Custom website development services — responsive and SEO-optimised websites by PRNIT",
     description:
       "Build a fast, secure, and user-friendly website powered by modern technologies and tailored to your business goals. PRNIT creates web experiences that are visually polished, responsive, and built to perform.",
     bullets: [
@@ -54,6 +56,7 @@ const services = [
     exploreLabel: "Explore E-Commerce Development →",
     tag: "E-Commerce Development",
     title: "Custom E-Commerce Development Services",
+    alt: "Custom e-commerce development — scalable online store solutions by PRNIT",
     description:
       "Supercharge your online business with powerful, secure, and scalable E-Commerce systems built by PRNIT Software. We create smooth shopping experiences that help you increase sales, enhance customer trust, and grow your digital presence.",
     bullets: [
@@ -72,6 +75,7 @@ const services = [
     exploreLabel: "Explore Cloud Services →",
     tag: "Cloud Consulting",
     title: "Cloud & DevOps Solutions for Faster, Smarter Growth",
+    alt: "Cloud and DevOps solutions — CI/CD pipeline automation and AWS/Google Cloud services by PRNIT",
     description:
       "Transform the way your business runs with PRNIT Software's powerful Cloud and DevOps services. We help you migrate, automate, and scale with confidence—ensuring performance, security, and cost-efficiency at every step.",
     bullets: [
@@ -90,6 +94,7 @@ const services = [
     exploreLabel: "Explore CMS & Custom Platforms →",
     tag: "CRM Software Development",
     title: "Custom CRM Development & Implementation Services",
+    alt: "Custom CRM development and implementation — AI-powered customer management systems",
     description:
       "We build tailored CRM solutions that simplify operations, improve customer management, and accelerate business growth.",
     bullets: [
@@ -108,6 +113,7 @@ const services = [
     exploreLabel: "Explore Web & API Services →",
     tag: "API Development",
     title: "Custom API Development & Integration Services",
+    alt: "Custom API development and integration services — RESTful and GraphQL APIs by PRNIT",
     description:
       "We create secure, high-performance APIs that enable smooth data flow across your systems. From RESTful and GraphQL to third-party integrations, we ensure speed, reliability, and scalability.",
     bullets: [
@@ -126,6 +132,7 @@ const services = [
     exploreLabel: "Explore Cloud & Data Services →",
     tag: "Data Engineering",
     title: "Custom Data Engineering Services",
+    alt: "Custom data engineering services — AI-driven data pipelines and ML integration by PRNIT",
     description:
       "We build powerful data pipelines and systems that help your business process, manage, and utilize data with precision—turning raw information into actionable insights.",
     bullets: [
@@ -144,6 +151,7 @@ const services = [
     exploreLabel: "Explore QA & Testing Services →",
     tag: "Cyber Security",
     title: "Web Application Security",
+    alt: "Web application security services — OWASP compliance and penetration testing by PRNIT",
     description:
       "Shield your digital platforms with enterprise-grade security. PRNIT delivers end-to-end protection to keep your data, apps, and users safe from evolving threats.",
     bullets: [
@@ -162,6 +170,7 @@ const services = [
     exploreLabel: "Explore Tally Migration →",
     tag: "Data Migration",
     title: "Tally to Zoho Books Migration",
+    alt: "Custom data engineering services — AI-driven data pipelines and ML integration by PRNIT",
     description:
       "Migrate from Tally ERP/TallyPrime to Zoho Books with zero data loss. GST-compliant migration for India, UAE, US & UK. Fixed price, 10-day delivery with trial balance reconciliation.",
     bullets: [
@@ -333,7 +342,7 @@ export default function ServicesSection() {
                       <div className="relative w-full">
                         <Image
                           src={service.image}
-                          alt={service.title}
+                          alt={service.alt || service.title}
                           width={400}
                           height={400}
                           priority={index === 0}

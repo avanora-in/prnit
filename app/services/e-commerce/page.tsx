@@ -9,6 +9,11 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
+import { siteConfig } from "@/lib/seo/entity";
+import {
+  getOrganizationSchema,
+  getServiceSchema,
+} from "@/lib/seo/schema";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "E-Commerce Development Services in India",
@@ -18,9 +23,17 @@ export const metadata: Metadata = servicePageMetadata({
 });
 
 export default function EcommercePage() {
+  const organizationSchema = getOrganizationSchema();
+  const serviceSchema = getServiceSchema({
+    name: "E-Commerce Development Services in India",
+    description: "PRNIT provides e-commerce development services in India for scalable storefronts, secure checkout flows, and high-performance operations.",
+    url: `${siteConfig.siteUrl}/services/e-commerce`,
+  });
+  const breadcrumbSchema = serviceDetailBreadcrumb("e-commerce");
+
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={serviceDetailBreadcrumb("e-commerce")} />
+      <JsonLd data={[organizationSchema, serviceSchema, breadcrumbSchema]} />
       <EcommerceHeroSection />
       <LogoSlider />
       <PageLead>

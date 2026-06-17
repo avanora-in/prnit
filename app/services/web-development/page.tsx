@@ -12,6 +12,11 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
+import { siteConfig } from "@/lib/seo/entity";
+import {
+  getOrganizationSchema,
+  getServiceSchema,
+} from "@/lib/seo/schema";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Web Development Services in India",
@@ -21,9 +26,17 @@ export const metadata: Metadata = servicePageMetadata({
 });
 
 export default function WebDevelopmentPage() {
+  const organizationSchema = getOrganizationSchema();
+  const serviceSchema = getServiceSchema({
+    name: "Web Development Services in India",
+    description: "PRNIT builds scalable web applications and websites in India with modern architecture, performance optimization, and reliable engineering delivery.",
+    url: `${siteConfig.siteUrl}/services/web-development`,
+  });
+  const breadcrumbSchema = serviceDetailBreadcrumb("web-development");
+
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={serviceDetailBreadcrumb("web-development")} />
+      <JsonLd data={[organizationSchema, serviceSchema, breadcrumbSchema]} />
       <WebDevHeroSection />
       <LogoSlider />
       <PageLead>

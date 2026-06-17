@@ -1,22 +1,67 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/seo/entity";
-import { pageMetadata } from "@/lib/seo/page-metadata";
 import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ButtonLink from "@/components/ui/ButtonLink";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildBreadcrumbSchema, getPersonSchema } from "@/lib/seo/schema";
+import { buildBreadcrumbSchema, getPersonSchema, getOrganizationSchema, getFaqSchema } from "@/lib/seo/schema";
 import Image from "next/image";
 import { about_left, about_top, about_bottom } from "@/public/assets";
+import AboutFAQSection from "@/components/about/AboutFAQSection";
 
-export const metadata: Metadata = pageMetadata({
-  title: "About Us",
-  description:
-    "PRNIT is a forward-thinking technology company building intelligent, scalable, and future-ready digital solutions.",
-  path: "/about",
-});
+const aboutUrl = `${siteConfig.siteUrl}/about`;
+const aboutTitle = "About PRNIT — Software Architecture Company, Jaipur | Est. 2011";
+const aboutDescription = "Founded in 2011 by Praveen Singh Shekhawat, PRNIT is a Jaipur-based software architecture company. We help SaaS, healthtech, logistics & fintech startups scale with reliable engineering.";
+const aboutOgTitle = "About PRNIT — Software Architecture Company Founded in 2011";
+const aboutOgDescription = "Founded by Praveen Singh Shekhawat, PRNIT is a Jaipur-based software architecture company helping SaaS, healthtech, logistics & fintech startups scale reliably since 2011.";
+const aboutTwitterTitle = "About PRNIT — Architecture-First Software Company | Est. 2011";
+const aboutTwitterDescription = "Founded by Praveen Singh Shekhawat. 14+ years. 8 industries. Distributed engineering team in Jaipur building scalable products for startups worldwide.";
+const ogImageUrl = `${siteConfig.siteUrl}/og-about.jpg`;
+
+export const metadata: Metadata = {
+  title: aboutTitle,
+  description: aboutDescription,
+  alternates: {
+    canonical: aboutUrl,
+  },
+  openGraph: {
+    type: "profile",
+    url: aboutUrl,
+    title: aboutOgTitle,
+    description: aboutOgDescription,
+    siteName: siteConfig.organizationName,
+    locale: "en_IN",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "Praveen Singh Shekhawat — Founder of PRNIT, software architecture company in Jaipur",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@prnitsoftware",
+    creator: "@prnitsoftware",
+    title: aboutTwitterTitle,
+    description: aboutTwitterDescription,
+    images: [ogImageUrl],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+};
 
 export default function AboutPage() {
   const breadcrumbJsonLd = buildBreadcrumbSchema([
@@ -24,10 +69,35 @@ export default function AboutPage() {
     { name: "About", path: "/about" },
   ]);
 
+  const personSchema = getPersonSchema();
+  const organizationSchema = getOrganizationSchema();
+
+  const faqSchema = getFaqSchema([
+    {
+      question: "Who founded PRNIT and when?",
+      answer: "PRNIT was founded in January 2011 by Praveen Singh Shekhawat, a Toptal-vetted software architect with 14+ years of hands-on experience in scalable system design."
+    },
+    {
+      question: "Where is PRNIT based?",
+      answer: "PRNIT is headquartered in Jaipur, Rajasthan, India. The team operates as a distributed engineering unit serving clients across India, the US, UK, UAE, and Australia."
+    },
+    {
+      question: "What industries does PRNIT have experience in?",
+      answer: "PRNIT has delivered projects across 8 industries: SaaS, healthtech, logistics, fintech, media, retail, manufacturing, and public services — with active AI projects in logistics and healthcare."
+    },
+    {
+      question: "Is PRNIT's founder Toptal-vetted?",
+      answer: "Yes. Praveen Singh Shekhawat is part of the Toptal vetted developer network, which screens the top 3% of global software talent."
+    },
+    {
+      question: "Is PRNIT ISO certified?",
+      answer: "Yes. PRNIT holds ISO/IEC 27001:2022 certification for information security management and enterprise-grade data protection."
+    }
+  ]);
+
   return (
     <main className="deep-navy scroll-smooth secondary-text">
-      <JsonLd data={getPersonSchema()} />
-      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={[personSchema, organizationSchema, breadcrumbJsonLd, faqSchema]} />
       <section
         id="home"
         className="relative w-full secondary-background rounded-b-[24px] sm:rounded-b-[32px] md:rounded-b-[48px] overflow-hidden"
@@ -55,9 +125,9 @@ export default function AboutPage() {
             </div>
 
             <div className="relative col-span-1 pl-4 pr-8 sm:pl-5 sm:pr-12 md:pl-6 md:pr-16 flex items-center justify-center">
-              <Image src={about_left} alt="About Left" width={150} height={150} className="absolute top-8 left-2 lg:top-12 w-20 h-20 sm:w-24 sm:h-24 md:w-[150px] md:h-[150px]" />
-              <Image src={about_bottom} alt="About Bottom" width={500} height={500} className="w-[91%] h-auto" />
-              <Image src={about_top} alt="About Top" width={250} height={250} className="absolute bottom-8 right-2 lg:bottom-16 w-32 h-32 sm:w-40 sm:h-40 md:w-[250px] md:h-[250px]" />
+              <Image src={about_left} alt="PRNIT engineering team collaborating on software architecture in Jaipur" width={150} height={150} className="absolute top-8 left-2 lg:top-12 w-20 h-20 sm:w-24 sm:h-24 md:w-[150px] md:h-[150px]" />
+              <Image src={about_bottom} alt="PRNIT development team working on scalable digital product solutions" width={500} height={500} className="w-[91%] h-auto" />
+              <Image src={about_top} alt="PRNIT software architects reviewing cloud infrastructure design" width={250} height={250} className="absolute bottom-8 right-2 lg:bottom-16 w-32 h-32 sm:w-40 sm:h-40 md:w-[250px] md:h-[250px]" />
             </div>
           </div>
         </div>
@@ -195,6 +265,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <AboutFAQSection />
     </main>
   );
 }

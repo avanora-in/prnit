@@ -9,6 +9,11 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
+import { siteConfig } from "@/lib/seo/entity";
+import {
+  getOrganizationSchema,
+  getServiceSchema,
+} from "@/lib/seo/schema";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "Cloud Consulting Services in India (AWS & GCP)",
@@ -18,9 +23,17 @@ export const metadata: Metadata = servicePageMetadata({
 });
 
 export default function CloudPage() {
+  const organizationSchema = getOrganizationSchema();
+  const serviceSchema = getServiceSchema({
+    name: "Cloud Consulting Services in India (AWS & GCP)",
+    description: "PRNIT provides cloud consulting services in India for AWS and Google Cloud, covering migration, optimization, reliability, and DevOps delivery.",
+    url: `${siteConfig.siteUrl}/services/cloud`,
+  });
+  const breadcrumbSchema = serviceDetailBreadcrumb("cloud");
+
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={serviceDetailBreadcrumb("cloud")} />
+      <JsonLd data={[organizationSchema, serviceSchema, breadcrumbSchema]} />
       <CloudHeroSection />
       <LogoSlider />
       <PageLead>
