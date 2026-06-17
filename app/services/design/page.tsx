@@ -10,6 +10,11 @@ import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
+import { siteConfig } from "@/lib/seo/entity";
+import {
+  getOrganizationSchema,
+  getServiceSchema,
+} from "@/lib/seo/schema";
 
 export const metadata: Metadata = servicePageMetadata({
   title: "UI/UX Design Services in India",
@@ -19,9 +24,17 @@ export const metadata: Metadata = servicePageMetadata({
 });
 
 export default function DesignPage() {
+  const organizationSchema = getOrganizationSchema();
+  const serviceSchema = getServiceSchema({
+    name: "UI/UX Design Services in India",
+    description: "PRNIT delivers UI/UX design services in India that improve usability, conversion, and product clarity across web and mobile experiences.",
+    url: `${siteConfig.siteUrl}/services/design`,
+  });
+  const breadcrumbSchema = serviceDetailBreadcrumb("design");
+
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={serviceDetailBreadcrumb("design")} />
+      <JsonLd data={[organizationSchema, serviceSchema, breadcrumbSchema]} />
       <DesignHeroSection />
       <LogoSlider />
       <PageLead>

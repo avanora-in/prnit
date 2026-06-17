@@ -3,7 +3,7 @@ import { blogPosts } from "@/components/blog/blog-data";
 import BlogPostContent from "@/components/blog/BlogPostContent";
 import { siteConfig } from "@/lib/seo/entity";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildBreadcrumbSchema } from "@/lib/seo/schema";
+import { buildBreadcrumbSchema, getOrganizationSchema, getBlogPostingSchema } from "@/lib/seo/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -49,27 +49,19 @@ export default async function BlogPostPage({ params }: Props) {
     { name: post.title, path: `/blog/${post.slug}` },
   ]);
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+  const organizationSchema = getOrganizationSchema();
+  const blogPostingSchema = getBlogPostingSchema({
     headline: post.title,
     description: post.excerpt,
+    url: `${siteConfig.siteUrl}/blog/${post.slug}`,
     datePublished: post.date,
-    author: {
-      "@type": "Organization",
-      name: siteConfig.organizationName,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.organizationName,
-    },
-    mainEntityOfPage: `${siteConfig.siteUrl}/blog/${post.slug}`,
+    dateModified: post.date,
     image: `${siteConfig.siteUrl}/og-image.jpg`,
-  };
+  });
 
   return (
     <>
-      <JsonLd data={[breadcrumbSchema, articleJsonLd]} />
+      <JsonLd data={[organizationSchema, blogPostingSchema, breadcrumbSchema]} />
       <BlogPostContent post={post} relatedPosts={relatedPosts} />
     </>
   );

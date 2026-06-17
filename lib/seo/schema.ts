@@ -24,14 +24,14 @@ export function getOrganizationSchema() {
     name: siteConfig.organizationName,
     legalName: siteConfig.legalName,
     url: baseUrl,
-    logo: `${baseUrl}/logo.svg`,
+    logo: `${baseUrl}/assets/prnit_logo.svg`,
     image: `${baseUrl}/og-image.jpg`,
     description:
-      "AI-powered apps, cloud infrastructure and distributed engineering teams for scaling startups. Based in Jaipur, India since 2011.",
+      "PRNIT is a Jaipur-based software company specialising in AI-powered apps, cloud architecture, mobile development, and distributed engineering teams. Founded in 2011 by Praveen Singh Shekhawat. Serving SaaS, healthtech, logistics, and fintech startups globally.",
     founder: {
       "@type": "Person",
       name: siteConfig.founderName,
-      jobTitle: "Founder & Engineering Architect",
+      jobTitle: "Founder & Managing Director",
       url: siteConfig.founderLinkedIn,
     },
     foundingDate: siteConfig.foundingDate,
@@ -327,5 +327,49 @@ export function getHowToSchema(params: {
       name: siteConfig.organizationName,
       url: baseUrl,
     },
+  };
+}
+
+/** BlogPosting schema for individual blog post pages */
+export function getBlogPostingSchema(params: {
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: params.headline,
+    description: params.description,
+    url: params.url,
+    datePublished: params.datePublished,
+    dateModified: params.dateModified,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.organizationName,
+      url: baseUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.organizationName,
+      url: baseUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/logo.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": params.url,
+    },
+    ...(params.image && {
+      image: {
+        "@type": "ImageObject",
+        url: params.image,
+      },
+    }),
   };
 }

@@ -9,7 +9,7 @@ import LogoSlider from "@/components/sections/LogoSlider";
 import PageLead from "@/components/ui/PageLead";
 import ServiceSeoSection from "@/components/services/ServiceSeoSection";
 import JsonLd from "@/components/seo/JsonLd";
-import { getFaqSchema, getServiceSchema } from "@/lib/seo/schema";
+import { getFaqSchema, getServiceSchema, getOrganizationSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/entity";
 import { servicePageMetadata } from "@/lib/seo/service-page-metadata";
 import { serviceDetailBreadcrumb } from "@/lib/seo/service-breadcrumbs";
@@ -33,17 +33,20 @@ export default function QATestingPage() {
     },
   ];
 
+  const organizationSchema = getOrganizationSchema();
   const serviceSchema = getServiceSchema({
     name: "QA & Software Testing Services in India",
     description:
       "PRNIT offers QA and software testing services in India including manual, automation, and performance testing for reliable product releases.",
     url: `${siteConfig.siteUrl}/services/qa-testing`,
   });
+  const breadcrumbSchema = serviceDetailBreadcrumb("qa-testing");
+  const faqSchema = getFaqSchema(faqItems);
 
   return (
     <main className="deep-navy scroll-smooth">
       <JsonLd
-        data={[serviceSchema, serviceDetailBreadcrumb("qa-testing"), getFaqSchema(faqItems)]}
+        data={[organizationSchema, serviceSchema, breadcrumbSchema, faqSchema]}
       />
       <QAHeroSection />
       <LogoSlider />

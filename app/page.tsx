@@ -10,7 +10,13 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import HomeFAQSection from "@/components/home/HomeFAQSection";
 import { siteConfig } from "@/lib/seo/entity";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildBreadcrumbSchema, getFaqSchema } from "@/lib/seo/schema";
+import {
+  buildBreadcrumbSchema,
+  getFaqSchema,
+  getOrganizationSchema,
+  getLocalBusinessSchema,
+  getWebSiteSchema,
+} from "@/lib/seo/schema";
 
 const homeUrl = `${siteConfig.siteUrl}/`;
 const homeTitle = "PRNIT — AI & Cloud Software Development | Jaipur, India";
@@ -88,9 +94,13 @@ export default function Home() {
     }
   ]);
 
+  const organizationSchema = getOrganizationSchema();
+  const localBusinessSchema = getLocalBusinessSchema();
+  const webSiteSchema = getWebSiteSchema();
+
   return (
     <main className="deep-navy scroll-smooth">
-      <JsonLd data={[breadcrumbSchema, faqSchema]} />
+      <JsonLd data={[organizationSchema, localBusinessSchema, webSiteSchema, breadcrumbSchema, faqSchema]} />
       <HeroSection />
       <LogoSlider />
       <AboutSection />
