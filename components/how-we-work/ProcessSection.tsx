@@ -127,6 +127,7 @@ export default function ProcessSection() {
             return (
               <div
                 key={step.number}
+                id={`step-${step.number}`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`group rounded-xl sm:rounded-2xl p-4 md:p-6 lg:p-8 transition-all duration-500 border cursor-pointer overflow-hidden ${isLarge ? "md:col-span-2 lg:col-span-2" : ""

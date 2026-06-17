@@ -17,7 +17,7 @@ export default function FooterSection() {
             <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-5 md:gap-6">
               <div className="space-y-3 sm:space-y-4 max-w-2xl">
                 <Link href="/">
-                  <Image src={logo_white} alt="PRNIT" width={120} height={120} className="h-6 w-auto sm:h-7 md:h-8 mb-3 sm:mb-4" />
+                  <Image src={logo_white} alt="PRNIT — software development company based in Jaipur, India" width={120} height={120} className="h-6 w-auto sm:h-7 md:h-8 mb-3 sm:mb-4" />
                 </Link>
                 <p className="text-base sm:text-base md:text-lg leading-normal">
                   If you&apos;re looking to grow your business, expand your market reach, and build long-term success,
@@ -204,7 +204,7 @@ export default function FooterSection() {
           <div className="flex items-center justify-between pt-6 sm:pt-8 border-t border-white/20">
             <Image
               src="/assets/iso-27001-certified-badge-v2.png"
-              alt="ISO/IEC 27001:2022 Certified Company"
+              alt="ISO/IEC 27001:2022 Certified — PRNIT information security management certification"
               width={420}
               height={120}
               className="h-14 w-auto object-contain"

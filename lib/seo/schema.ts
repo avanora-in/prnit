@@ -24,41 +24,50 @@ export function getOrganizationSchema() {
     name: siteConfig.organizationName,
     legalName: siteConfig.legalName,
     url: baseUrl,
-    logo: `${baseUrl}/logo.png`,
+    logo: `${baseUrl}/logo.svg`,
     image: `${baseUrl}/og-image.jpg`,
     description:
-      "PRNIT is a technology company founded in 2011 by Praveen Singh Shekhawat. We build AI-powered apps, cloud solutions, mobile platforms, and distributed engineering teams. Based in Jaipur, India, working globally.",
+      "AI-powered apps, cloud infrastructure and distributed engineering teams for scaling startups. Based in Jaipur, India since 2011.",
     founder: {
       "@type": "Person",
       name: siteConfig.founderName,
       jobTitle: "Founder & Engineering Architect",
       url: siteConfig.founderLinkedIn,
     },
-    foundingDate: "2011",
+    foundingDate: siteConfig.foundingDate,
     email: siteConfig.email,
-    telephone: "+91-97853-94461",
+    telephone: siteConfig.phoneE164,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "24-A, Umraw Vihar, Gokulpura",
-      addressLocality: "Jhotwara, Jaipur",
+      streetAddress: "24-A, Umraw Vihar, Gokulpura, Jhotwara",
+      addressLocality: "Jaipur",
       addressRegion: "Rajasthan",
       postalCode: "302012",
       addressCountry: "IN",
     },
     geo: { "@type": "GeoCoordinates", latitude: 26.9124, longitude: 75.7873 },
     sameAs: siteConfig.socialProfiles,
-    areaServed: ["IN", "TH", "US", "GB", "AU"],
+    areaServed: ["IN", "US", "GB", "AU", "AE"],
     aggregateRating: getAggregateRatingSchema(),
-    knowsAbout: [
-      "Software Development",
-      "Cloud Architecture",
-      "AI Development",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "10:00",
+      closes: "19:00",
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      name: "ISO/IEC 27001:2022 Certified",
+    },
+    serviceType: [
+      "AI App Development",
+      "Cloud & DevOps Services",
       "Mobile App Development",
-      "Distributed Engineering Teams",
-      "SaaS",
-      "Healthtech",
-      "Fintech",
-      "Logistics Technology",
+      "Web Development",
+      "E-Commerce Development",
+      "CRM Development",
+      "Data Engineering",
+      "Zoho Consulting",
     ],
   };
 }
@@ -184,8 +193,8 @@ export function getLocalBusinessSchema() {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
+        opens: "10:00",
+        closes: "19:00",
       },
     ],
     priceRange: "$$",
@@ -193,8 +202,8 @@ export function getLocalBusinessSchema() {
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
-      { "@type": "Country", name: "Thailand" },
       { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "United Arab Emirates" },
     ],
     sameAs: siteConfig.socialProfiles,
     hasOfferCatalog: {
@@ -278,4 +287,45 @@ export function getFounderSchema() {
 /** Same graph as `getFounderSchema` — existing About page import. */
 export function getPersonSchema() {
   return getFounderSchema();
+}
+
+/** HowTo schema for process/methodology pages */
+export function getHowToSchema(params: {
+  name: string;
+  description: string;
+  steps: Array<{
+    position: number;
+    name: string;
+    text: string;
+    url: string;
+  }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: params.name,
+    description: params.description,
+    totalTime: "P4W",
+    estimatedCost: {
+      "@type": "MonetaryAmount",
+      currency: "USD",
+      value: "Contact for quote",
+    },
+    supply: [
+      { "@type": "HowToSupply", name: "Project brief or idea" },
+      { "@type": "HowToSupply", name: "Business goals and target audience" },
+    ],
+    step: params.steps.map((step) => ({
+      "@type": "HowToStep",
+      position: step.position,
+      name: step.name,
+      text: step.text,
+      url: step.url,
+    })),
+    author: {
+      "@type": "Organization",
+      name: siteConfig.organizationName,
+      url: baseUrl,
+    },
+  };
 }

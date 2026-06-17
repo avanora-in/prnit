@@ -80,7 +80,7 @@ export default function HeroSection() {
           </div>
 
           <div className="col-span-1 relative flex items-center justify-center lg:justify-end" ref={heroRightSectionRef}>
-            <Image src={banner_illustration} alt="Banner Illustration" width={800} height={800} priority={true} className="w-full max-w-full md:max-w-[400px] lg:max-w-[500px] h-fit lg:h-full object-cover" />
+            <Image src={banner_illustration} alt="Illustration showing AI-powered software development and cloud architecture solutions" width={800} height={800} priority={true} className="w-full max-w-full md:max-w-[400px] lg:max-w-[500px] h-fit lg:h-full object-cover" />
           </div>
         </div>
       </div>
