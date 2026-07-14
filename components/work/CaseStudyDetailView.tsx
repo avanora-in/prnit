@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import type { CaseStudy } from "@/lib/work/case-studies";
-import { CaseStudyMetricIcon } from "@/lib/work/case-study-metric-icons";
 import CaseStudyProjectVisualsGallery from "./CaseStudyProjectVisualsGallery";
 import ButtonLink from "@/components/ui/ButtonLink";
 import SectionLabel from "../ui/SectionLabel";
@@ -39,7 +38,7 @@ function Pill({ children }: { children: ReactNode }) {
 
 export default function CaseStudyDetailView({ study, prev, next }: Props) {
   const serviceLinks = caseStudyServiceLinks(study);
-  const isNarrative = !!study.narrative;
+  const narrative = study.narrative;
 
   return (
     <>
@@ -54,26 +53,20 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
 
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-normal primary-black">
-                {isNarrative ? (
-                  <>
-                    {study.narrative!.heroHeadline.map((line, i) => (
-                      <span key={i}>
-                        {i === 1 ? (
-                          <span className="font-black red-text">{line}</span>
-                        ) : (
-                          line
-                        )}
-                        {i < study.narrative!.heroHeadline.length - 1 && <br />}
-                      </span>
-                    ))}
-                  </>
-                ) : (
-                  study.title
-                )}
+                {narrative.heroHeadline.map((line, i) => (
+                  <span key={i}>
+                    {i === 1 ? (
+                      <span className="font-black red-text">{line}</span>
+                    ) : (
+                      line
+                    )}
+                    {i < narrative.heroHeadline.length - 1 && <br />}
+                  </span>
+                ))}
               </h1>
 
               <p className="text-sm sm:text-base md:text-lg leading-normal primary-black">
-                {isNarrative ? study.narrative!.heroSubtext : study.outcomeStatement}
+                {narrative.heroSubtext}
               </p>
             </div>
 
@@ -105,48 +98,28 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
       <section className="secondary-background">
         <div className="mx-auto max-w-[1320px] px-4 py-10 sm:px-5 sm:py-12 md:px-6 md:py-14">
           <div className="grid gap-4 sm:grid-cols-3 rounded-2xl border border-black/10 p-5 sm:p-6">
-            {isNarrative ? (
-              study.narrative!.numbersBar.map((item, i) => (
-                <div key={i}>
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50">{item.label}</p>
-                  <p className="mt-2 text-2xl sm:text-3xl font-black sora-font primary-black">{item.value}</p>
-                  <p className="mt-1 text-sm text-black/75 leading-snug">{item.description}</p>
-                </div>
-              ))
-            ) : (
-              <>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50">Client type</p>
-                  <p className="mt-2 text-sm sm:text-base font-semibold leading-snug primary-black">{study.clientType}</p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50">Services provided</p>
-                  <p className="mt-2 text-sm sm:text-base leading-relaxed primary-black">{study.servicesProvided}</p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50">Platform</p>
-                  <p className="mt-2 text-sm sm:text-base font-semibold primary-black">{study.platformOverview}</p>
-                </div>
-              </>
-            )}
+            {narrative.numbersBar.map((item, i) => (
+              <div key={i}>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50">{item.label}</p>
+                <p className="mt-2 text-2xl sm:text-3xl font-black sora-font primary-black">{item.value}</p>
+                <p className="mt-1 text-sm text-black/75 leading-snug">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Narrative Layout */}
-      {isNarrative ? (
-        <>
-          {/* Problem Section */}
+      {/* Problem Section */}
           <section className="secondary-background">
             <div className="mx-auto max-w-[1320px] px-4 pb-6 sm:px-5 md:px-6 space-y-8">
               <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
                 <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">The Situation</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.narrative!.problemHeading}</p>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.narrative!.problemSubheading}</p>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{narrative.problemHeading}</p>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{narrative.problemSubheading}</p>
               </article>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {study.narrative!.problemCards.map((card, i) => (
+                {narrative.problemCards.map((card, i) => (
                   <article key={i} className="rounded-2xl border border-black/10 p-5 sm:p-6">
                     <h4 className="text-lg sm:text-xl font-bold primary-black mb-3">{card.title}</h4>
                     <p className="text-sm sm:text-base leading-relaxed primary-black">{card.description}</p>
@@ -161,9 +134,9 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
             <div className="mx-auto max-w-[1320px] px-4 pb-6 sm:px-5 md:px-6 space-y-8">
               <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
                 <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">The Real Cost</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.narrative!.deeperProblemHeading}</p>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{narrative.deeperProblemHeading}</p>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {study.narrative!.deeperProblemInsights.map((insight, i) => (
+                  {narrative.deeperProblemInsights.map((insight, i) => (
                     <div key={i} className="border-l-4 border-[var(--support-blue,#1f4fd8)] pl-6">
                       <p className="text-sm sm:text-base leading-relaxed primary-black">{insight.text}</p>
                     </div>
@@ -178,13 +151,13 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
             <div className="mx-auto max-w-[1320px] px-4 pb-6 sm:px-5 md:px-6 space-y-8">
               <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
                 <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">What We Did</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.narrative!.whatWeDidHeading}</p>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.narrative!.whatWeDidBody}</p>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{narrative.whatWeDidHeading}</p>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{narrative.whatWeDidBody}</p>
                 <div className="mt-6 flex items-center gap-3 text-sm text-black/60">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
-                  <span>{study.narrative!.whatWeDidCaption}</span>
+                  <span>{narrative.whatWeDidCaption}</span>
                 </div>
               </article>
             </div>
@@ -195,12 +168,12 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
             <div className="mx-auto max-w-[1320px] px-4 pb-6 sm:px-5 md:px-6 space-y-8">
               <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
                 <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">The Result</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.narrative!.resultHeading}</p>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{narrative.resultHeading}</p>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-lg sm:text-xl font-bold text-[var(--red,#8b1e2d)] mb-4">BEFORE</h4>
                     <ul className="space-y-3">
-                      {study.narrative!.beforeItems.map((item, i) => (
+                      {narrative.beforeItems.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm sm:text-base primary-black">
                           <span className="text-[var(--red,#8b1e2d)] mt-0.5">✗</span>
                           <span>{item.text}</span>
@@ -211,7 +184,7 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
                   <div>
                     <h4 className="text-lg sm:text-xl font-bold text-[var(--support-blue,#1f4fd8)] mb-4">AFTER</h4>
                     <ul className="space-y-3">
-                      {study.narrative!.afterItems.map((item, i) => (
+                      {narrative.afterItems.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm sm:text-base primary-black">
                           <span className="text-[var(--support-blue,#1f4fd8)] mt-0.5">✓</span>
                           <span>{item.text}</span>
@@ -230,9 +203,9 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
               <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
                 <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">Client Feedback</h3>
                 <blockquote className="mt-3 text-sm sm:text-base leading-relaxed primary-black italic">
-                  {study.narrative!.clientQuote}
+                  {narrative.demoClientFeedback.quote}
                 </blockquote>
-                <p className="mt-3 text-sm text-black/60">— {study.narrative!.clientQuoteAttribution}</p>
+                <p className="mt-3 text-sm text-black/60">— {narrative.demoClientFeedback.attribution}</p>
               </article>
             </div>
           </section>
@@ -241,16 +214,16 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
           <section className="secondary-background">
             <div className="mx-auto max-w-[1320px] px-4 pb-6 sm:px-5 md:px-6 space-y-8">
               <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
-                <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">{study.narrative!.soundFamiliarHeading}</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.narrative!.soundFamiliarSubtext}</p>
+                <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">{narrative.soundFamiliarHeading}</h3>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{narrative.soundFamiliarSubtext}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {study.narrative!.soundFamiliarTags.map((tag, i) => (
+                  {narrative.soundFamiliarTags.map((tag, i) => (
                     <span key={i} className="inline-flex items-center rounded-full border border-black/10 px-3 py-1.5 text-xs sm:text-sm font-semibold primary-black">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <p className="mt-4 text-sm sm:text-base leading-relaxed primary-black font-medium">{study.narrative!.soundFamiliarClosing}</p>
+                <p className="mt-4 text-sm sm:text-base leading-relaxed primary-black font-medium">{narrative.soundFamiliarClosing}</p>
               </article>
             </div>
           </section>
@@ -258,107 +231,29 @@ export default function CaseStudyDetailView({ study, prev, next }: Props) {
           {/* CTA Section */}
           <section className="border-t border-white/10 bg-[#1F4FD8]">
             <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8 py-12 sm:py-14 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-              <p className="text-xl sm:text-2xl font-bold text-white leading-snug max-w-xl">{study.narrative!.ctaHeading}</p>
+              <p className="text-xl sm:text-2xl font-bold text-white leading-snug max-w-xl">{narrative.ctaHeading}</p>
               <ButtonLink href="#contact" variant="primary-light" className="shrink-0 w-full md:w-auto text-center">
                 Book a Free Call
               </ButtonLink>
             </div>
           </section>
-        </>
-      ) : (
-        <>
-          {/* Standard Layout */}
-          <section className="secondary-background">
-            <div className="mx-auto max-w-[1320px] px-4 pb-6 sm:px-5 md:px-6 space-y-8">
-              <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
-                <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">The Challenge</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.challenge}</p>
-              </article>
 
-              <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
-                <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">Our Approach</h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed primary-black">{study.approach}</p>
-              </article>
-
-              <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
-                <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">What We Built</h3>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm sm:text-base leading-relaxed primary-black">
-                  {study.whatWeBuilt.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-
-              <article className="rounded-2xl border border-black/10 p-5 sm:p-6">
-                <h3 className="text-xl md:text-2xl xl:text-3xl font-black primary-black leading-normal">Results</h3>
-                <div className="mt-6 grid gap-4 sm:grid-cols-3">
-                  {study.resultMetrics.map((m) => (
-                    <div
-                      key={m.label}
-                      className="flex flex-col rounded-xl border border-black/10 p-5 text-center sm:text-left"
-                    >
-                      <CaseStudyMetricIcon
-                        name={m.icon}
-                        className="h-7 w-7 shrink-0 text-[#1F4FD8] sm:h-8 sm:w-8"
-                      />
-                      <p className="mt-3 text-2xl sm:text-3xl font-black sora-font primary-black">{m.value}</p>
-                      <p className="mt-1 text-sm text-black/75 leading-snug">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
+      <section className="deep-navy">
+        <div className="mx-auto max-w-[1320px] px-4 py-12 sm:px-5 sm:py-16 md:px-6 md:py-20">
+          <h2 className="text-lg sm:text-xl font-bold text-white">Project Visuals</h2>
+          {study.projectVisuals.length > 0 ? (
+            <CaseStudyProjectVisualsGallery visuals={study.projectVisuals} />
+          ) : (
+            <div
+              className="mt-6 flex min-h-[220px] sm:min-h-[280px] md:min-h-[360px] items-center justify-center rounded-2xl border border-dashed border-white/25 bg-white/[0.06] text-white/50 text-sm sm:text-base font-medium"
+              role="status"
+              aria-label="Project visuals"
+            >
+              Visuals coming soon
             </div>
-          </section>
-
-          <section className="deep-navy">
-            <div className="mx-auto max-w-[1320px] px-4 py-12 sm:px-5 sm:py-16 md:px-6 md:py-20">
-              <h2 className="text-lg sm:text-xl font-bold text-white">Project Visuals</h2>
-              {study.projectVisuals.length > 0 ? (
-                <CaseStudyProjectVisualsGallery visuals={study.projectVisuals} />
-              ) : (
-                <div
-                  className="mt-6 flex min-h-[220px] sm:min-h-[280px] md:min-h-[360px] items-center justify-center rounded-2xl border border-dashed border-white/25 bg-white/[0.06] text-white/50 text-sm sm:text-base font-medium"
-                  role="status"
-                  aria-label="Project visuals"
-                >
-                  Visuals coming soon
-                </div>
-              )}
-            </div>
-          </section>
-
-          <section className="border-t border-white/10 bg-[#1F4FD8]">
-            <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8 py-12 sm:py-14 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-              <p className="text-xl sm:text-2xl font-bold text-white leading-snug max-w-xl">
-                Liked this project? Let&apos;s work together.
-              </p>
-              <ButtonLink href="#contact" variant="primary-light" className="shrink-0 w-full md:w-auto text-center">
-                Contact Us
-              </ButtonLink>
-            </div>
-          </section>
-        </>
-      )}
-
-      {/* Project Visuals for Narrative Layout */}
-      {isNarrative && (
-        <section className="deep-navy">
-          <div className="mx-auto max-w-[1320px] px-4 py-12 sm:px-5 sm:py-16 md:px-6 md:py-20">
-            <h2 className="text-lg sm:text-xl font-bold text-white">Project Visuals</h2>
-            {study.projectVisuals.length > 0 ? (
-              <CaseStudyProjectVisualsGallery visuals={study.projectVisuals} />
-            ) : (
-              <div
-                className="mt-6 flex min-h-[220px] sm:min-h-[280px] md:min-h-[360px] items-center justify-center rounded-2xl border border-dashed border-white/25 bg-white/[0.06] text-white/50 text-sm sm:text-base font-medium"
-                role="status"
-                aria-label="Project visuals"
-              >
-                Visuals coming soon
-              </div>
-            )}
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
 
       {/* Bottom Navigation */}
       <section className="secondary-background border-t border-black/10">

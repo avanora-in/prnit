@@ -259,7 +259,7 @@ export default function AboutPage() {
             Public Services. Update Projects Delivered with your verified production total.
           </p>
           <div className="mt-6">
-            <ButtonLink href="/work/project-name" className="block w-fit">
+            <ButtonLink href="/work/saas-growth-platform-optimization" className="block w-fit">
               View Case Study
             </ButtonLink>
           </div>

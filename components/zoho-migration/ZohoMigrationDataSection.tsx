@@ -63,7 +63,7 @@ export default function ZohoMigrationDataSection() {
             <div className="h-px w-56 sm:w-72 md:w-85 primary-black-background" />
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal mb-3">
-            We Don't Just Move Data — <span className="font-black red-text">We Move Your Business Context</span>
+            We Don&apos;t Just Move Data — <span className="font-black red-text">We Move Your Business Context</span>
           </h2>
           <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] max-w-3xl">
             Every migration includes:

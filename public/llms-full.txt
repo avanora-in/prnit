@@ -62,7 +62,7 @@ WordPress and headless or hybrid CMS architectures; migration, plugin strategy, 
 Each entry links to the public case study page on prnit.com. Summaries are derived from published project narratives and outcome statements.
 
 ### SaaS Growth Platform Optimization
-URL: https://prnit.com/work/project-name  
+URL: https://prnit.com/work/saas-growth-platform-optimization  
 Series A B2B SaaS web platform struggling with API latency and risky deployments. PRNIT focused reliability as a product: profiling hot paths, caching/async improvements, safer rollouts and instrumentation. Outcomes referenced on-page include faster API responses, fewer incidents, and higher release throughput.
 
 ### Cargo Delivery Platform

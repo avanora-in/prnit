@@ -103,7 +103,7 @@ Intent: Commercial
 - Link 1: `/services/app-development` or `/services/web-development`
 - Link 2: `/services/cloud` or `/services/qa-testing`
 - Link 3: `/about`
-- Link 4: `/work/project-name` (replace with real case study slug)
+- Link 4: `/work/saas-growth-platform-optimization`
 - Link 5: related blog post
 
 ## KPI Targets (first 90 days)

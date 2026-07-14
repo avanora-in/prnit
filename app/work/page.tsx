@@ -112,7 +112,7 @@ export default function WorkPage() {
           item: {
             "@type": "CreativeWork",
             name: "SaaS Growth Platform Optimization",
-            url: "https://prnit.com/work/project-name",
+            url: "https://prnit.com/work/saas-growth-platform-optimization",
             description: "Architecture and cloud optimisation for a B2B SaaS product post-Series A. Delivered 41% faster APIs, 62% fewer incidents, and 2.1x release throughput.",
             about: { "@type": "Thing", name: "SaaS Architecture" },
             genre: "SaaS",
