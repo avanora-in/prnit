@@ -59,7 +59,7 @@ export default function ZohoMigrationTestimonialsSection() {
                 ))}
               </div>
               <blockquote className="text-sm sm:text-base text-[var(--color-body,#4b5563)] leading-relaxed mb-6">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <div>
                 <p className="text-sm font-bold primary-black">{testimonial.author}</p>

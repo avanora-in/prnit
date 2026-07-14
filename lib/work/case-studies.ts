@@ -44,6 +44,12 @@ export type NarrativeBeforeAfterItem = {
 
 export type NarrativeSoundFamiliarTag = string;
 
+export type CaseStudyDemoClientFeedback = {
+  /** Placeholder/demo feedback copy until verified client testimonials are approved. */
+  quote: string;
+  attribution: string;
+};
+
 export type CaseStudyNarrative = {
   /** Hero headline (multiline) */
   heroHeadline: string[];
@@ -77,10 +83,8 @@ export type CaseStudyNarrative = {
   beforeItems: NarrativeBeforeAfterItem[];
   /** After items */
   afterItems: NarrativeBeforeAfterItem[];
-  /** Client quote */
-  clientQuote: string;
-  /** Client quote attribution */
-  clientQuoteAttribution: string;
+  /** Placeholder/demo feedback, not a verified client testimonial. */
+  demoClientFeedback: CaseStudyDemoClientFeedback;
   /** Sound familiar heading */
   soundFamiliarHeading: string;
   /** Sound familiar subtext */
@@ -116,8 +120,8 @@ export type CaseStudy = {
   whatWeBuilt: string[];
   resultMetrics: [CaseStudyResultMetric, CaseStudyResultMetric, CaseStudyResultMetric];
   projectVisuals: readonly CaseStudyProjectVisual[];
-  /** Optional narrative content for custom case study layout */
-  narrative?: CaseStudyNarrative;
+  /** Full narrative content for the unified case study layout */
+  narrative: CaseStudyNarrative;
 };
 
 export const CASE_STUDY_CATEGORY_FILTERS = ["All", "Website", "Website + App"] as const;
@@ -257,9 +261,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         { text: "Live reports available to management at any time" },
         { text: "One system. One version of the truth." },
       ],
-      clientQuote:
-        "We didn't realise how much time we were spending just trying to figure out what was actually happening in our business. Now we just open Zoho and it's all there.",
-      clientQuoteAttribution: "Operations Director, E-Commerce Brand, India (Name withheld at client's request)",
+      demoClientFeedback: {
+        quote:
+          "We used to spend too much time checking different places before making a simple operational decision. Having inventory, orders, returns, and accounting connected in one workflow made daily reviews much clearer.",
+        attribution: "Operations Lead",
+      },
       soundFamiliarHeading: "This problem is more common than most businesses admit.",
       soundFamiliarSubtext: "We've seen this exact situation across:",
       soundFamiliarTags: [
@@ -390,9 +396,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         { text: "Finance and production finally on the same numbers" },
         { text: "Sales team equipped with live margin data per product" },
       ],
-      clientQuote:
-        "We'd been in business for eleven years and never actually known our true margin per product. Within a month of going live we repriced four product lines. That decision alone paid for the entire project.",
-      clientQuoteAttribution: "Director, Manufacturing Company, India (Name withheld at client's request)",
+      demoClientFeedback: {
+        quote:
+          "The biggest shift was confidence in the numbers. Product costs, invoices, and margin no longer felt like separate conversations, so pricing discussions became much easier to handle.",
+        attribution: "Business Owner",
+      },
       soundFamiliarHeading: "If you manufacture, assemble, or process — this is your problem too.",
       soundFamiliarSubtext: "We've solved this for:",
       soundFamiliarTags: [
@@ -408,7 +416,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
   },
   {
-    slug: "project-name",
+    slug: "saas-growth-platform-optimization",
     category: "Website",
     industry: "AI",
     title: "SaaS Growth Platform Optimization",
@@ -448,6 +456,97 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Design and engineering collaboration concept for API, caching, and release pipeline work on the SaaS product",
       },
     ],
+    narrative: {
+      heroHeadline: ["A Growing SaaS Platform", "Hit Performance Walls.", "We Made Shipping Feel Safe Again."],
+      heroSubtext:
+        "A Series A B2B SaaS product was carrying real customer growth, but peak-hour latency and risky deployments were pulling engineers away from the roadmap.",
+      numbersBar: [
+        { label: "API speed", value: "41%", description: "Faster p95 API response after optimization" },
+        { label: "Incidents", value: "62%", description: "Fewer production incidents after reliability work" },
+        { label: "Throughput", value: "2.1x", description: "Release throughput without adding headcount" },
+      ],
+      problemHeading: "The product was growing faster than the platform underneath it.",
+      problemSubheading:
+        "Leadership needed more roadmap velocity, but engineering time was being spent on latency spikes, incident response, and deployments that felt fragile.",
+      problemCards: [
+        {
+          icon: "bolt",
+          title: "Peak-hour APIs slowed down",
+          description:
+            "The busiest read paths could not keep pace with customer usage. Latency was especially visible in flows that mattered most to paying accounts.",
+        },
+        {
+          icon: "alert-circle",
+          title: "Production incidents stole roadmap time",
+          description:
+            "Engineers were pulled into firefighting instead of product work, which made planning less predictable and slowed visible progress.",
+        },
+        {
+          icon: "rocket",
+          title: "Deployments felt risky",
+          description:
+            "Releases needed safer rollout mechanics so the team could ship more often without treating every production change like a gamble.",
+        },
+        {
+          icon: "chart-bar",
+          title: "Signals were too noisy",
+          description:
+            "Leadership did not have a clear view of where engineering effort was going or which reliability investments would pay back first.",
+        },
+      ],
+      deeperProblemHeading: "The real cost was not just slower APIs. It was slower decision-making.",
+      deeperProblemInsights: [
+        {
+          text: "When reliability work is invisible, every team debates symptoms instead of seeing the highest-leverage fixes clearly.",
+        },
+        {
+          text: "Risky deployments create a hidden tax on product velocity because engineers spend more energy avoiding failure than improving the product.",
+        },
+        {
+          text: "Without measurable SLOs, leadership cannot tell whether reliability is improving or simply getting quieter for a week.",
+        },
+      ],
+      whatWeDidHeading: "We treated reliability as a product surface.",
+      whatWeDidBody:
+        "We profiled the hottest request paths, improved queries and indexes, moved heavy workflows into async processing, added caching where it matched real user journeys, and strengthened releases with staged rollouts, feature flags, and instrumentation for critical flows.",
+      whatWeDidCaption:
+        "The implementation details stayed specific to the client's architecture, but the work centered on measurable SLOs and incremental production-safe improvements.",
+      resultHeading: "The platform delivered 41% faster p95 API response, 62% fewer incidents, and 2.1x release throughput.",
+      beforeItems: [
+        { text: "Peak-hour API latency was hurting important user journeys" },
+        { text: "Engineers lost roadmap time to incident response" },
+        { text: "Deployments felt risky and slowed release cadence" },
+        { text: "Heavy workflows blocked request paths" },
+        { text: "Leadership lacked clear reliability signals" },
+        { text: "Optimization work competed with feature delivery" },
+      ],
+      afterItems: [
+        { text: "p95 API response improved by 41%" },
+        { text: "Production incidents dropped by 62%" },
+        { text: "Release throughput increased 2.1x" },
+        { text: "Heavy workflows moved behind async processing" },
+        { text: "Critical flows gained staged rollout and instrumentation" },
+        { text: "The team shipped faster without adding headcount" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "The work gave our team clearer signals and safer release habits. Instead of guessing where reliability work mattered most, we could focus on the parts of the product that were actually slowing us down.",
+        attribution: "Department Head",
+      },
+      soundFamiliarHeading: "This problem is common across scaling software products.",
+      soundFamiliarSubtext: "We see similar reliability and release pressure in:",
+      soundFamiliarTags: [
+        "B2B SaaS Platforms",
+        "Usage-Based Software Products",
+        "Post-Funding Product Teams",
+        "API-Heavy Web Apps",
+        "Cloud-Native Platforms",
+      ],
+      soundFamiliarClosing:
+        "If your engineers are firefighting instead of shipping, performance is already a business problem.",
+      ctaHeading: "Scaling past your current architecture? Book a free call and we will review where performance, reliability, and release flow are holding you back.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "cargo-delivery-platform",
@@ -489,6 +588,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "End-to-end shipment booking and tracking journey for the freight and last-mile logistics web and mobile build",
       },
     ],
+    narrative: {
+      heroHeadline: ["Cargo Booking, Tracking,", "and Dispatch", "Moved Into One Flow."],
+      heroSubtext:
+        "A regional logistics operator needed customers, drivers, and operations to work from the same shipment truth from quote to proof of delivery.",
+      numbersBar: [
+        { label: "Platform", value: "Web + App", description: "Unified delivery experience across customer, driver, and ops surfaces" },
+        { label: "Dispatch", value: "35%", description: "Faster dispatch cycle time after workflow consolidation" },
+        { label: "Traceability", value: "Single", description: "Audit trail from quote to delivery" },
+      ],
+      problemHeading: "The logistics operation was moving freight, but the information moved too slowly.",
+      problemSubheading:
+        "Customers could not self-serve, drivers updated status through disconnected channels, and dispatch saw SLA risk only after exceptions had already grown.",
+      problemCards: [
+        { icon: "clipboard", title: "Bookings lived outside the system", description: "Shippers relied on manual handoffs instead of a customer portal for booking, status, and notifications." },
+        { icon: "map", title: "Dispatch lacked live exception context", description: "Operations needed a live map and KPI strip to spot delays before they became missed commitments." },
+        { icon: "truck", title: "Driver workflows were fragmented", description: "Pickup, delivery status, and proof-of-delivery capture needed to be simple enough for field use." },
+        { icon: "file-x", title: "The audit trail was incomplete", description: "Quote, assignment, delivery, and settlement records were scattered across spreadsheets and exports." },
+      ],
+      deeperProblemHeading: "Every disconnected handoff made service quality harder to protect.",
+      deeperProblemInsights: [
+        { text: "Dispatchers were reacting to delays instead of managing exceptions with live operational context." },
+        { text: "Customers lacked confidence because shipment visibility depended on staff manually relaying updates." },
+        { text: "Finance and operations had to reconstruct what happened after the delivery instead of relying on one event trail." },
+      ],
+      whatWeDidHeading: "We mapped the real operating flow before designing screens.",
+      whatWeDidBody:
+        "We modeled quote, assign, execute, and settle as one operational flow, then built role-specific surfaces: a customer booking and tracking portal, driver mobile workflows for status and POD capture, a dispatch dashboard with live map and exceptions, and integrations for pricing rules and legacy TMS exports.",
+      whatWeDidCaption: "The build focused on practical logistics workflows, live visibility, and keeping legacy exports available where the business still needed them.",
+      resultHeading: "The client gained one platform for customers, drivers, and ops from quote to proof of delivery.",
+      beforeItems: [
+        { text: "Customers could not self-serve shipment booking" },
+        { text: "Dispatch saw SLA risk too late" },
+        { text: "Driver updates were captured through disconnected tools" },
+        { text: "Proof of delivery required manual follow-up" },
+        { text: "Pricing and TMS exports lived outside the main workflow" },
+        { text: "Quote-to-delivery history was difficult to audit" },
+      ],
+      afterItems: [
+        { text: "Customer booking and tracking portal with notifications" },
+        { text: "35% faster dispatch cycle time" },
+        { text: "Driver mobile workflows for pickup, status, and POD" },
+        { text: "Live map, exceptions, and KPI strip for dispatch" },
+        { text: "Pricing rules and legacy TMS exports integrated" },
+        { text: "Single audit trail from quote to delivery" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "Bringing booking, driver updates, dispatch, and delivery history into one flow made the operation easier to follow. The team could see exceptions sooner instead of piecing together updates after the fact.",
+        attribution: "Operations Lead",
+      },
+      soundFamiliarHeading: "This problem is common across logistics teams with fast-moving operations.",
+      soundFamiliarSubtext: "We see similar gaps in:",
+      soundFamiliarTags: ["Freight Operators", "Last-Mile Delivery Teams", "Regional 3PLs", "Courier Networks", "Field Service Fleets"],
+      soundFamiliarClosing: "If dispatch, drivers, and customers do not share the same shipment truth, exceptions will keep arriving late.",
+      ctaHeading: "Need a clearer logistics operating system? Book a free call and we will map where visibility is breaking down.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "healthtech-patient-portal",
@@ -530,6 +686,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Design system and accessibility-led layout direction for the multi-location healthcare patient portal",
       },
     ],
+    narrative: {
+      heroHeadline: ["A Clinic Front Desk", "Was Buried in Repeat Calls.", "Patients Needed a Calmer Portal."],
+      heroSubtext:
+        "A multi-location healthcare brand needed secure self-service for appointments, records, and care-team messaging without weakening access controls.",
+      numbersBar: [
+        { label: "Calls", value: "28%", description: "Drop in routine call volume" },
+        { label: "Access", value: "RBAC", description: "Role-based access by site" },
+        { label: "UI", value: "AA-ready", description: "Accessibility-first interface patterns" },
+      ],
+      problemHeading: "Patients needed simple digital access, and staff needed fewer repetitive tasks.",
+      problemSubheading:
+        "The practice had to reduce phone load while keeping healthcare-grade expectations around roles, audit logs, encryption, and accessibility.",
+      problemCards: [
+        { icon: "phone", title: "Routine calls consumed staff time", description: "Reschedules, forms, and basic record requests repeatedly landed with the front desk." },
+        { icon: "calendar", title: "Appointment flow needed self-service", description: "Patients needed a clearer way to book, reschedule, and receive reminders without calling each location." },
+        { icon: "lock", title: "Access rules could not be an afterthought", description: "Multi-location teams needed site-aware permissions, audit logs, and secure document handling." },
+        { icon: "users", title: "The UI had to work for older adults", description: "Content hierarchy and interaction patterns had to stay calm, readable, and accessible." },
+      ],
+      deeperProblemHeading: "The real cost was staff attention being spent on work patients could safely do themselves.",
+      deeperProblemInsights: [
+        { text: "Every routine call delayed higher-value patient support and made busy clinic days harder to manage." },
+        { text: "Without structured intake, staff had to chase missing forms and documents after appointments were already close." },
+        { text: "If security or accessibility felt bolted on, adoption would suffer and clinical teams would keep reverting to phone workflows." },
+      ],
+      whatWeDidHeading: "We prioritized self-service flows that reduce phone load first.",
+      whatWeDidBody:
+        "We built appointment self-service with reminders and waitlist hooks, encrypted document upload, patient-friendly record views, care-team messaging aligned to existing EHR handoffs, and accessible UI patterns for older patients and multi-location staff.",
+      whatWeDidCaption: "The implementation stayed compliance-minded, with role-based access and secure defaults shaping the product decisions.",
+      resultHeading: "Routine call volume dropped 28% while the portal gained secure, accessible patient workflows.",
+      beforeItems: [
+        { text: "Patients called for routine appointment changes" },
+        { text: "Forms and documents created repeat follow-up work" },
+        { text: "Records access was difficult for patients to navigate" },
+        { text: "Care-team messages lacked structured handoff paths" },
+        { text: "Permissions needed clearer site-level rules" },
+        { text: "Older adults needed a calmer digital front door" },
+      ],
+      afterItems: [
+        { text: "Appointment self-service with reminders and waitlist hooks" },
+        { text: "28% drop in routine call volume" },
+        { text: "Encrypted upload and patient-friendly record views" },
+        { text: "Care-team messaging aligned to EHR handoffs" },
+        { text: "Role-based access by site" },
+        { text: "AA-ready accessibility-first UI patterns" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "Patients needed a calmer way to handle routine requests, and staff needed less repeat work at the front desk. The portal helped move those everyday tasks into a more organized self-service flow.",
+        attribution: "Internal Team",
+      },
+      soundFamiliarHeading: "This problem is common across healthcare teams modernizing patient access.",
+      soundFamiliarSubtext: "We see it in:",
+      soundFamiliarTags: ["Multi-Location Clinics", "Specialty Practices", "Diagnostic Centers", "Healthcare Networks", "Patient Portals"],
+      soundFamiliarClosing: "If your staff handles every routine patient request by phone, your portal is not carrying enough of the workflow.",
+      ctaHeading: "Want fewer front-desk calls without compromising access control? Book a free call and we will review your patient workflows.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "telehealth-companion-app",
@@ -571,6 +784,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Cross-channel care journey illustration for web scheduling and native telehealth companion delivery",
       },
     ],
+    narrative: {
+      heroHeadline: ["Telehealth Across Web,", "iOS, and Android", "Needed One Patient Truth."],
+      heroSubtext:
+        "A national telehealth startup needed scheduling, video visits, reminders, and post-visit care plans to behave consistently across web and native apps.",
+      numbersBar: [
+        { label: "Platforms", value: "3", description: "Web, iOS, and Android using one source of truth" },
+        { label: "Visits", value: "18%", description: "More completed visits" },
+        { label: "No-shows", value: "22%", description: "Fewer missed appointments" },
+      ],
+      problemHeading: "Patients were moving between channels, but the experience did not move with them.",
+      problemSubheading:
+        "Booking on the web did not always match the app, video visits struggled on older devices, and reminders were not consistent enough to reduce no-shows.",
+      problemCards: [
+        { icon: "devices", title: "Channel state was inconsistent", description: "Patients saw different schedule details depending on whether they used web or mobile." },
+        { icon: "video", title: "Video visits needed resilience", description: "Older devices and low-bandwidth conditions made the visit path unreliable for some patients." },
+        { icon: "bell", title: "Reminders were fragmented", description: "Push and email reminders needed to reflect the same canonical visit state everywhere." },
+        { icon: "file-text", title: "Care plans needed to travel", description: "Post-visit summaries had to remain accessible and useful even when connectivity was limited." },
+      ],
+      deeperProblemHeading: "The real cost was lost trust at the exact moment patients needed reliability.",
+      deeperProblemInsights: [
+        { text: "A telehealth journey breaks down quickly when the schedule, reminder, or visit state differs by device." },
+        { text: "No-shows are not only a scheduling issue; they create wasted provider time and lower care continuity." },
+        { text: "When video fails late, support teams inherit stress that better preflight checks could prevent." },
+      ],
+      whatWeDidHeading: "We unified the patient and visit model first.",
+      whatWeDidBody:
+        "We introduced shared auth and profiles across web and native clients, hardened the video visit flow with device capability checks, orchestrated push and email reminders, and added post-visit care plans with offline-friendly summaries.",
+      whatWeDidCaption: "The build focused on reliable visit state, resilient media paths, and consistent patient communication across channels.",
+      resultHeading: "Completed visits increased 18% and no-shows fell 22% across a consistent web, iOS, and Android experience.",
+      beforeItems: [
+        { text: "Web booking and app schedules did not always match" },
+        { text: "Video visits failed on older or constrained devices" },
+        { text: "Reminder timing differed across channels" },
+        { text: "Patients lacked one profile across web and apps" },
+        { text: "Care plans were harder to access after visits" },
+        { text: "Support handled preventable visit issues" },
+      ],
+      afterItems: [
+        { text: "Shared auth and profile across web and native clients" },
+        { text: "18% more completed visits" },
+        { text: "22% fewer no-shows" },
+        { text: "Device capability checks before video visits" },
+        { text: "Push and email reminder orchestration" },
+        { text: "Offline-friendly post-visit summaries" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "The experience felt more consistent once scheduling, reminders, visit access, and care summaries followed the same patient state across web and mobile.",
+        attribution: "Product Lead",
+      },
+      soundFamiliarHeading: "This problem is common across virtual care products.",
+      soundFamiliarSubtext: "We see similar needs in:",
+      soundFamiliarTags: ["Telehealth Providers", "Remote Care Startups", "Clinic Networks", "Patient Engagement Apps", "Hybrid Care Platforms"],
+      soundFamiliarClosing: "If visit state changes by device, patients will feel the gap before your team sees it in metrics.",
+      ctaHeading: "Building or repairing a telehealth experience? Book a free call and we will map the patient journey across every channel.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "hospitality-booking-engine",
@@ -612,6 +882,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Brand-led hospitality interface refinements for OTA-competitive discovery and checkout performance",
       },
     ],
+    narrative: {
+      heroHeadline: ["A Boutique Hotel Site", "Was Losing Direct Bookings", "to OTA Habits."],
+      heroSubtext:
+        "An independent hotel group needed a faster, brand-led booking engine that marketing could operate without developer support for every offer.",
+      numbersBar: [
+        { label: "Direct share", value: "+31%", description: "Increase in direct booking share" },
+        { label: "Speed", value: "40%", description: "Faster LCP on key pages" },
+        { label: "Campaigns", value: "Self-serve", description: "Promo campaigns managed by marketing" },
+      ],
+      problemHeading: "The property had a brand worth booking direct, but the funnel did not prove it.",
+      problemSubheading:
+        "Poor conversion and developer-dependent promotions pushed the hotel toward OTAs even when direct revenue was the better business outcome.",
+      problemCards: [
+        { icon: "credit-card", title: "Direct booking underperformed", description: "Guests had fewer reasons to complete on the hotel site instead of returning to OTA habits." },
+        { icon: "bolt", title: "Speed hurt trust", description: "Key pages needed stronger performance so discovery and checkout felt immediate." },
+        { icon: "tag", title: "Promos required developer help", description: "Marketing could not launch targeted offers safely without waiting on engineering." },
+        { icon: "bed", title: "Upsells were missed", description: "Packages, room add-ons, and event-led pages needed to be part of the booking path." },
+      ],
+      deeperProblemHeading: "The real cost was control over revenue moving away from the hotel.",
+      deeperProblemInsights: [
+        { text: "Every OTA-led booking reduced ownership of the guest relationship and made future direct marketing harder." },
+        { text: "Slow pages create doubt during a high-intent purchase where confidence matters." },
+        { text: "When campaigns depend on developers, marketing misses windows tied to seasonality, events, and inventory." },
+      ],
+      whatWeDidHeading: "We rebuilt the booking funnel around speed, trust, and self-serve offers.",
+      whatWeDidBody:
+        "We delivered high-performance landing templates for packages and events, PMS-aware availability with parity-safe rate rules, room upsells and add-ons in checkout, payment integration, and analytics events for funnel and campaign attribution.",
+      whatWeDidCaption: "The approach protected rate parity while giving marketing practical controls for direct-channel growth.",
+      resultHeading: "Direct booking share increased 31%, and key pages loaded 40% faster.",
+      beforeItems: [
+        { text: "The site converted poorly against OTA alternatives" },
+        { text: "Targeted offers required developer involvement" },
+        { text: "Key pages were slower than the booking moment allowed" },
+        { text: "Room upsells and add-ons were not embedded cleanly" },
+        { text: "Campaign attribution was difficult to read" },
+        { text: "Direct revenue depended too heavily on external channels" },
+      ],
+      afterItems: [
+        { text: "Direct booking share up 31%" },
+        { text: "40% faster LCP on key pages" },
+        { text: "Self-serve promo campaigns for marketing" },
+        { text: "High-performance templates for packages and events" },
+        { text: "PMS-aware availability and parity-safe rate rules" },
+        { text: "Checkout upsells and analytics events in place" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "Marketing had more control over offers without waiting on every small site change. The booking path also felt faster and more aligned with the way we wanted guests to experience the brand.",
+        attribution: "Business Owner",
+      },
+      soundFamiliarHeading: "This problem is common across hospitality teams trying to grow direct revenue.",
+      soundFamiliarSubtext: "We see it in:",
+      soundFamiliarTags: ["Boutique Hotels", "Resort Groups", "Serviced Apartments", "Event Venues", "Hospitality Marketing Teams"],
+      soundFamiliarClosing: "If every offer needs a developer, your booking engine is slowing down revenue.",
+      ctaHeading: "Want a stronger direct booking funnel? Book a free call and we will review your current guest path.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "media-publisher-platform",
@@ -653,6 +980,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Content operations and publishing workflow concept for high-traffic article delivery and subscriber journeys",
       },
     ],
+    narrative: {
+      heroHeadline: ["Editors Needed Speed.", "Readers Needed Performance.", "The Platform Needed Guardrails."],
+      heroSubtext:
+        "A subscription-led media brand needed modular publishing workflows, paywall paths, and front-end performance that stayed stable during traffic spikes.",
+      numbersBar: [
+        { label: "Publishing", value: "4x", description: "Faster layout publishing" },
+        { label: "Performance", value: "35%", description: "LCP improvement on article pages" },
+        { label: "Vitals", value: "Stable", description: "Core Web Vitals held under traffic spikes" },
+      ],
+      problemHeading: "Editorial ambition was being limited by engineering tickets and page performance.",
+      problemSubheading:
+        "Editors needed flexible layouts without breaking templates, while readers and subscribers needed fast pages even when traffic surged.",
+      problemCards: [
+        { icon: "pen", title: "Layout changes required engineering", description: "Editorial teams could not move quickly because every new article treatment depended on developer time." },
+        { icon: "image", title: "Modules created page weight", description: "Article pages slowed when editors stacked media and promotional blocks without guardrails." },
+        { icon: "lock", title: "Paywall flows created template sprawl", description: "Subscriber journeys needed to stay separate from editorial experiments without multiplying fragile page variants." },
+        { icon: "trending-up", title: "Traffic spikes exposed weak caching", description: "High-read posts needed delivery patterns that protected Core Web Vitals under load." },
+      ],
+      deeperProblemHeading: "The real cost was a slower newsroom and a weaker reader experience at peak moments.",
+      deeperProblemInsights: [
+        { text: "When publishing relies on tickets, editorial teams cannot respond quickly to campaigns, news cycles, or subscriber experiments." },
+        { text: "Performance issues on article pages directly affect reader trust, engagement, and search visibility." },
+        { text: "Paywall complexity can quietly spread across templates until every change becomes risky." },
+      ],
+      whatWeDidHeading: "We gave editors composable tools with performance guardrails.",
+      whatWeDidBody:
+        "We introduced editor-friendly article modules with previews, paywall and entitlement flows with minimal template sprawl, edge-friendly caching for high-read posts, and subscriber onboarding plus newsletter tie-ins.",
+      whatWeDidCaption: "The architecture balanced editorial flexibility with front-end constraints that protected reader experience.",
+      resultHeading: "Editors published layouts 4x faster, and article LCP improved 35%.",
+      beforeItems: [
+        { text: "Every layout tweak needed engineering support" },
+        { text: "Article pages slowed under stacked modules" },
+        { text: "Paywall logic spread across too many templates" },
+        { text: "Traffic spikes threatened Core Web Vitals" },
+        { text: "Subscriber onboarding was disconnected from content" },
+        { text: "Newsletter tie-ins were harder to manage" },
+      ],
+      afterItems: [
+        { text: "Composable article modules with previews" },
+        { text: "4x faster layout publishing" },
+        { text: "35% LCP improvement on articles" },
+        { text: "Stable vitals under traffic spikes" },
+        { text: "Paywall and entitlement flows with less template sprawl" },
+        { text: "Subscriber onboarding and newsletter tie-ins connected" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "Editors could work with more flexibility without turning each layout change into an engineering request. The guardrails made publishing feel faster without making the site feel fragile.",
+        attribution: "Internal Team",
+      },
+      soundFamiliarHeading: "This problem is common across content businesses with growing editorial needs.",
+      soundFamiliarSubtext: "We see similar challenges in:",
+      soundFamiliarTags: ["Digital Publishers", "Subscription Media", "Newsrooms", "Content Platforms", "Newsletter-Led Brands"],
+      soundFamiliarClosing: "If every layout experiment needs engineering, your CMS is slowing down editorial strategy.",
+      ctaHeading: "Need a faster publishing platform? Book a free call and we will review your CMS, paywall, and performance bottlenecks.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "ecommerce-marketplace",
@@ -694,6 +1078,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Checkout, split payouts, and order orchestration experience for the marketplace platform rebuild",
       },
     ],
+    narrative: {
+      heroHeadline: ["Marketplace Growth", "Was Outrunning Catalog Control.", "We Centralized the Truth."],
+      heroSubtext:
+        "A growing marketplace needed seller onboarding, catalog, checkout, buyer apps, and operations tooling to share one inventory and order model.",
+      numbersBar: [
+        { label: "Catalog", value: "1", description: "Single catalog source of truth" },
+        { label: "Buyer apps", value: "Cross-platform", description: "Web and mobile experiences stayed in sync" },
+        { label: "Rating", value: "4.8", description: "Average post-launch app rating" },
+      ],
+      problemHeading: "Sellers, buyers, and ops were looking at different versions of the marketplace.",
+      problemSubheading:
+        "Duplicated listings, stock drift, and inconsistent delivery promises made the platform harder to trust as seller and buyer activity increased.",
+      problemCards: [
+        { icon: "cart", title: "Catalog data duplicated", description: "Sellers repeated listing work and product truth drifted between surfaces." },
+        { icon: "box", title: "Stock levels diverged", description: "Inventory updates did not consistently reach every channel where buyers made decisions." },
+        { icon: "credit-card", title: "Checkout needed split payouts", description: "Marketplace payments required clean order orchestration and seller settlement paths." },
+        { icon: "shield", title: "Operations needed better controls", description: "Disputes, compliance checks, and SLA tracking needed a shared admin console." },
+      ],
+      deeperProblemHeading: "The real cost was buyer confidence being eroded by operational inconsistency.",
+      deeperProblemInsights: [
+        { text: "When catalog and stock are not centralized, every new sales channel increases the chance of a broken promise." },
+        { text: "Seller onboarding friction slows supply growth and makes quality control harder to enforce." },
+        { text: "Operations teams cannot resolve disputes quickly if order state and payout context are split across tools." },
+      ],
+      whatWeDidHeading: "We made APIs the center of catalog, inventory, and order state.",
+      whatWeDidBody:
+        "We centralized catalog, inventory, and order state behind explicit APIs, then built vendor onboarding and compliance checks, unified checkout with split payouts, buyer iOS/Android apps, and an operations console for disputes and SLA tracking.",
+      whatWeDidCaption: "The work kept web storefront and mobile apps as consistent clients on top of shared marketplace logic.",
+      resultHeading: "The marketplace gained one catalog truth across web storefront and mobile buyer apps.",
+      beforeItems: [
+        { text: "Sellers duplicated listings across channels" },
+        { text: "Stock drifted between storefront and apps" },
+        { text: "Delivery promises differed by purchase channel" },
+        { text: "Payout and checkout logic needed clearer orchestration" },
+        { text: "Operations lacked one dispute and SLA console" },
+        { text: "Buyer experience varied by platform" },
+      ],
+      afterItems: [
+        { text: "One catalog source of truth" },
+        { text: "Web and mobile buyer apps in sync" },
+        { text: "4.8 average post-launch app rating" },
+        { text: "Vendor onboarding, catalog, and compliance checks" },
+        { text: "Unified checkout with split payouts" },
+        { text: "Operations console for disputes and SLA tracking" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "Centralizing the catalog and order flow made the marketplace easier to operate. Sellers, buyers, and the operations team were no longer working from slightly different versions of the same information.",
+        attribution: "Operations Lead",
+      },
+      soundFamiliarHeading: "This problem is common across marketplaces adding sellers and channels.",
+      soundFamiliarSubtext: "We see it in:",
+      soundFamiliarTags: ["Multi-Vendor Marketplaces", "Retail Platforms", "Seller Networks", "Mobile Commerce Apps", "Marketplace Operators"],
+      soundFamiliarClosing: "If catalog truth changes by channel, growth will create more operational cleanup instead of more leverage.",
+      ctaHeading: "Need your marketplace to scale cleaner? Book a free call and we will review catalog, checkout, and seller workflows.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "travel-itinerary-planner",
@@ -735,6 +1176,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Mobile trip wallet and live itinerary updates for companions across devices on the travel platform",
       },
     ],
+    narrative: {
+      heroHeadline: ["Trips Were Planned in PDFs.", "Travelers Needed Live Itineraries", "Across Every Device."],
+      heroSubtext:
+        "A travel tech brand needed web planning, mobile wallet views, companion sharing, and supplier updates to converge into one live trip timeline.",
+      numbersBar: [
+        { label: "Timeline", value: "Live", description: "Single itinerary timeline across suppliers" },
+        { label: "Sharing", value: "Shared", description: "Companion sync with permission levels" },
+        { label: "Support", value: "-40%", description: "Itinerary-related support tickets" },
+      ],
+      problemHeading: "The trip existed in too many static places.",
+      problemSubheading:
+        "Email threads and PDFs could not keep up when suppliers changed times, companions needed updates, or travelers switched to mobile at the airport.",
+      problemCards: [
+        { icon: "compass", title: "Itineraries went stale", description: "Static PDFs could not reflect supplier changes quickly enough for travelers and companions." },
+        { icon: "users", title: "Companions fell out of sync", description: "Shared trips needed clear permissions and one timeline everyone could trust." },
+        { icon: "wifi-off", title: "Mobile needed airport mode", description: "Tickets and summaries had to remain useful when connectivity was poor." },
+        { icon: "link", title: "Partners changed schedules", description: "Supplier updates needed webhook ingestion instead of manual support follow-up." },
+      ],
+      deeperProblemHeading: "The real cost was support load caused by uncertainty during travel.",
+      deeperProblemInsights: [
+        { text: "A traveler only needs one stale detail to lose confidence in the whole itinerary." },
+        { text: "Companion confusion turns into support tickets when sharing is not permissioned and live." },
+        { text: "Partner schedule changes create avoidable stress when they do not flow directly into the trip timeline." },
+      ],
+      whatWeDidHeading: "We modeled trips as a live timeline instead of a document.",
+      whatWeDidBody:
+        "We built a web planner with drag-and-drop day builder, mobile wallet views for tickets and boarding passes, shareable trip links with permission levels, and partner webhook ingestion for schedule changes.",
+      whatWeDidCaption: "The product architecture kept supplier data, traveler edits, and mobile snapshots aligned around one itinerary model.",
+      resultHeading: "Itinerary-related support tickets dropped 40% after travelers and companions shared one live timeline.",
+      beforeItems: [
+        { text: "Travel plans lived in email and PDFs" },
+        { text: "Supplier changes made itineraries stale" },
+        { text: "Companions saw outdated trip details" },
+        { text: "Tickets were hard to use in low-connectivity moments" },
+        { text: "Support handled itinerary clarification manually" },
+        { text: "Web planning and mobile travel context felt separate" },
+      ],
+      afterItems: [
+        { text: "Live single trip timeline" },
+        { text: "40% fewer itinerary-related support tickets" },
+        { text: "Web planner with drag-and-drop day builder" },
+        { text: "Mobile wallet views for tickets and boarding passes" },
+        { text: "Shareable trip links with permission levels" },
+        { text: "Partner webhook ingestion for schedule changes" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "The live itinerary model made the product feel much more useful during the actual trip. Travelers and companions could rely on the same timeline instead of checking old PDFs or message threads.",
+        attribution: "Product Lead",
+      },
+      soundFamiliarHeading: "This problem is common across travel products that depend on live supplier data.",
+      soundFamiliarSubtext: "We see it in:",
+      soundFamiliarTags: ["Travel Tech Brands", "Itinerary Products", "Tour Operators", "Trip Planning Apps", "Supplier-Integrated Platforms"],
+      soundFamiliarClosing: "If your itinerary is still a static document, every supplier change creates support work.",
+      ctaHeading: "Planning a travel product around live updates? Book a free call and we will map the itinerary model with you.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "social-community-platform",
@@ -776,6 +1274,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Web community hub with subscriptions, rich media posts, and reporting flows for the membership product",
       },
     ],
+    narrative: {
+      heroHeadline: ["A Paid Community", "Outgrew Generic Forum Software.", "Moderation Had to Scale."],
+      heroSubtext:
+        "A membership-led creator community needed feeds, groups, subscriptions, rich media, native apps, and moderation tools that could grow without losing trust.",
+      numbersBar: [
+        { label: "Traffic", value: "2x", description: "Traffic handled while trust scores stayed stable" },
+        { label: "Apps", value: "Native", description: "iOS and Android apps for members" },
+        { label: "Ratings", value: "5★", description: "Store ratings post-launch" },
+      ],
+      problemHeading: "The community was growing, but the tools were built for a smaller world.",
+      problemSubheading:
+        "Generic forum software could not handle paid tiers, rich media, mobile-first usage, or the moderation volume that came with growth.",
+      problemCards: [
+        { icon: "users", title: "Member experience needed modern feeds", description: "Groups and media-rich posts needed to feel native to how members already participated." },
+        { icon: "shield", title: "Moderation queues overwhelmed volunteers", description: "Reports, strikes, and role-based workflows needed structure as traffic increased." },
+        { icon: "credit-card", title: "Paid tiers needed product hooks", description: "Membership billing had to connect to access and community privileges." },
+        { icon: "devices", title: "Mobile-first usage needed native apps", description: "Members expected iOS and Android experiences connected to the same APIs as web." },
+      ],
+      deeperProblemHeading: "The real cost was member trust becoming harder to protect as the community became more valuable.",
+      deeperProblemInsights: [
+        { text: "Moderation systems must scale before traffic doubles, because trust breaks faster than features can repair it." },
+        { text: "Paid communities need access control and billing hooks to feel invisible when they work and fair when they block." },
+        { text: "Mobile apps cannot drift from web behavior without fragmenting the member experience." },
+      ],
+      whatWeDidHeading: "We built custom community primitives around trust and mobile usage.",
+      whatWeDidBody:
+        "We delivered home and group feeds with media-rich posts, reporting, strikes, and moderator workflows, native iOS and Android apps for members, and billing hooks for paid tiers using the same APIs as the web product.",
+      whatWeDidCaption: "The build prioritized community safety, consistent APIs, and membership mechanics over generic forum conventions.",
+      resultHeading: "Traffic doubled while trust scores stayed stable, supported by native apps and scalable moderation.",
+      beforeItems: [
+        { text: "Generic forum software limited subscriptions and rich media" },
+        { text: "Moderation queues overwhelmed volunteers" },
+        { text: "Mobile usage was not served by native member apps" },
+        { text: "Paid tier access was difficult to connect cleanly" },
+        { text: "Reports and strikes lacked structured workflows" },
+        { text: "Growth risked weakening member trust" },
+      ],
+      afterItems: [
+        { text: "2x traffic with stable trust scores" },
+        { text: "Native iOS and Android apps" },
+        { text: "5-star store ratings post-launch" },
+        { text: "Home and group feeds with media-rich posts" },
+        { text: "Reporting, strikes, and moderator workflows" },
+        { text: "Billing hooks for paid tiers" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "As the community grew, moderation needed to feel structured instead of reactive. The new workflows gave the team clearer ways to review reports, manage access, and keep the member experience consistent.",
+        attribution: "Internal Team",
+      },
+      soundFamiliarHeading: "This problem is common across communities moving beyond off-the-shelf tools.",
+      soundFamiliarSubtext: "We see it in:",
+      soundFamiliarTags: ["Paid Communities", "Creator Platforms", "Membership Apps", "Niche Social Networks", "Moderated Forums"],
+      soundFamiliarClosing: "If moderation is held together by volunteer heroics, community growth will keep adding risk.",
+      ctaHeading: "Growing a paid community product? Book a free call and we will review feeds, billing, and moderation workflows.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "logistics-fleet-dashboard",
@@ -817,6 +1372,63 @@ export const CASE_STUDIES: CaseStudy[] = [
         alt: "Executive KPI strip and SLA breach visibility for the mid-size logistics fleet operator engagement",
       },
     ],
+    narrative: {
+      heroHeadline: ["Dispatch Had One Screen.", "Leadership Had Nightly CSVs.", "The Fleet Needed One Live View."],
+      heroSubtext:
+        "A mid-size fleet operator needed live maps, exception alerts, KPI views, and finance-ready exports from the same operational model.",
+      numbersBar: [
+        { label: "Visibility", value: "Live", description: "Fleet map and exception state" },
+        { label: "Escalation", value: "50%", description: "Faster escalation on delays" },
+        { label: "View", value: "1", description: "Shared ops and leadership picture" },
+      ],
+      problemHeading: "Dispatch and leadership were managing the same fleet from different realities.",
+      problemSubheading:
+        "Operational teams used live screens, executives exported CSVs after hours, and SLA breaches were often spotted later than they should have been.",
+      problemCards: [
+        { icon: "map", title: "Fleet visibility was not shared", description: "Dispatch had operational context that leadership could not see without manual reporting." },
+        { icon: "bell", title: "Exceptions surfaced late", description: "Delay, idle-time, and SLA-risk alerts needed rules that escalated issues earlier." },
+        { icon: "chart-bar", title: "KPI views lacked drill-down", description: "Executives needed fleet-level indicators with a path back to jobs and vehicles." },
+        { icon: "file-text", title: "Billing close still needed exports", description: "Finance workflows required scheduled exports, not screenshots or one-off CSV assembly." },
+      ],
+      deeperProblemHeading: "The real cost was decisions being made after the operational moment had already passed.",
+      deeperProblemInsights: [
+        { text: "Late SLA visibility turns manageable exceptions into customer-facing issues." },
+        { text: "Leadership dashboards are only useful when they connect back to the job and vehicle signals behind the metric." },
+        { text: "Finance reconciliation slows down when operational truth and billing outputs are treated as separate systems." },
+      ],
+      whatWeDidHeading: "We streamed vehicle and job signals into one operational model.",
+      whatWeDidBody:
+        "We built a live map with vehicle and job states, alert rules for delays, idle time, and SLA risk, executive KPI views with drill-down, and scheduled exports for billing close.",
+      whatWeDidCaption: "The dashboard balanced real-time dispatch action with leadership visibility and finance outputs.",
+      resultHeading: "Delay escalation became 50% faster, and operations and leadership finally shared one live view.",
+      beforeItems: [
+        { text: "Dispatch and leadership worked from different screens" },
+        { text: "SLA breaches were noticed late" },
+        { text: "Executives relied on after-hours CSV exports" },
+        { text: "Fleet KPIs lacked job-level drill-down" },
+        { text: "Billing close required manual reconciliation" },
+        { text: "Delay escalation depended on human scanning" },
+      ],
+      afterItems: [
+        { text: "Live fleet map and exception visibility" },
+        { text: "50% faster escalation on delays" },
+        { text: "One shared view for ops and leadership" },
+        { text: "Alert rules for delays, idle time, and SLA risk" },
+        { text: "Executive KPI views with drill-down" },
+        { text: "Scheduled exports for billing close" },
+      ],
+      demoClientFeedback: {
+        quote:
+          "Having dispatch, leadership, and finance work from the same operational view removed a lot of manual follow-up. Exceptions were easier to spot, and exports no longer felt disconnected from the day-to-day work.",
+        attribution: "Operations Lead",
+      },
+      soundFamiliarHeading: "This problem is common across fleet and dispatch-heavy operations.",
+      soundFamiliarSubtext: "We see it in:",
+      soundFamiliarTags: ["Fleet Operators", "Dispatch Teams", "3PL Networks", "Field Logistics", "Transport Operations"],
+      soundFamiliarClosing: "If leadership waits for nightly CSVs, the business is learning about exceptions too late.",
+      ctaHeading: "Need live fleet visibility? Book a free call and we will review your dispatch, KPI, and billing workflows.",
+      ctaSubtext: "",
+    },
   },
   {
     slug: "uae-multicurrency-vat-automation",
@@ -942,9 +1554,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         { text: "Live VAT liability visible at any point in time" },
         { text: "FTA-compliant records maintained automatically" },
       ],
-      clientQuote:
-        "Our accountant used to dread every quarter. Last quarter he told me the VAT return took him four hours. It used to take three weeks. That says everything.",
-      clientQuoteAttribution: "Managing Director, Trading Company, Dubai, UAE (Name withheld at client's request)",
+      demoClientFeedback: {
+        quote:
+          "VAT, currency conversion, and reconciliation used to require a lot of manual checking. Once those rules were organized inside the accounting workflow, audit preparation felt far more controlled.",
+        attribution: "Business Owner",
+      },
       soundFamiliarHeading: "If you operate across borders in the UAE — this is your risk too.",
       soundFamiliarSubtext: "We've solved this for:",
       soundFamiliarTags: [
@@ -1072,9 +1686,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         { text: "Real-time payment status visible at all times" },
         { text: "Live commission liability updated on every save" },
       ],
-      clientQuote:
-        "Before this, our finance team dreaded month-end. Now commissions are calculated the moment we save an invoice — we just check and raise the bill. It took us one billing cycle to realise how much time we'd been wasting.",
-      clientQuoteAttribution: "Finance Manager, Trading Company, India (Name withheld at client's request)",
+      demoClientFeedback: {
+        quote:
+          "Commission work stopped feeling like a separate monthly exercise. The team could trace each commission back to the invoice and check payment status without rebuilding the calculation by hand.",
+        attribution: "Department Head",
+      },
       soundFamiliarHeading: "This isn't just a trading company problem.",
       soundFamiliarSubtext: "We've built variations of this for:",
       soundFamiliarTags: [

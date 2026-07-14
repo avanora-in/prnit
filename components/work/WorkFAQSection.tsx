@@ -112,7 +112,7 @@ export default function WorkFAQSection() {
             Frequently Asked <span className="font-black red-text">Questions</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg primary-black">
-            Everything you need to know about PRNIT's work and case studies
+            Everything you need to know about PRNIT&apos;s work and case studies
           </p>
         </div>
 

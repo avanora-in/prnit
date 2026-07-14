@@ -81,7 +81,7 @@ export default function ZohoMigrationPathwaysSection() {
             What Are You <span className="font-black red-text">Migrating From?</span>
           </h2>
           <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] max-w-3xl">
-            We've built migration playbooks for every major platform. Select your source system:
+            We&apos;ve built migration playbooks for every major platform. Select your source system:
           </p>
         </div>
 

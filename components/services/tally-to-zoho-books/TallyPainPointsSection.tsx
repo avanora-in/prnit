@@ -72,7 +72,7 @@ export default function TallyPainPointsSection() {
             <div className="h-px w-40 sm:w-48 md:w-56 primary-black-background" />
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold primary-black leading-normal">
-            Here's What You're <span className="font-black red-text">Living With</span>
+            Here&apos;s What You&apos;re <span className="font-black red-text">Living With</span>
           </h2>
         </div>
 

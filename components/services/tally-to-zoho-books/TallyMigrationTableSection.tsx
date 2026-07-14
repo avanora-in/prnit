@@ -73,7 +73,7 @@ export default function TallyMigrationTableSection() {
             <div className="h-px w-56 sm:w-72 md:w-85 primary-black-background" />
           </div>
           <p className="text-base sm:text-lg text-[var(--color-body,#4b5563)] max-w-3xl">
-            We don't just move raw data — we map Tally's accounting structure correctly to Zoho Books.
+            We don&apos;t just move raw data — we map Tally&apos;s accounting structure correctly to Zoho Books.
           </p>
         </div>
 

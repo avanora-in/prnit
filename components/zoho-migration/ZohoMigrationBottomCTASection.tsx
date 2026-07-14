@@ -5,10 +5,10 @@ export default function ZohoMigrationBottomCTASection() {
     <section className="primary-black-background secondary-text py-16 md:py-20 lg:py-24">
       <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-8 text-center space-y-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold syne-font max-w-2xl mx-auto">
-          Tell Us What You're Migrating From
+          Tell Us What You&apos;re Migrating From
         </h2>
         <p className="text-base sm:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-          Share your current system and we'll tell you exactly how we'd migrate it, in what timeframe, and at what cost — before you commit to anything.
+          Share your current system and we&apos;ll tell you exactly how we&apos;d migrate it, in what timeframe, and at what cost — before you commit to anything.
         </p>
         <div className="flex flex-wrap gap-3 pt-2 justify-center">
           <ButtonLink href="#contact" className="block w-fit">

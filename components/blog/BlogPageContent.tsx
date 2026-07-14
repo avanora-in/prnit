@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import BlogPostCard from "./BlogPostCard";
 import BlogSidebar from "./BlogSidebar";
@@ -24,37 +24,38 @@ export default function BlogPageContent() {
       )
     : blogPosts;
 
-  const [displayedCount, setDisplayedCount] = useState(POSTS_PER_PAGE);
+  const [pagination, setPagination] = useState({
+    searchQuery,
+    displayedCount: POSTS_PER_PAGE,
+  });
   const [isLoading, setIsLoading] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
+  const displayedCount =
+    pagination.searchQuery === searchQuery ? pagination.displayedCount : POSTS_PER_PAGE;
   const displayedPosts = filteredPosts.slice(0, displayedCount);
   const hasMore = displayedCount < filteredPosts.length;
-
-  const loadMorePosts = useCallback(() => {
-    if (isLoading || !hasMore) return;
-    setIsLoading(true);
-    setTimeout(() => {
-      setDisplayedCount((prev) => Math.min(prev + POSTS_PER_PAGE, filteredPosts.length));
-      setIsLoading(false);
-    }, 400);
-  }, [isLoading, hasMore, filteredPosts.length]);
-
-  useEffect(() => {
-    setDisplayedCount(POSTS_PER_PAGE);
-  }, [searchQuery]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0]?.isIntersecting && hasMore && !isLoading) loadMorePosts();
+        if (!entries[0]?.isIntersecting || !hasMore || isLoading) return;
+
+        setIsLoading(true);
+        setTimeout(() => {
+          setPagination({
+            searchQuery,
+            displayedCount: Math.min(displayedCount + POSTS_PER_PAGE, filteredPosts.length),
+          });
+          setIsLoading(false);
+        }, 400);
       },
       { rootMargin: "80px", threshold: 0 }
     );
     const ref = loadMoreRef.current;
     if (ref) observer.observe(ref);
     return () => { if (ref) observer.unobserve(ref); };
-  }, [loadMorePosts, hasMore, isLoading]);
+  }, [displayedCount, filteredPosts.length, hasMore, isLoading, searchQuery]);
 
   return (
     <section className="w-full secondary-background py-10 md:py-14">

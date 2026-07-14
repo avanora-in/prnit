@@ -8,7 +8,7 @@ export default function TallyBottomCTASection() {
           Ready to Leave Tally Behind?
         </h2>
         <p className="text-base sm:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-          Book a free 30-minute migration assessment. We'll review your Tally data, confirm scope, and give you a fixed-price quote before you commit to anything.
+          Book a free 30-minute migration assessment. We&apos;ll review your Tally data, confirm scope, and give you a fixed-price quote before you commit to anything.
         </p>
         <div className="flex flex-wrap gap-3 pt-2 justify-center">
           <ButtonLink href="#contact" className="block w-fit">

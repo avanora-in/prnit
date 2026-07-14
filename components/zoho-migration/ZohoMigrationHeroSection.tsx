@@ -38,7 +38,7 @@ export default function ZohoMigrationHeroSection() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg primary-black mb-8 max-w-4xl">
-            Already using Salesforce, QuickBooks, Xero, HubSpot, Tally, Excel, or a custom legacy system? PRNIT migrates your complete data, workflows, and configurations into Zoho — cleanly, accurately, and on a fixed timeline. We've done it for businesses in India, UAE, the US, the UK, and Australia.
+            Already using Salesforce, QuickBooks, Xero, HubSpot, Tally, Excel, or a custom legacy system? PRNIT migrates your complete data, workflows, and configurations into Zoho — cleanly, accurately, and on a fixed timeline. We&apos;ve done it for businesses in India, UAE, the US, the UK, and Australia.
           </p>
 
           <div className="flex flex-wrap gap-3 mt-4 md:mt-6 lg:mt-8">
